@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://chagcs3p0do08"]
+
+[ext_resource type="PackedScene" uid="uid://770ogjr8832x" path="res://bosses/boss.tscn" id="1_sr4xh"]
+[ext_resource type="Script" path="res://bosses/mision4/ferxxo_boss.gd" id="2_jykvb"]
+[ext_resource type="SpriteFrames" uid="uid://1cdfw8hwi070" path="res://bosses/mision4/ferxxo_boss_frames.tres" id="3_rlwpo"]
+[ext_resource type="PackedScene" uid="uid://bb2on2s7jjo1" path="res://effects/mission2/explotion_dimadon_effect.tscn" id="4_0hdj7"]
+[ext_resource type="PackedScene" uid="uid://cb0rfcc0ftgx1" path="res://projectiles/laser_ferxxo_nova.tscn" id="5_hqdu4"]
+
+[node name="FerxxoBoss" instance=ExtResource("1_sr4xh")]
+script = ExtResource("2_jykvb")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = ExtResource("3_rlwpo")
+animation = &"center"
+
+[node name="StatsComponent" parent="." index="1"]
+health = 100
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HurtboxComponent" index="0"]
+polygon = PackedVector2Array(-37, 19, -37, 5, -16, -17, 16, -17, 34, 3, 34, 16, 8, 15, 0, 28, -10, 14)
+
+[node name="CenterMuzzle" type="Marker2D" parent="." index="4"]
+
+[node name="ExplotionSpawnerComponent" parent="." index="5"]
+scene = ExtResource("4_0hdj7")
+
+[node name="FlashComponent" parent="." index="7" node_paths=PackedStringArray("sprite")]
+sprite = NodePath("../AnimatedSprite2D")
+
+[node name="ShakeComponent" parent="." index="8" node_paths=PackedStringArray("node")]
+node = NodePath("../AnimatedSprite2D")
+
+[node name="ProjectileSpawnerComponent" parent="." index="9"]
+scene = ExtResource("5_hqdu4")
+
+[node name="FireRateTimer" parent="." index="10"]
+wait_time = 1.392
+
+[node name="BorderBounceComponent" parent="States/MoveSideState" index="1" node_paths=PackedStringArray("actor")]
+actor = NodePath("../../..")

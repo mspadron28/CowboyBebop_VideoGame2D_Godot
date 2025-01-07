@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://cu4vra8xn37u3"]
+
+[ext_resource type="Script" path="res://menus/menu.gd" id="1_8bcsp"]
+[ext_resource type="PackedScene" uid="uid://qbxorymo61wc" path="res://effects/space_background.tscn" id="1_oonuu"]
+[ext_resource type="LabelSettings" uid="uid://s88vtbcssqvm" path="res://fonts/tilte_label_settings.tres" id="2_suc4k"]
+[ext_resource type="LabelSettings" uid="uid://724f3ucohvyb" path="res://fonts/default_label_settings.tres" id="3_iqhyk"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8bcsp")
+
+[node name="SpaceBackground" parent="." instance=ExtResource("1_oonuu")]
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Cowboy Bebop"
+label_settings = ExtResource("2_suc4k")
+horizontal_alignment = 1
+
+[node name="StartLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Press space to start"
+label_settings = ExtResource("3_iqhyk")
+horizontal_alignment = 1

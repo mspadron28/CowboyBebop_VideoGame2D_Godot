@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://bj38gomm2p88b"]
+
+[ext_resource type="PackedScene" uid="uid://770ogjr8832x" path="res://bosses/boss.tscn" id="1_46mk8"]
+[ext_resource type="Script" path="res://bosses/mision2/dimadon_boss.gd" id="2_ymiq5"]
+[ext_resource type="SpriteFrames" uid="uid://duhu7w3x1gqu1" path="res://bosses/mision2/dimadon_boss_frames.tres" id="3_ucjx4"]
+[ext_resource type="PackedScene" uid="uid://bb2on2s7jjo1" path="res://effects/mission2/explotion_dimadon_effect.tscn" id="4_2xwrw"]
+[ext_resource type="PackedScene" uid="uid://dwp5xbxoebqvy" path="res://projectiles/laser_dimadon_nova.tscn" id="5_gu6o1"]
+
+[node name="DimadonBoss" instance=ExtResource("1_46mk8")]
+script = ExtResource("2_ymiq5")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = ExtResource("3_ucjx4")
+animation = &"center"
+frame_progress = 0.290566
+
+[node name="StatsComponent" parent="." index="1"]
+health = 100
+
+[node name="HurtboxComponent" parent="." index="2"]
+visible = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HurtboxComponent" index="0"]
+polygon = PackedVector2Array(-40, 17, -37, 17, -19, 3, -14, 3, -13, 8, -11, 8, -11, 20, 0, 28, 11, 20, 11, 8, 13, 8, 14, 3, 19, 3, 37, 17, 40, 17, 42, 14, 42, 0, 29, -11, 24, -11, 24, -14, 29, -14, 29, -17, 35, -17, 35, -14, 37, -15, 37, -20, 35, -22, 14, -22, 6, -25, 0, -31, -5, -25, -14, -23, -35, -23, -38, -20, -38, -15, -35, -14, -35, -17, -29, -17, -29, -14, -24, -14, -25, -12, -29, -11, -42, 0, -42, 14)
+
+[node name="CenterMuzzle" type="Marker2D" parent="." index="4"]
+
+[node name="ExplotionSpawnerComponent" parent="." index="5"]
+scene = ExtResource("4_2xwrw")
+
+[node name="FlashComponent" parent="." index="7" node_paths=PackedStringArray("sprite")]
+sprite = NodePath("../AnimatedSprite2D")
+
+[node name="ShakeComponent" parent="." index="8" node_paths=PackedStringArray("node")]
+node = NodePath("../AnimatedSprite2D")
+
+[node name="ProjectileSpawnerComponent" parent="." index="9"]
+scene = ExtResource("5_gu6o1")
+
+[node name="FireRateTimer" parent="." index="10"]
+wait_time = 1.392
+
+[node name="BorderBounceComponent" parent="States/MoveSideState" index="1" node_paths=PackedStringArray("actor")]
+actor = NodePath("../../..")

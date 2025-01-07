@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8gomf048216"]
+
+[ext_resource type="Script" path="res://assets/backgrounds/mission1/level_1_background.gd" id="1_vr5ao"]
+[ext_resource type="Texture2D" uid="uid://bgbmts7byhm1y" path="res://assets/far_stars.png" id="2_luebu"]
+[ext_resource type="Texture2D" uid="uid://ce3i7g4vp4bal" path="res://assets/backgrounds/mission1/vault.png" id="2_xarmf"]
+[ext_resource type="Texture2D" uid="uid://cko25i13l0mqy" path="res://assets/close_stars.png" id="3_crsej"]
+
+[node name="Level1Background" type="ParallaxBackground"]
+script = ExtResource("1_vr5ao")
+
+[node name="SpaceLayer" type="ParallaxLayer" parent="."]
+unique_name_in_owner = true
+
+[node name="Space" type="TextureRect" parent="SpaceLayer"]
+offset_left = -7.0
+offset_top = -96.0
+offset_right = 206.333
+offset_bottom = 284.0
+texture = ExtResource("2_xarmf")
+expand_mode = 3
+
+[node name="Space" type="TextureRect" parent="SpaceLayer/Space"]
+offset_left = -7.0
+offset_top = -96.0
+offset_right = 206.333
+offset_bottom = 284.0
+texture = ExtResource("2_xarmf")
+expand_mode = 3
+
+[node name="FarStarsLayer" type="ParallaxLayer" parent="."]
+unique_name_in_owner = true
+motion_mirroring = Vector2(0, 280)
+
+[node name="FarStars" type="TextureRect" parent="FarStarsLayer"]
+offset_right = 200.0
+offset_bottom = 280.0
+texture = ExtResource("2_luebu")
+stretch_mode = 1
+
+[node name="CloseStarsLayer" type="ParallaxLayer" parent="."]
+unique_name_in_owner = true
+motion_mirroring = Vector2(0, 280)
+
+[node name="TextureRect" type="TextureRect" parent="CloseStarsLayer"]
+offset_right = 200.0
+offset_bottom = 280.0
+texture = ExtResource("3_crsej")
+stretch_mode = 1

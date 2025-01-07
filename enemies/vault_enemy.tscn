@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://dw0wphh2r27ol"]
+
+[ext_resource type="PackedScene" uid="uid://d3fdd3hdc7p1q" path="res://enemies/enemy.tscn" id="1_5jue8"]
+[ext_resource type="Texture2D" uid="uid://ooewi5vhkras" path="res://assets/mision1/vault.png" id="2_xoh0f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_085eh"]
+atlas = ExtResource("2_xoh0f")
+region = Rect2(0, 0, 324, 321)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rteuk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_085eh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_raqpq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p0fmw"]
+radius = 7.0
+
+[node name="VaultEnemy" instance=ExtResource("1_5jue8")]
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+position = Vector2(4.76837e-07, 9.53674e-07)
+scale = Vector2(0.0601852, 0.0617212)
+sprite_frames = SubResource("SpriteFrames_rteuk")
+
+[node name="MoveComponent" parent="." index="2"]
+velocity = Vector2(0, 40)
+
+[node name="ScaleComponent" parent="." index="4"]
+scale_amount = Vector2(0, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" index="0"]
+shape = SubResource("CircleShape2D_raqpq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_p0fmw")

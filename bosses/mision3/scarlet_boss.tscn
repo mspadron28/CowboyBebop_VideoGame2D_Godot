@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://broh81aomuxek"]
+
+[ext_resource type="PackedScene" uid="uid://770ogjr8832x" path="res://bosses/boss.tscn" id="1_a7cek"]
+[ext_resource type="Script" path="res://bosses/mision3/scarlet_boss.gd" id="2_mn8gb"]
+[ext_resource type="SpriteFrames" uid="uid://b1ay0yjhojgal" path="res://bosses/mision3/scarlet_boss_frames.tres" id="3_wtbaw"]
+[ext_resource type="PackedScene" uid="uid://bb2on2s7jjo1" path="res://effects/mission2/explotion_dimadon_effect.tscn" id="4_mchjr"]
+[ext_resource type="PackedScene" uid="uid://76ftcns3venb" path="res://projectiles/laser_scarlet_nova.tscn" id="5_cbs7t"]
+
+[node name="ScarletBoss" instance=ExtResource("1_a7cek")]
+script = ExtResource("2_mn8gb")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = ExtResource("3_wtbaw")
+animation = &"center"
+
+[node name="StatsComponent" parent="." index="1"]
+health = 100
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HurtboxComponent" index="0"]
+polygon = PackedVector2Array(-38, -27, -37, -9, 2, 31, 37, -7, 36, -28, 9, -1, -6, -1)
+
+[node name="CenterMuzzle" type="Marker2D" parent="." index="4"]
+
+[node name="ExplotionSpawnerComponent" parent="." index="5"]
+scene = ExtResource("4_mchjr")
+
+[node name="FlashComponent" parent="." index="7" node_paths=PackedStringArray("sprite")]
+sprite = NodePath("../AnimatedSprite2D")
+
+[node name="ShakeComponent" parent="." index="8" node_paths=PackedStringArray("node")]
+node = NodePath("../AnimatedSprite2D")
+
+[node name="ProjectileSpawnerComponent" parent="." index="9"]
+scene = ExtResource("5_cbs7t")
+
+[node name="FireRateTimer" parent="." index="10"]
+wait_time = 1.392
+
+[node name="BorderBounceComponent" parent="States/MoveSideState" index="1" node_paths=PackedStringArray("actor")]
+actor = NodePath("../../..")

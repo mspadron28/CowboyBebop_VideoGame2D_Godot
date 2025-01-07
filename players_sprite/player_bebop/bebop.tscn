@@ -1,0 +1,178 @@
+[gd_scene load_steps=28 format=3 uid="uid://db70ynsj68p2r"]
+
+[ext_resource type="Script" path="res://players_sprite/player_bebop/bebop.gd" id="1_7wkye"]
+[ext_resource type="Texture2D" uid="uid://ccig570pa2qnl" path="res://assets/mision1/Ship-Nebula - Sprite Sheet.png" id="1_bhvtt"]
+[ext_resource type="Script" path="res://components/move_component.gd" id="2_epdke"]
+[ext_resource type="Script" path="res://components/move_input_component.gd" id="4_y722j"]
+[ext_resource type="Resource" uid="uid://hxqau57ysde4" path="res://players_sprite/player_bebop/bebop_move_stats.tres" id="5_fl5gq"]
+[ext_resource type="Script" path="res://components/stats_component.gd" id="6_6pu0i"]
+[ext_resource type="Script" path="res://components/position_clamp_component.gd" id="7_vsbfu"]
+[ext_resource type="Script" path="res://components/spawner_component.gd" id="8_5g1t6"]
+[ext_resource type="PackedScene" uid="uid://chn52cf5hole1" path="res://projectiles/laser_2.tscn" id="9_4jtyk"]
+[ext_resource type="Script" path="res://components/scale_component.gd" id="10_y8f3f"]
+[ext_resource type="Script" path="res://components/hurtbox_component.gd" id="11_oj41p"]
+[ext_resource type="Script" path="res://components/hurt_component.gd" id="12_t2om8"]
+[ext_resource type="PackedScene" uid="uid://crli5uyxeq7mk" path="res://effects/explotion_bebop_effect.tscn" id="13_ktuqk"]
+[ext_resource type="Script" path="res://components/destroyed_component.gd" id="14_fb8ff"]
+[ext_resource type="Script" path="res://components/flash_component.gd" id="15_pbuoa"]
+[ext_resource type="Script" path="res://components/shake_component.gd" id="16_v1f6m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w8w62"]
+atlas = ExtResource("1_bhvtt")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_skum5"]
+atlas = ExtResource("1_bhvtt")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vt8ny"]
+atlas = ExtResource("1_bhvtt")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r027b"]
+atlas = ExtResource("1_bhvtt")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nqyld"]
+atlas = ExtResource("1_bhvtt")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hhoxq"]
+atlas = ExtResource("1_bhvtt")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mj0ny"]
+atlas = ExtResource("1_bhvtt")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dat6e"]
+atlas = ExtResource("1_bhvtt")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eyevm"]
+atlas = ExtResource("1_bhvtt")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bvvkc"]
+atlas = ExtResource("1_bhvtt")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pe4uu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w8w62")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_skum5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vt8ny")
+}],
+"loop": true,
+"name": &"bank_leftt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r027b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nqyld")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hhoxq")
+}],
+"loop": true,
+"name": &"bank_rightt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mj0ny")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dat6e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eyevm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bvvkc")
+}],
+"loop": true,
+"name": &"centerr",
+"speed": 5.0
+}]
+
+[node name="Bebop" type="Node2D"]
+script = ExtResource("1_7wkye")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_pe4uu")
+animation = &"centerr"
+
+[node name="MoveComponent" type="Node" parent="." node_paths=PackedStringArray("actor")]
+script = ExtResource("2_epdke")
+actor = NodePath("..")
+
+[node name="MoveInputComponent" type="Node" parent="." node_paths=PackedStringArray("move_component")]
+script = ExtResource("4_y722j")
+move_stats = ExtResource("5_fl5gq")
+move_component = NodePath("../MoveComponent")
+
+[node name="StatsComponent" type="Node" parent="."]
+script = ExtResource("6_6pu0i")
+health = 5
+
+[node name="PositionClampComponent" type="Node2D" parent="." node_paths=PackedStringArray("actor")]
+script = ExtResource("7_vsbfu")
+actor = NodePath("..")
+
+[node name="RightMuzzle" type="Marker2D" parent="."]
+position = Vector2(14, 0)
+
+[node name="LeftMuzzle" type="Marker2D" parent="."]
+position = Vector2(-14, 0)
+
+[node name="SpawnerComponent" type="Node2D" parent="."]
+script = ExtResource("8_5g1t6")
+scene = ExtResource("9_4jtyk")
+
+[node name="FireRateTimer" type="Timer" parent="."]
+wait_time = 0.4
+autostart = true
+
+[node name="ScaleComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
+script = ExtResource("10_y8f3f")
+sprite = NodePath("../AnimatedSprite2D")
+
+[node name="HurtboxComponent" type="Area2D" parent="."]
+collision_mask = 0
+script = ExtResource("11_oj41p")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HurtboxComponent"]
+polygon = PackedVector2Array(-15, 0, -14, 0, -14, 1, -11, 1, -5, -6, -4, -11, 0, -14, 4, -11, 4, -6, 11, 1, 14, 1, 14, 0, 15, 0, 15, 6, 14, 7, 10, 7, 9, 9, 7, 9, 6, 7, 4, 7, 0, 12, -4, 7, -6, 7, -7, 9, -9, 9, -10, 7, -14, 7, -15, 6)
+
+[node name="HurtComponent" type="Node" parent="." node_paths=PackedStringArray("stats_component", "hurtbox_component")]
+script = ExtResource("12_t2om8")
+stats_component = NodePath("../StatsComponent")
+hurtbox_component = NodePath("../HurtboxComponent")
+
+[node name="ExplotionSpawnerComponent" type="Node2D" parent="."]
+script = ExtResource("8_5g1t6")
+scene = ExtResource("13_ktuqk")
+
+[node name="DestroyedComponent" type="Node" parent="." node_paths=PackedStringArray("actor", "stats_component", "destroy_effect_spawner_component")]
+script = ExtResource("14_fb8ff")
+actor = NodePath("..")
+stats_component = NodePath("../StatsComponent")
+destroy_effect_spawner_component = NodePath("../ExplotionSpawnerComponent")
+
+[node name="FlashComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
+script = ExtResource("15_pbuoa")
+sprite = NodePath("../AnimatedSprite2D")
+
+[node name="ShakeComponent" type="Node" parent="." node_paths=PackedStringArray("node")]
+script = ExtResource("16_v1f6m")
+node = NodePath("../AnimatedSprite2D")

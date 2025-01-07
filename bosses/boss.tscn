@@ -1,0 +1,83 @@
+[gd_scene load_steps=12 format=3 uid="uid://770ogjr8832x"]
+
+[ext_resource type="Script" path="res://components/move_component.gd" id="1_x7urg"]
+[ext_resource type="Script" path="res://bosses/boss.gd" id="1_x8fsh"]
+[ext_resource type="Script" path="res://components/stats_component.gd" id="2_utfub"]
+[ext_resource type="Script" path="res://components/hurtbox_component.gd" id="4_6on07"]
+[ext_resource type="Script" path="res://components/hurt_component.gd" id="5_dv6lg"]
+[ext_resource type="Script" path="res://components/spawner_component.gd" id="6_6co1t"]
+[ext_resource type="Script" path="res://components/destroyed_component.gd" id="7_ndlcr"]
+[ext_resource type="Script" path="res://components/flash_component.gd" id="8_kqsae"]
+[ext_resource type="Script" path="res://components/shake_component.gd" id="9_v3xii"]
+[ext_resource type="Script" path="res://components/timed_state_componoent.gd" id="11_fwhqf"]
+[ext_resource type="Script" path="res://components/border_bounce_component.gd" id="12_qh6wl"]
+
+[node name="Boss" type="Node2D"]
+script = ExtResource("1_x8fsh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-1.19209e-07, -1.13687e-13)
+rotation = 3.13865
+scale = Vector2(2.65252, 2.81965)
+animation = &""
+
+[node name="StatsComponent" type="Node" parent="."]
+script = ExtResource("2_utfub")
+health = 10
+
+[node name="HurtboxComponent" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("4_6on07")
+
+[node name="HurtComponent" type="Node" parent="." node_paths=PackedStringArray("stats_component", "hurtbox_component")]
+script = ExtResource("5_dv6lg")
+stats_component = NodePath("../StatsComponent")
+hurtbox_component = NodePath("../HurtboxComponent")
+
+[node name="ExplotionSpawnerComponent" type="Node2D" parent="."]
+script = ExtResource("6_6co1t")
+
+[node name="DestroyedComponent" type="Node" parent="." node_paths=PackedStringArray("actor", "stats_component", "destroy_effect_spawner_component")]
+script = ExtResource("7_ndlcr")
+actor = NodePath("..")
+stats_component = NodePath("../StatsComponent")
+destroy_effect_spawner_component = NodePath("../ExplotionSpawnerComponent")
+
+[node name="FlashComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
+script = ExtResource("8_kqsae")
+sprite = NodePath("..")
+
+[node name="ShakeComponent" type="Node" parent="." node_paths=PackedStringArray("node")]
+script = ExtResource("9_v3xii")
+node = NodePath("..")
+
+[node name="ProjectileSpawnerComponent" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, 22)
+script = ExtResource("6_6co1t")
+
+[node name="FireRateTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+autostart = true
+
+[node name="States" type="Node" parent="."]
+
+[node name="MoveSideState" type="Node" parent="States"]
+unique_name_in_owner = true
+script = ExtResource("11_fwhqf")
+duration = 5.0
+
+[node name="MoveSideComponent" type="Node" parent="States/MoveSideState" node_paths=PackedStringArray("actor")]
+unique_name_in_owner = true
+script = ExtResource("1_x7urg")
+actor = NodePath("../../..")
+
+[node name="BorderBounceComponent" type="Node" parent="States/MoveSideState" node_paths=PackedStringArray("move_component")]
+script = ExtResource("12_qh6wl")
+move_component = NodePath("../MoveSideComponent")
+
+[node name="PauseState" type="Node" parent="States"]
+unique_name_in_owner = true
+script = ExtResource("11_fwhqf")

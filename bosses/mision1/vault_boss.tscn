@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://do6ipdda6ax46"]
+
+[ext_resource type="PackedScene" uid="uid://770ogjr8832x" path="res://bosses/boss.tscn" id="1_jutx1"]
+[ext_resource type="Script" path="res://bosses/mision1/vault_boss.gd" id="2_ow48k"]
+[ext_resource type="SpriteFrames" uid="uid://dunpa6uf4tji2" path="res://bosses/mision1/vault_boss_frames.tres" id="2_tmbxa"]
+[ext_resource type="PackedScene" uid="uid://bb2on2s7jjo1" path="res://effects/mission2/explotion_dimadon_effect.tscn" id="3_72vp8"]
+[ext_resource type="PackedScene" uid="uid://c3qye74v8861o" path="res://projectiles/laser_vault_nova.tscn" id="10_1qot2"]
+
+[node name="VaultBoss" instance=ExtResource("1_jutx1")]
+script = ExtResource("2_ow48k")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = ExtResource("2_tmbxa")
+animation = &"bank_left"
+frame_progress = 0.601713
+
+[node name="StatsComponent" parent="." index="1"]
+health = 100
+
+[node name="HurtboxComponent" parent="." index="2"]
+visible = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HurtboxComponent" index="0"]
+polygon = PackedVector2Array(0, 22, 13, 11, 16, 9, 16, 14, 21, 14, 27, 6, 29, 2, 29, -5, 16, -5, 14, -8, 14, -17, 16, -17, 16, -23, 9, -28, 3, -23, 3, -17, -3, -17, -3, -22, -9, -28, -16, -22, -16, -18, -13, -17, -13, -9, -16, -6, -26, -6, -29, -3, -29, 5, -21, 14, -16, 14, -16, 8, -13, 8, -13, 14)
+
+[node name="CenterMuzzle" type="Marker2D" parent="." index="4"]
+
+[node name="ExplotionSpawnerComponent" parent="." index="5"]
+scene = ExtResource("3_72vp8")
+
+[node name="FlashComponent" parent="." index="7" node_paths=PackedStringArray("sprite")]
+sprite = NodePath("../AnimatedSprite2D")
+
+[node name="ShakeComponent" parent="." index="8" node_paths=PackedStringArray("node")]
+node = NodePath("../AnimatedSprite2D")
+
+[node name="ProjectileSpawnerComponent" parent="." index="9"]
+scene = ExtResource("10_1qot2")
+
+[node name="FireRateTimer" parent="." index="10"]
+wait_time = 1.392
+
+[node name="BorderBounceComponent" parent="States/MoveSideState" index="1" node_paths=PackedStringArray("actor")]
+actor = NodePath("../../..")
