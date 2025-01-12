@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://bujuv0mlubtt6"]
+
+[ext_resource type="PackedScene" uid="uid://dc8rej7cuuvvo" path="res://menus/principal/principal_background.tscn" id="1_by1dk"]
+[ext_resource type="Theme" uid="uid://bcueb8fc272bg" path="res://menus/principal/principal_theme.tres" id="2_tfr58"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PrincipalBackground" parent="." instance=ExtResource("1_by1dk")]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.5
+offset_top = -28.0
+offset_right = 90.5
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_tfr58")
+theme_override_constants/separation = 50
+
+[node name="TitleLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+text = "Cowboy Bebop"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "PLAY"

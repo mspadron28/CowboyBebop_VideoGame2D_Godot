@@ -1,0 +1,36 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://bcueb8fc272bg"]
+
+[ext_resource type="FontFile" uid="uid://bla6t7bkr7o7g" path="res://fonts/kenney_mini_square.ttf" id="1_yrcr5"]
+[ext_resource type="Texture2D" uid="uid://7gh5f036ggpi" path="res://menus/principal/button.png" id="2_k0a4a"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_twxea"]
+texture = ExtResource("2_k0a4a")
+expand_margin_left = 8.0
+expand_margin_right = 6.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ga8ew"]
+texture = ExtResource("2_k0a4a")
+expand_margin_left = 8.0
+expand_margin_right = 6.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vb3ep"]
+texture = ExtResource("2_k0a4a")
+expand_margin_left = 8.0
+expand_margin_right = 6.0
+
+[resource]
+Button/font_sizes/font_size = 16
+Button/fonts/font = ExtResource("1_yrcr5")
+Button/styles/hover = SubResource("StyleBoxTexture_twxea")
+Button/styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_ga8ew")
+Button/styles/normal = SubResource("StyleBoxTexture_vb3ep")
+HeaderLarge/base_type = &"Label"
+HeaderLarge/colors/font_color = Color(0.862745, 1, 1, 1)
+HeaderLarge/colors/font_outline_color = Color(0, 0.557272, 0.654522, 1)
+HeaderLarge/colors/font_shadow_color = Color(0.238048, 0.233673, 0.893434, 1)
+HeaderLarge/constants/outline_size = 2
+HeaderLarge/constants/shadow_offset_x = 0
+HeaderLarge/constants/shadow_outline_size = 6
+HeaderLarge/font_sizes/font_size = 25
+Label/font_sizes/font_size = 24
+Label/fonts/font = ExtResource("1_yrcr5")
