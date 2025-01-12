@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://770ogjr8832x" path="res://bosses/boss.tscn" id="1_jutx1"]
 [ext_resource type="Script" path="res://bosses/mision1/vault_boss.gd" id="2_ow48k"]
 [ext_resource type="SpriteFrames" uid="uid://dunpa6uf4tji2" path="res://bosses/mision1/vault_boss_frames.tres" id="2_tmbxa"]
-[ext_resource type="PackedScene" uid="uid://bb2on2s7jjo1" path="res://effects/mission2/explotion_dimadon_effect.tscn" id="3_72vp8"]
+[ext_resource type="PackedScene" uid="uid://caef0bhfotprh" path="res://effects/mission1/explotion_vault_effect.tscn" id="4_ur4cf"]
 [ext_resource type="PackedScene" uid="uid://c3qye74v8861o" path="res://projectiles/laser_vault_nova.tscn" id="10_1qot2"]
 
 [node name="VaultBoss" instance=ExtResource("1_jutx1")]
@@ -15,7 +15,7 @@ animation = &"bank_left"
 frame_progress = 0.601713
 
 [node name="StatsComponent" parent="." index="1"]
-health = 100
+health = 5
 
 [node name="HurtboxComponent" parent="." index="2"]
 visible = false
@@ -26,7 +26,7 @@ polygon = PackedVector2Array(0, 22, 13, 11, 16, 9, 16, 14, 21, 14, 27, 6, 29, 2,
 [node name="CenterMuzzle" type="Marker2D" parent="." index="4"]
 
 [node name="ExplotionSpawnerComponent" parent="." index="5"]
-scene = ExtResource("3_72vp8")
+scene = ExtResource("4_ur4cf")
 
 [node name="FlashComponent" parent="." index="7" node_paths=PackedStringArray("sprite")]
 sprite = NodePath("../AnimatedSprite2D")

@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://cn28yyh2ykw4d"]
+
+[ext_resource type="Script" path="res://enemies/mission3_enemies/enemy_generator_m_3.gd" id="1_xbv4g"]
+[ext_resource type="PackedScene" uid="uid://bda1yc2qmacb8" path="res://enemies/mission3_enemies/skull_enemy/skull_enemy.tscn" id="2_2oeaq"]
+[ext_resource type="PackedScene" uid="uid://broh81aomuxek" path="res://bosses/mision3/scarlet_boss.tscn" id="2_4pajc"]
+[ext_resource type="Script" path="res://components/spawner_component.gd" id="4_00wyy"]
+
+[node name="EnemyGeneratorM3" type="Node2D"]
+script = ExtResource("1_xbv4g")
+SkullEnemyScene = ExtResource("2_2oeaq")
+ScarletEnemyScene = ExtResource("2_4pajc")
+
+[node name="SpawnerComponent" type="Node2D" parent="."]
+script = ExtResource("4_00wyy")
+
+[node name="SkullEnemySpawnTimer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+autostart = true
+
+[node name="ScarletBossTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true

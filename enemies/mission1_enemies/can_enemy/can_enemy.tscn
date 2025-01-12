@@ -1,0 +1,71 @@
+[gd_scene load_steps=10 format=3 uid="uid://6qxf1aw8em6d"]
+
+[ext_resource type="PackedScene" uid="uid://d3fdd3hdc7p1q" path="res://enemies/enemy.tscn" id="1_qhlyu"]
+[ext_resource type="Texture2D" uid="uid://cmn8noup5bf4t" path="res://enemies/mission1_enemies/can_enemy/can_sp.png" id="2_c13e0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_juah8"]
+atlas = ExtResource("2_c13e0")
+region = Rect2(0, 0, 195, 312)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fo204"]
+atlas = ExtResource("2_c13e0")
+region = Rect2(195, 0, 195, 312)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bdeuf"]
+atlas = ExtResource("2_c13e0")
+region = Rect2(390, 0, 195, 312)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_20yrn"]
+atlas = ExtResource("2_c13e0")
+region = Rect2(585, 0, 195, 312)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8pndv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_juah8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fo204")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bdeuf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_20yrn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_knjts"]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w85v2"]
+radius = 5.0
+
+[node name="CanEnemy" instance=ExtResource("1_qhlyu")]
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+scale = Vector2(0.0977999, 0.0829865)
+sprite_frames = SubResource("SpriteFrames_8pndv")
+autoplay = "default"
+frame_progress = 0.320992
+
+[node name="StatsComponent" parent="." index="1"]
+health = 3
+
+[node name="MoveComponent" parent="." index="2"]
+velocity = Vector2(0, 20)
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="3"]
+position = Vector2(-0.999999, 0)
+scale = Vector2(1.3, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" index="0"]
+shape = SubResource("CircleShape2D_knjts")
+debug_color = Color(0.553107, 0.539309, 0.451717, 0.42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
+shape = SubResource("CircleShape2D_w85v2")

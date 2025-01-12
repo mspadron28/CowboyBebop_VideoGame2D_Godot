@@ -29,8 +29,8 @@ func _process(delta: float) -> void:
 
 func animate_the_ship() -> void:
 	if move_component.velocity.x < 0:
-		animated_sprite_2d.play("bank_leftt")
+		animated_sprite_2d.play("bank_left")
 	elif move_component.velocity.x > 0:
-		animated_sprite_2d.play("bank_rightt")
+		animated_sprite_2d.play("bank_right")
 	else:
-		animated_sprite_2d.play("centerr")
+		animated_sprite_2d.play("center")

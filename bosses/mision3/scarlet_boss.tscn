@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://770ogjr8832x" path="res://bosses/boss.tscn" id="1_a7cek"]
 [ext_resource type="Script" path="res://bosses/mision3/scarlet_boss.gd" id="2_mn8gb"]
-[ext_resource type="SpriteFrames" uid="uid://b1ay0yjhojgal" path="res://bosses/mision3/scarlet_boss_frames.tres" id="3_wtbaw"]
+[ext_resource type="SpriteFrames" uid="uid://d5tasj5po88l" path="res://bosses/mision3/scarletog_boss_frames.tres" id="3_g72q1"]
 [ext_resource type="PackedScene" uid="uid://bb2on2s7jjo1" path="res://effects/mission2/explotion_dimadon_effect.tscn" id="4_mchjr"]
 [ext_resource type="PackedScene" uid="uid://76ftcns3venb" path="res://projectiles/laser_scarlet_nova.tscn" id="5_cbs7t"]
 
@@ -10,11 +10,8 @@
 script = ExtResource("2_mn8gb")
 
 [node name="AnimatedSprite2D" parent="." index="0"]
-sprite_frames = ExtResource("3_wtbaw")
-animation = &"center"
-
-[node name="StatsComponent" parent="." index="1"]
-health = 100
+sprite_frames = ExtResource("3_g72q1")
+animation = &"bank_left"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HurtboxComponent" index="0"]
 polygon = PackedVector2Array(-38, -27, -37, -9, 2, 31, 37, -7, 36, -28, 9, -1, -6, -1)

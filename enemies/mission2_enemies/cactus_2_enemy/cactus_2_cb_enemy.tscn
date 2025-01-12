@@ -1,0 +1,85 @@
+[gd_scene load_steps=12 format=3 uid="uid://cheeifdrjckxb"]
+
+[ext_resource type="PackedScene" uid="uid://d3fdd3hdc7p1q" path="res://enemies/enemy.tscn" id="1_hs4jb"]
+[ext_resource type="Texture2D" uid="uid://bj20nckv28bws" path="res://enemies/mission2_enemies/cactus_2_enemy/cactus2.png" id="2_e4si2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mpapr"]
+atlas = ExtResource("2_e4si2")
+region = Rect2(0, 0, 145, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gnum1"]
+atlas = ExtResource("2_e4si2")
+region = Rect2(145, 0, 145, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u7pv5"]
+atlas = ExtResource("2_e4si2")
+region = Rect2(290, 0, 145, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lh66p"]
+atlas = ExtResource("2_e4si2")
+region = Rect2(435, 0, 145, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nt8uo"]
+atlas = ExtResource("2_e4si2")
+region = Rect2(580, 0, 145, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4v3ih"]
+atlas = ExtResource("2_e4si2")
+region = Rect2(725, 0, 145, 130)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8pndv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mpapr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gnum1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u7pv5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lh66p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nt8uo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4v3ih")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_65qrt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w85v2"]
+radius = 7.0
+
+[node name="Cactus2CowBoyEnemy" instance=ExtResource("1_hs4jb")]
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+position = Vector2(0, -0.82277)
+scale = Vector2(0.227097, 0.210151)
+sprite_frames = SubResource("SpriteFrames_8pndv")
+autoplay = "default"
+frame = 5
+frame_progress = 0.791648
+
+[node name="StatsComponent" parent="." index="1"]
+health = 3
+
+[node name="MoveComponent" parent="." index="2"]
+velocity = Vector2(0, 20)
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="3"]
+position = Vector2(-0.5, 1)
+scale = Vector2(1.55, 1.3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" index="0"]
+shape = SubResource("RectangleShape2D_65qrt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
+shape = SubResource("CircleShape2D_w85v2")

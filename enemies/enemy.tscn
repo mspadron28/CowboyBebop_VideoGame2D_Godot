@@ -1,9 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://d3fdd3hdc7p1q"]
+[gd_scene load_steps=12 format=3 uid="uid://d3fdd3hdc7p1q"]
 
 [ext_resource type="Script" path="res://components/stats_component.gd" id="1_eskvc"]
 [ext_resource type="Script" path="res://enemies/enemy.gd" id="1_lsgy0"]
 [ext_resource type="Script" path="res://components/move_component.gd" id="2_yuwln"]
-[ext_resource type="Script" path="res://components/scale_component.gd" id="3_8f6v6"]
 [ext_resource type="Script" path="res://components/flash_component.gd" id="4_bn741"]
 [ext_resource type="Script" path="res://components/shake_component.gd" id="5_f2ppf"]
 [ext_resource type="Script" path="res://components/hurtbox_component.gd" id="7_i0wgq"]
@@ -26,10 +25,6 @@ script = ExtResource("2_yuwln")
 actor = NodePath("..")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-
-[node name="ScaleComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
-script = ExtResource("3_8f6v6")
-sprite = NodePath("../AnimatedSprite2D")
 
 [node name="FlashComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
 script = ExtResource("4_bn741")

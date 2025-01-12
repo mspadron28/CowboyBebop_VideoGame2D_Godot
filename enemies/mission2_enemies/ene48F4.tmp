@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://dk88h8ws16bhp"]
+
+[ext_resource type="Script" path="res://enemies/mission2_enemies/enemy_generator_m_2.gd" id="1_3mffj"]
+[ext_resource type="PackedScene" uid="uid://b53h16kw03vge" path="res://enemies/mission2_enemies/cactus_enemy/cactus_cb_enemy.tscn" id="2_jhnru"]
+[ext_resource type="Script" path="res://components/spawner_component.gd" id="3_c5dlr"]
+[ext_resource type="PackedScene" uid="uid://bj38gomm2p88b" path="res://bosses/mision2/dimadon_boss.tscn" id="3_uidn5"]
+
+[node name="EnemyGeneratorM2" type="Node2D"]
+script = ExtResource("1_3mffj")
+CactusEnemyScene = ExtResource("2_jhnru")
+DimadonEnemyScene = ExtResource("3_uidn5")
+
+[node name="SpawnerComponent" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_c5dlr")
+
+[node name="CactusEnemySpawnTimer" type="Timer" parent="."]
+wait_time = 1.5
+autostart = true
+
+[node name="DimadonBossTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true

@@ -13,9 +13,6 @@ script = ExtResource("2_jykvb")
 sprite_frames = ExtResource("3_rlwpo")
 animation = &"center"
 
-[node name="StatsComponent" parent="." index="1"]
-health = 100
-
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HurtboxComponent" index="0"]
 polygon = PackedVector2Array(-37, 19, -37, 5, -16, -17, 16, -17, 34, 3, 34, 16, 8, 15, 0, 28, -10, 14)
 

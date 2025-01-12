@@ -1,0 +1,20 @@
+[gd_scene load_steps=6 format=3 uid="uid://r0bf2qchx5nn"]
+
+[ext_resource type="Script" path="res://misiones/mission3/mission_3.gd" id="1_ha2u8"]
+[ext_resource type="PackedScene" uid="uid://db70ynsj68p2r" path="res://players_sprite/player_bebop/bebop.tscn" id="4_r25ce"]
+[ext_resource type="PackedScene" uid="uid://cn28yyh2ykw4d" path="res://enemies/mission3_enemies/enemy_generator_m3.tscn" id="5_3so8q"]
+[ext_resource type="PackedScene" uid="uid://boaug5vaxax5c" path="res://players_sprite/player_tita/tita.tscn" id="5_jmo53"]
+[ext_resource type="PackedScene" uid="uid://cwvdp7x7umccv" path="res://assets/backgrounds/mission3/level_3_background.tscn" id="7_e0tx3"]
+
+[node name="Mission3" type="Node2D"]
+script = ExtResource("1_ha2u8")
+
+[node name="Tita" parent="." instance=ExtResource("5_jmo53")]
+position = Vector2(87, 244)
+
+[node name="Level3Background" parent="." instance=ExtResource("7_e0tx3")]
+
+[node name="Bebop" parent="." instance=ExtResource("4_r25ce")]
+position = Vector2(56, 239)
+
+[node name="EnemyGeneratorM3" parent="." instance=ExtResource("5_3so8q")]

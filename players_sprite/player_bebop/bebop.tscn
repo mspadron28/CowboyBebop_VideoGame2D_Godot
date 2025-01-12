@@ -1,8 +1,8 @@
-[gd_scene load_steps=28 format=3 uid="uid://db70ynsj68p2r"]
+[gd_scene load_steps=17 format=3 uid="uid://db70ynsj68p2r"]
 
 [ext_resource type="Script" path="res://players_sprite/player_bebop/bebop.gd" id="1_7wkye"]
-[ext_resource type="Texture2D" uid="uid://ccig570pa2qnl" path="res://assets/mision1/Ship-Nebula - Sprite Sheet.png" id="1_bhvtt"]
 [ext_resource type="Script" path="res://components/move_component.gd" id="2_epdke"]
+[ext_resource type="SpriteFrames" uid="uid://b1ay0yjhojgal" path="res://bosses/mision3/scarlet_boss_frames.tres" id="2_xrsnp"]
 [ext_resource type="Script" path="res://components/move_input_component.gd" id="4_y722j"]
 [ext_resource type="Resource" uid="uid://hxqau57ysde4" path="res://players_sprite/player_bebop/bebop_move_stats.tres" id="5_fl5gq"]
 [ext_resource type="Script" path="res://components/stats_component.gd" id="6_6pu0i"]
@@ -17,100 +17,13 @@
 [ext_resource type="Script" path="res://components/flash_component.gd" id="15_pbuoa"]
 [ext_resource type="Script" path="res://components/shake_component.gd" id="16_v1f6m"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_w8w62"]
-atlas = ExtResource("1_bhvtt")
-region = Rect2(64, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_skum5"]
-atlas = ExtResource("1_bhvtt")
-region = Rect2(32, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vt8ny"]
-atlas = ExtResource("1_bhvtt")
-region = Rect2(0, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_r027b"]
-atlas = ExtResource("1_bhvtt")
-region = Rect2(0, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nqyld"]
-atlas = ExtResource("1_bhvtt")
-region = Rect2(32, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hhoxq"]
-atlas = ExtResource("1_bhvtt")
-region = Rect2(64, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mj0ny"]
-atlas = ExtResource("1_bhvtt")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dat6e"]
-atlas = ExtResource("1_bhvtt")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_eyevm"]
-atlas = ExtResource("1_bhvtt")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bvvkc"]
-atlas = ExtResource("1_bhvtt")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_pe4uu"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_w8w62")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_skum5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vt8ny")
-}],
-"loop": true,
-"name": &"bank_leftt",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_r027b")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nqyld")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hhoxq")
-}],
-"loop": true,
-"name": &"bank_rightt",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mj0ny")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dat6e")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_eyevm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bvvkc")
-}],
-"loop": true,
-"name": &"centerr",
-"speed": 5.0
-}]
-
 [node name="Bebop" type="Node2D"]
 script = ExtResource("1_7wkye")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_pe4uu")
-animation = &"centerr"
+sprite_frames = ExtResource("2_xrsnp")
+animation = &"bank_right"
+frame_progress = 0.663132
 
 [node name="MoveComponent" type="Node" parent="." node_paths=PackedStringArray("actor")]
 script = ExtResource("2_epdke")

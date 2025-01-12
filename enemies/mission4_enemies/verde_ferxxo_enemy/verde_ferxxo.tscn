@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=3 uid="uid://dvkfw1i0w35al"]
+
+[ext_resource type="PackedScene" uid="uid://d3fdd3hdc7p1q" path="res://enemies/enemy.tscn" id="1_ullym"]
+[ext_resource type="Texture2D" uid="uid://bphkngb5650qu" path="res://assets/mission4/verde_ferxxocc.png" id="2_l8suy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k6hmk"]
+atlas = ExtResource("2_l8suy")
+region = Rect2(0, 0, 85, 86)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h24bc"]
+atlas = ExtResource("2_l8suy")
+region = Rect2(85, 0, 85, 86)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_go48p"]
+atlas = ExtResource("2_l8suy")
+region = Rect2(170, 0, 85, 86)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ry46e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k6hmk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h24bc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_go48p")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u7y1a"]
+size = Vector2(15.5, 17)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p27tf"]
+radius = 5.09902
+
+[node name="VerdeFerxxo" instance=ExtResource("1_ullym")]
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+position = Vector2(0, -0.823)
+scale = Vector2(0.227, 0.21)
+sprite_frames = SubResource("SpriteFrames_ry46e")
+autoplay = "default"
+frame_progress = 0.421958
+
+[node name="MoveComponent" parent="." index="2"]
+velocity = Vector2(0, 50)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" index="0"]
+visible = false
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_u7y1a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
+visible = false
+shape = SubResource("CircleShape2D_p27tf")
+debug_color = Color(0.931341, 0.164308, 0.513493, 0.42)

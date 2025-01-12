@@ -190,7 +190,6 @@ sprite = NodePath("../AnimatedSprite2D")
 flash_duration = 0.1
 
 [node name="HitboxComponent" type="Area2D" parent="."]
-visible = false
 collision_layer = 0
 script = ExtResource("6_b5lb6")
 

@@ -19,14 +19,6 @@ offset_bottom = 284.0
 texture = ExtResource("2_xarmf")
 expand_mode = 3
 
-[node name="Space" type="TextureRect" parent="SpaceLayer/Space"]
-offset_left = -7.0
-offset_top = -96.0
-offset_right = 206.333
-offset_bottom = 284.0
-texture = ExtResource("2_xarmf")
-expand_mode = 3
-
 [node name="FarStarsLayer" type="ParallaxLayer" parent="."]
 unique_name_in_owner = true
 motion_mirroring = Vector2(0, 280)
