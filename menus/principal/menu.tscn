@@ -1,13 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://bujuv0mlubtt6"]
+[gd_scene load_steps=5 format=3 uid="uid://bujuv0mlubtt6"]
 
 [ext_resource type="PackedScene" uid="uid://dc8rej7cuuvvo" path="res://menus/principal/principal_background.tscn" id="1_by1dk"]
 [ext_resource type="Theme" uid="uid://bcueb8fc272bg" path="res://menus/principal/principal_theme.tres" id="2_tfr58"]
+[ext_resource type="Texture2D" uid="uid://cs76ir3poquhj" path="res://menus/principal/salir.png" id="3_vwhkh"]
+[ext_resource type="Texture2D" uid="uid://cwtw1hwq5u16k" path="res://menus/principal/opciones.png" id="4_um4xw"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = -1.0
+offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -20,10 +26,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -90.5
-offset_top = -28.0
-offset_right = 90.5
-offset_bottom = 28.0
+offset_left = -91.0
+offset_top = -72.0
+offset_right = 90.0
+offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_tfr58")
@@ -35,7 +41,34 @@ theme_type_variation = &"HeaderLarge"
 text = "Cowboy Bebop"
 horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="VBoxContainer"]
+[node name="Iniciar" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "PLAY"
+
+[node name="Iniciar" type="Button" parent="VBoxContainer/Iniciar"]
+layout_mode = 0
+size_flags_horizontal = 4
+text = "PLAY"
+
+[node name="Opciones" type="Button" parent="."]
+layout_mode = 2
+offset_left = 32.0
+offset_top = 231.0
+offset_right = 110.0
+offset_bottom = 314.0
+scale = Vector2(0.3, 0.3)
+icon = ExtResource("4_um4xw")
+
+[node name="Salir" type="Button" parent="."]
+layout_mode = 2
+offset_left = 138.0
+offset_top = 230.0
+offset_right = 216.0
+offset_bottom = 313.0
+scale = Vector2(0.3, 0.3)
+icon = ExtResource("3_vwhkh")
+
+[connection signal="pressed" from="VBoxContainer/Iniciar" to="PrincipalBackground" method="_on_iniciar_pressed"]
+[connection signal="pressed" from="VBoxContainer/Iniciar/Iniciar" to="PrincipalBackground" method="_on_iniciar_pressed"]
+[connection signal="pressed" from="Salir" to="PrincipalBackground" method="_on_salir_pressed"]

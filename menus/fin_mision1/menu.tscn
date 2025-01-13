@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=3 uid="uid://mbi4s3hoik4v"]
+
+[ext_resource type="PackedScene" uid="uid://dc8rej7cuuvvo" path="res://menus/principal/principal_background.tscn" id="1_o0xsg"]
+[ext_resource type="Theme" uid="uid://cyq1k2u58jfch" path="res://menus/fin_mision1/mision1_theme.tres" id="2_1qefq"]
+[ext_resource type="Texture2D" uid="uid://cwtw1hwq5u16k" path="res://menus/principal/opciones.png" id="3_cel41"]
+[ext_resource type="Texture2D" uid="uid://cs76ir3poquhj" path="res://menus/principal/salir.png" id="4_iqi3n"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PrincipalBackground" parent="." instance=ExtResource("1_o0xsg")]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -101.0
+offset_top = -88.0
+offset_right = 100.0
+offset_bottom = 49.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_1qefq")
+theme_override_constants/separation = 50
+
+[node name="TitleLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+text = "Enemigo 
+derrotado"
+horizontal_alignment = 1
+
+[node name="ContinuarM1" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Continuar"
+
+[node name="Opciones" type="Button" parent="."]
+layout_mode = 2
+offset_left = 32.0
+offset_top = 231.0
+offset_right = 110.0
+offset_bottom = 314.0
+scale = Vector2(0.3, 0.3)
+icon = ExtResource("3_cel41")
+
+[node name="SalirM1" type="Button" parent="."]
+layout_mode = 2
+offset_left = 138.0
+offset_top = 230.0
+offset_right = 216.0
+offset_bottom = 313.0
+scale = Vector2(0.3, 0.3)
+icon = ExtResource("4_iqi3n")
+
+[connection signal="pressed" from="VBoxContainer/ContinuarM1" to="PrincipalBackground" method="_on_continuar_m_1_pressed"]
+[connection signal="pressed" from="SalirM1" to="PrincipalBackground" method="_on_salir_pressed"]

@@ -5,18 +5,18 @@
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_twxea"]
 texture = ExtResource("2_k0a4a")
-expand_margin_left = 8.0
-expand_margin_right = 6.0
+expand_margin_left = 24.0
+expand_margin_right = 22.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ga8ew"]
 texture = ExtResource("2_k0a4a")
-expand_margin_left = 8.0
-expand_margin_right = 6.0
+expand_margin_left = 24.0
+expand_margin_right = 22.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vb3ep"]
 texture = ExtResource("2_k0a4a")
-expand_margin_left = 8.0
-expand_margin_right = 6.0
+expand_margin_left = 24.0
+expand_margin_right = 22.0
 
 [resource]
 Button/font_sizes/font_size = 16
