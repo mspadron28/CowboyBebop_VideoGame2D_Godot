@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bujuv0mlubtt6"]
+[gd_scene load_steps=4 format=3 uid="uid://bujuv0mlubtt6"]
 
 [ext_resource type="PackedScene" uid="uid://dc8rej7cuuvvo" path="res://menus/principal/principal_background.tscn" id="1_by1dk"]
+[ext_resource type="Script" path="res://menus/principal/menu.gd" id="1_gumph"]
 [ext_resource type="Theme" uid="uid://bcueb8fc272bg" path="res://menus/principal/principal_theme.tres" id="2_tfr58"]
 
 [node name="Menu" type="Control"]
@@ -10,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_gumph")
 
 [node name="PrincipalBackground" parent="." instance=ExtResource("1_by1dk")]
 
