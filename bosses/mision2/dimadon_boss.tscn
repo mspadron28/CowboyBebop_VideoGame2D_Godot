@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://bj38gomm2p88b"]
+[gd_scene load_steps=8 format=3 uid="uid://bj38gomm2p88b"]
 
 [ext_resource type="PackedScene" uid="uid://770ogjr8832x" path="res://bosses/boss.tscn" id="1_46mk8"]
 [ext_resource type="Script" path="res://bosses/mision2/dimadon_boss.gd" id="2_ymiq5"]
 [ext_resource type="SpriteFrames" uid="uid://duhu7w3x1gqu1" path="res://bosses/mision2/dimadon_boss_frames.tres" id="3_ucjx4"]
 [ext_resource type="PackedScene" uid="uid://bb2on2s7jjo1" path="res://effects/mission2/explotion_dimadon_effect.tscn" id="4_2xwrw"]
 [ext_resource type="PackedScene" uid="uid://dwp5xbxoebqvy" path="res://projectiles/laser_dimadon_nova.tscn" id="5_gu6o1"]
+[ext_resource type="PackedScene" uid="uid://b7q84ev4cssft" path="res://menus/healthbar/healthbar.tscn" id="6_qipvu"]
+[ext_resource type="Theme" uid="uid://bcueb8fc272bg" path="res://menus/principal/principal_theme.tres" id="7_1igr5"]
 
 [node name="DimadonBoss" instance=ExtResource("1_46mk8")]
 script = ExtResource("2_ymiq5")
@@ -42,3 +44,25 @@ wait_time = 1.392
 
 [node name="BorderBounceComponent" parent="States/MoveSideState" index="1" node_paths=PackedStringArray("actor")]
 actor = NodePath("../../..")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="12"]
+
+[node name="Healthbar" parent="CanvasLayer" index="0" instance=ExtResource("6_qipvu")]
+offset_left = 76.0
+offset_top = 20.0
+offset_right = 196.0
+offset_bottom = 24.0
+
+[node name="Label" type="Label" parent="CanvasLayer" index="1"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -124.0
+offset_top = -2.0
+offset_right = -24.0
+offset_bottom = 18.0
+grow_horizontal = 0
+theme = ExtResource("7_1igr5")
+theme_type_variation = &"HeaderSmall"
+text = "DON DIMADON"
+horizontal_alignment = 2

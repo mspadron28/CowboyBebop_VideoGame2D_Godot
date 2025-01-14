@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 [gd_scene load_steps=5 format=3 uid="uid://bujuv0mlubtt6"]
+=======
+[gd_scene load_steps=4 format=3 uid="uid://bujuv0mlubtt6"]
+>>>>>>> 18db6684a62b1ae3bbbee2684fee5ad0250a928f
 
 [ext_resource type="PackedScene" uid="uid://dc8rej7cuuvvo" path="res://menus/principal/principal_background.tscn" id="1_by1dk"]
+[ext_resource type="Script" path="res://menus/principal/menu.gd" id="1_gumph"]
 [ext_resource type="Theme" uid="uid://bcueb8fc272bg" path="res://menus/principal/principal_theme.tres" id="2_tfr58"]
 [ext_resource type="Texture2D" uid="uid://cs76ir3poquhj" path="res://menus/principal/salir.png" id="3_vwhkh"]
 [ext_resource type="Texture2D" uid="uid://cwtw1hwq5u16k" path="res://menus/principal/opciones.png" id="4_um4xw"]
@@ -16,6 +21,7 @@ offset_right = -1.0
 offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_gumph")
 
 [node name="PrincipalBackground" parent="." instance=ExtResource("1_by1dk")]
 
