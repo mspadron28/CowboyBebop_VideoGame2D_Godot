@@ -7,11 +7,14 @@ extends Boss
 @onready var projectile_spawner_component: SpawnerComponent = %ProjectileSpawnerComponent
 @onready var center_muzzle: Marker2D = $CenterMuzzle
 
-
+@onready var stats_component: StatsComponent = $StatsComponent
+@onready var healthbar: ProgressBar = $CanvasLayer/Healthbar
 
 func _ready() -> void:
 	super()
-	
+	healthbar.init_health(stats_component.health)
+	# Conecta las señales del componente StatsComponent
+	stats_component.health_changed.connect(_on_health_changed)
 	for state in states.get_children():
 		state = state as StateComponent
 		state.disable()
@@ -27,3 +30,7 @@ func _ready() -> void:
 # Disparo constante usando el temporizador
 func fire_lasers() -> void:
 	projectile_spawner_component.spawn(center_muzzle.global_position)
+	
+# Actualiza la barra de vida cuando cambia la salud
+func _on_health_changed() -> void:
+	healthbar._set_health(stats_component.health)

@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://bcueb8fc272bg"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://bcueb8fc272bg"]
 
 [ext_resource type="FontFile" uid="uid://bla6t7bkr7o7g" path="res://fonts/kenney_mini_square.ttf" id="1_yrcr5"]
 [ext_resource type="Texture2D" uid="uid://7gh5f036ggpi" path="res://menus/principal/button.png" id="2_k0a4a"]
@@ -18,12 +18,16 @@ texture = ExtResource("2_k0a4a")
 expand_margin_left = 24.0
 expand_margin_right = 22.0
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xopym"]
+
 [resource]
 Button/font_sizes/font_size = 16
 Button/fonts/font = ExtResource("1_yrcr5")
 Button/styles/hover = SubResource("StyleBoxTexture_twxea")
 Button/styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_ga8ew")
 Button/styles/normal = SubResource("StyleBoxTexture_vb3ep")
+DimadonLabel/base_type = &"Label"
+DimadonLabel/colors/font_color = Color(0, 0.490196, 0, 1)
 HeaderLarge/base_type = &"Label"
 HeaderLarge/colors/font_color = Color(0.862745, 1, 1, 1)
 HeaderLarge/colors/font_outline_color = Color(0, 0.557272, 0.654522, 1)
@@ -32,9 +36,22 @@ HeaderLarge/constants/outline_size = 2
 HeaderLarge/constants/shadow_offset_x = 0
 HeaderLarge/constants/shadow_outline_size = 6
 HeaderLarge/font_sizes/font_size = 25
+HeaderMedium/colors/font_color = Color(0.563126, 0.394315, 0.315762, 1)
+HeaderMedium/colors/font_outline_color = Color(1, 1, 1, 1)
+HeaderMedium/constants/outline_size = 4
+HeaderMedium/font_sizes/font_size = 16
 HeaderSmall/colors/font_color = Color(0, 0.904071, 0.864118, 1)
 HeaderSmall/colors/font_outline_color = Color(0, 0, 0, 1)
 HeaderSmall/constants/outline_size = 3
 HeaderSmall/font_sizes/font_size = 16
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 0)
+Label/constants/line_spacing = 3
+Label/constants/outline_size = 0
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/constants/shadow_outline_size = 1
 Label/font_sizes/font_size = 24
 Label/fonts/font = ExtResource("1_yrcr5")
+Label/styles/normal = SubResource("StyleBoxEmpty_xopym")

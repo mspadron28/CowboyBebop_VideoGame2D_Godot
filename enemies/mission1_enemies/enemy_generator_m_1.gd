@@ -31,6 +31,6 @@ func spawn_boss() -> void:
 	# Conecta la señal de eliminación del jefe para cambiar de escena
 	vault_boss_node.tree_exiting.connect(func():
 		await get_tree().create_timer(1).timeout
-		get_tree().change_scene_to_file("res://misiones/mission2/mission2.tscn")
-		
+		get_tree().change_scene_to_file("res://menus/fin_mision1/menu.tscn")
+		Global.unlockedLevels += 1
 	)

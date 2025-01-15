@@ -24,7 +24,7 @@ one_shot = true
 autostart = true
 
 [node name="DimadonBossTimer" type="Timer" parent="."]
-wait_time = 30.0
+wait_time = 3.0
 one_shot = true
 autostart = true
 

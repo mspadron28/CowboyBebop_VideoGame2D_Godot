@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-[gd_scene load_steps=5 format=3 uid="uid://bujuv0mlubtt6"]
-=======
-[gd_scene load_steps=4 format=3 uid="uid://bujuv0mlubtt6"]
->>>>>>> 18db6684a62b1ae3bbbee2684fee5ad0250a928f
+[gd_scene load_steps=6 format=3 uid="uid://j71mr7fmkoih"]
 
 [ext_resource type="PackedScene" uid="uid://dc8rej7cuuvvo" path="res://menus/principal/principal_background.tscn" id="1_by1dk"]
 [ext_resource type="Script" path="res://menus/principal/menu.gd" id="1_gumph"]
@@ -52,29 +48,27 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "PLAY"
 
-[node name="Iniciar" type="Button" parent="VBoxContainer/Iniciar"]
-layout_mode = 0
-size_flags_horizontal = 4
-text = "PLAY"
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 774.0
+offset_bottom = 87.0
+grow_horizontal = 2
+scale = Vector2(0.2, 0.2)
 
-[node name="Opciones" type="Button" parent="."]
+[node name="Salir" type="Button" parent="HBoxContainer"]
 layout_mode = 2
-offset_left = 32.0
-offset_top = 231.0
-offset_right = 110.0
-offset_bottom = 314.0
-scale = Vector2(0.3, 0.3)
-icon = ExtResource("4_um4xw")
-
-[node name="Salir" type="Button" parent="."]
-layout_mode = 2
-offset_left = 138.0
-offset_top = 230.0
-offset_right = 216.0
-offset_bottom = 313.0
-scale = Vector2(0.3, 0.3)
+size_flags_horizontal = 2
 icon = ExtResource("3_vwhkh")
 
+[node name="Opciones" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+icon = ExtResource("4_um4xw")
+
+[connection signal="pressed" from="VBoxContainer/Iniciar" to="." method="_on_iniciar_pressed"]
 [connection signal="pressed" from="VBoxContainer/Iniciar" to="PrincipalBackground" method="_on_iniciar_pressed"]
-[connection signal="pressed" from="VBoxContainer/Iniciar/Iniciar" to="PrincipalBackground" method="_on_iniciar_pressed"]
-[connection signal="pressed" from="Salir" to="PrincipalBackground" method="_on_salir_pressed"]
+[connection signal="pressed" from="HBoxContainer/Salir" to="." method="_on_salir_pressed"]

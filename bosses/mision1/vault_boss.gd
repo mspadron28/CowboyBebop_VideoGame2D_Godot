@@ -14,7 +14,6 @@ extends Boss
 func _ready() -> void:
 	super()
 	
-	print(stats_component.health)
 	healthbar.init_health(stats_component.health)
 	# Conecta las señales del componente StatsComponent
 	stats_component.health_changed.connect(_on_health_changed)

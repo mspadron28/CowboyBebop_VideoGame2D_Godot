@@ -63,6 +63,6 @@ offset_right = -24.0
 offset_bottom = 18.0
 grow_horizontal = 0
 theme = ExtResource("7_1igr5")
-theme_type_variation = &"HeaderSmall"
+theme_type_variation = &"HeaderMedium"
 text = "DON DIMADON"
 horizontal_alignment = 2

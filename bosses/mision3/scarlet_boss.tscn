@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://broh81aomuxek"]
+[gd_scene load_steps=8 format=3 uid="uid://broh81aomuxek"]
 
 [ext_resource type="PackedScene" uid="uid://770ogjr8832x" path="res://bosses/boss.tscn" id="1_a7cek"]
 [ext_resource type="Script" path="res://bosses/mision3/scarlet_boss.gd" id="2_mn8gb"]
 [ext_resource type="SpriteFrames" uid="uid://d5tasj5po88l" path="res://bosses/mision3/scarletog_boss_frames.tres" id="3_g72q1"]
 [ext_resource type="PackedScene" uid="uid://bb2on2s7jjo1" path="res://effects/mission2/explotion_dimadon_effect.tscn" id="4_mchjr"]
 [ext_resource type="PackedScene" uid="uid://76ftcns3venb" path="res://projectiles/laser_scarlet_nova.tscn" id="5_cbs7t"]
+[ext_resource type="PackedScene" uid="uid://b7q84ev4cssft" path="res://menus/healthbar/healthbar.tscn" id="6_6q76r"]
+[ext_resource type="Theme" uid="uid://dhdymq66xh85h" path="res://themes/labels/bosses_healthbar/hb_labels.tres" id="7_6klqj"]
 
 [node name="ScarletBoss" instance=ExtResource("1_a7cek")]
 script = ExtResource("2_mn8gb")
@@ -35,3 +37,23 @@ wait_time = 1.392
 
 [node name="BorderBounceComponent" parent="States/MoveSideState" index="1" node_paths=PackedStringArray("actor")]
 actor = NodePath("../../..")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="12"]
+
+[node name="Healthbar" parent="CanvasLayer" index="0" instance=ExtResource("6_6q76r")]
+offset_left = 76.0
+offset_top = 20.0
+offset_right = 196.0
+offset_bottom = 24.0
+
+[node name="Label" type="Label" parent="CanvasLayer" index="1"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -124.0
+offset_top = -2.0
+offset_right = 6.0
+offset_bottom = 18.0
+grow_horizontal = 0
+theme = ExtResource("7_6klqj")
+text = "Scarlet"

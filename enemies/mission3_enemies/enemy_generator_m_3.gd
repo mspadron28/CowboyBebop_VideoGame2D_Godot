@@ -35,5 +35,5 @@ func spawn_boss() -> void:
 	# Conecta la señal de eliminación del jefe para cambiar de escena
 	scarlet_boss_node.tree_exiting.connect(func():
 		await get_tree().create_timer(1).timeout
-		get_tree().change_scene_to_file("res://misiones/mission4/mission4.tscn")
+		get_tree().change_scene_to_file("res://menus/fin_mision3/menu.tscn")
 	)
