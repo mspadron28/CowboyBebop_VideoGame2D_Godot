@@ -22,3 +22,7 @@ func on_player_life_changed(player_hearts: int) -> void:
 func clear_hearts() -> void:
 	for child in get_children():
 		child.queue_free()
+
+
+func _on_retornar_pressed() -> void:
+	get_tree().change_scene_to_file("res://menus/principal/menu.tscn")

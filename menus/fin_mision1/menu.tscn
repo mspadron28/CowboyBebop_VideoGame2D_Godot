@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://menus/fin_mision1/menu.gd" id="1_hb8wc"]
 [ext_resource type="Theme" uid="uid://cyq1k2u58jfch" path="res://menus/fin_mision1/mision1_theme.tres" id="2_1qefq"]
 [ext_resource type="Texture2D" uid="uid://cwtw1hwq5u16k" path="res://menus/principal/opciones.png" id="3_cel41"]
-[ext_resource type="Texture2D" uid="uid://cs76ir3poquhj" path="res://menus/principal/salir.png" id="4_iqi3n"]
+[ext_resource type="Texture2D" uid="uid://c7ml0mgthvnih" path="res://menus/botones/retornarbtn.png" id="3_pi427"]
 [ext_resource type="PackedScene" uid="uid://b6qhp7vamq72u" path="res://menus/fin_mision1/m1_end_background.tscn" id="5_4eej8"]
 
 [node name="MenuM1" type="Control"]
@@ -25,9 +25,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -101.0
-offset_top = -88.0
+offset_top = -114.0
 offset_right = 100.0
-offset_bottom = 138.0
+offset_bottom = 224.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_1qefq")
@@ -36,15 +36,15 @@ theme_override_constants/separation = 50
 [node name="TitleLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 theme_type_variation = &"HeaderLarge"
-text = "Enemigo 
-derrotado"
+text = "Vault Boy 
+Wasted!"
 horizontal_alignment = 1
 
 [node name="ContinuarM1" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
-text = "Continuar"
+text = "Continue"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -60,7 +60,7 @@ scale = Vector2(0.2, 0.2)
 [node name="Retornar" type="Button" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 2
-icon = ExtResource("4_iqi3n")
+icon = ExtResource("3_pi427")
 
 [node name="Opciones" type="Button" parent="HBoxContainer"]
 layout_mode = 2

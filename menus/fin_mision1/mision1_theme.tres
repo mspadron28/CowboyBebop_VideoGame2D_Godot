@@ -1,9 +1,24 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://cyq1k2u58jfch"]
+[gd_resource type="Theme" load_steps=13 format=3 uid="uid://cyq1k2u58jfch"]
 
 [ext_resource type="FontFile" uid="uid://bla6t7bkr7o7g" path="res://fonts/kenney_mini_square.ttf" id="1_7l2m6"]
 [ext_resource type="Texture2D" uid="uid://cujtrvigidfi7" path="res://menus/fin_mision1/Continuar.png" id="2_yt0cb"]
+[ext_resource type="Texture2D" uid="uid://xgghhpq2mvn2" path="res://menus/fin_mision2/Continuar.png" id="3_ro7jj"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_287k2"]
+texture = ExtResource("2_yt0cb")
+expand_margin_left = 30.0
+expand_margin_top = 1.0
+expand_margin_right = 30.0
+expand_margin_bottom = 3.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_18uts"]
+texture = ExtResource("2_yt0cb")
+expand_margin_left = 30.0
+expand_margin_top = 1.0
+expand_margin_right = 30.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_frno8"]
 texture = ExtResource("2_yt0cb")
 expand_margin_left = 30.0
 expand_margin_top = 1.0
@@ -17,6 +32,13 @@ expand_margin_top = 1.0
 expand_margin_right = 30.0
 expand_margin_bottom = 3.0
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0thkp"]
+texture = ExtResource("3_ro7jj")
+expand_margin_left = 30.0
+expand_margin_top = 1.0
+expand_margin_right = 30.0
+expand_margin_bottom = 1.0
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vb3ep"]
 texture = ExtResource("2_yt0cb")
 expand_margin_left = 30.0
@@ -24,12 +46,40 @@ expand_margin_top = 1.0
 expand_margin_right = 30.0
 expand_margin_bottom = 3.0
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p5h71"]
+texture = ExtResource("3_ro7jj")
+expand_margin_left = 30.0
+expand_margin_top = 1.0
+expand_margin_right = 30.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xow7e"]
+texture = ExtResource("2_yt0cb")
+expand_margin_left = 30.0
+expand_margin_top = 1.0
+expand_margin_right = 30.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qu104"]
+texture = ExtResource("2_yt0cb")
+expand_margin_left = 30.0
+expand_margin_top = 1.0
+expand_margin_right = 30.0
+expand_margin_bottom = 3.0
+
 [resource]
+Button/colors/font_hover_color = Color(0.226372, 0.556573, 0.999978, 1)
 Button/font_sizes/font_size = 16
 Button/fonts/font = ExtResource("1_7l2m6")
+Button/styles/focus = SubResource("StyleBoxTexture_287k2")
 Button/styles/hover = SubResource("StyleBoxTexture_18uts")
+Button/styles/hover_mirrored = SubResource("StyleBoxTexture_frno8")
 Button/styles/hover_pressed = SubResource("StyleBoxTexture_3hn5q")
+Button/styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_0thkp")
 Button/styles/normal = SubResource("StyleBoxTexture_vb3ep")
+Button/styles/normal_mirrored = SubResource("StyleBoxTexture_p5h71")
+Button/styles/pressed = SubResource("StyleBoxTexture_xow7e")
+Button/styles/pressed_mirrored = SubResource("StyleBoxTexture_qu104")
 HeaderLarge/base_type = &"Label"
 HeaderLarge/colors/font_color = Color(0.862745, 1, 1, 1)
 HeaderLarge/colors/font_outline_color = Color(0, 0.557272, 0.654522, 1)

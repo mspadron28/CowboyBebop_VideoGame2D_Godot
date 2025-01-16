@@ -17,7 +17,7 @@ animation = &"center"
 frame_progress = 0.290566
 
 [node name="StatsComponent" parent="." index="1"]
-health = 50
+health = 5
 
 [node name="HurtboxComponent" parent="." index="2"]
 visible = false

@@ -1,0 +1,16 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://deqx5q5fy2g6x"]
+
+[ext_resource type="Texture2D" uid="uid://dnngdluic85lh" path="res://menus/level_selector/level_misiones/lock_level.png" id="1_fjb60"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pwt4o"]
+texture = ExtResource("1_fjb60")
+expand_margin_left = 6.0
+expand_margin_top = 6.0
+expand_margin_right = 6.0
+expand_margin_bottom = 6.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b18vr"]
+
+[resource]
+Button/styles/disabled = SubResource("StyleBoxTexture_pwt4o")
+Button/styles/normal = SubResource("StyleBoxTexture_b18vr")

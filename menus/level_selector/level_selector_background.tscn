@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7d6gvamyrm5x"]
+
+[ext_resource type="Texture2D" uid="uid://ddsg0hd1foogj" path="res://menus/level_selector/ls-bg2.png" id="1_konms"]
+
+[node name="LevelSelectorBackground" type="ParallaxBackground"]
+
+[node name="CBLayer" type="ParallaxLayer" parent="."]
+unique_name_in_owner = true
+scale = Vector2(0.4, 0.4)
+
+[node name="Space" type="TextureRect" parent="CBLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -82.5
+offset_top = -95.0
+offset_right = 572.5
+offset_bottom = 795.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("1_konms")
+expand_mode = 2

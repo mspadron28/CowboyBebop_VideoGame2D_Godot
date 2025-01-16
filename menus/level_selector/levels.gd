@@ -15,5 +15,22 @@ func _ready() -> void:
 
 
 
-func _on__pressed() -> void:
+
+func _on_retornar_pressed() -> void:
+	get_tree().change_scene_to_file("res://menus/principal/menu.tscn")
+
+
+func _on__pressed1() -> void:
 	get_tree().change_scene_to_file("res://misiones/mission1/mission1.tscn")
+
+
+func _on__pressed2() -> void:
+	get_tree().change_scene_to_file("res://misiones/mission2/mission2.tscn")
+
+
+func _on__pressed3() -> void:
+	get_tree().change_scene_to_file("res://misiones/mission3/mission3.tscn")
+
+
+func _on__pressed4() -> void:
+	get_tree().change_scene_to_file("res://misiones/mission4/mission4.tscn")

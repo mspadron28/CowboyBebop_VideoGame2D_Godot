@@ -1,9 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://biblxh0agt7x6"]
+[gd_scene load_steps=11 format=3 uid="uid://biblxh0agt7x6"]
 
+[ext_resource type="Texture2D" uid="uid://ddsg0hd1foogj" path="res://menus/level_selector/ls-bg2.png" id="1_t5psd"]
 [ext_resource type="Script" path="res://menus/level_selector/levels.gd" id="1_ueckw"]
-[ext_resource type="Texture2D" uid="uid://c1ir57hj0y30n" path="res://menus/fin_mision1/m1_ennd2.png" id="2_6d4qn"]
-[ext_resource type="Texture2D" uid="uid://baoicmoodxicv" path="res://menus/fin_mision1/finm1.png" id="3_75wtb"]
-[ext_resource type="Texture2D" uid="uid://duo7xq1ktdp3g" path="res://menus/principal/principal-bg.png" id="4_os2v8"]
+[ext_resource type="Theme" uid="uid://deqx5q5fy2g6x" path="res://menus/level_selector/level_selector_theme.tres" id="2_x1h0c"]
+[ext_resource type="Texture2D" uid="uid://hd6i5t0rdyxr" path="res://menus/level_selector/level_misiones/level1bg.png" id="4_ohlc3"]
+[ext_resource type="Texture2D" uid="uid://c2h6r8rkek63p" path="res://menus/level_selector/level_misiones/level2bg.png" id="5_oi47x"]
+[ext_resource type="Texture2D" uid="uid://osktc1llyv47" path="res://menus/level_selector/level_misiones/level3bg.png" id="6_k70e1"]
+[ext_resource type="Texture2D" uid="uid://b82khnsexdbgh" path="res://menus/level_selector/level_misiones/level4bg.png" id="7_m64m1"]
+[ext_resource type="LabelSettings" uid="uid://ocyc457ibxuq" path="res://themes/labels/selector_label_lb.tres" id="8_pc5sr"]
+[ext_resource type="Texture2D" uid="uid://c7ml0mgthvnih" path="res://menus/botones/retornarbtn.png" id="9_gd536"]
+[ext_resource type="Texture2D" uid="uid://cwtw1hwq5u16k" path="res://menus/principal/opciones.png" id="10_v177t"]
 
 [node name="Levels" type="Control"]
 layout_mode = 3
@@ -13,14 +19,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="."]
-z_index = -1
+[node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("1_t5psd")
+expand_mode = 2
 
 [node name="levels" type="GridContainer" parent="."]
 z_index = 1
@@ -30,20 +37,24 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -70.0
-offset_top = -64.0
-offset_right = 70.0
-offset_bottom = 84.0
+offset_left = -69.0
+offset_top = -58.0
+offset_right = 83.0
+offset_bottom = 74.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.9, 0.9)
+theme = ExtResource("2_x1h0c")
 columns = 2
 script = ExtResource("1_ueckw")
 
 [node name="1" type="Button" parent="levels"]
+light_mask = 17
 layout_mode = 2
 size_flags_horizontal = 3
-icon = ExtResource("2_6d4qn")
-vertical_icon_alignment = 0
+size_flags_vertical = 3
+icon = ExtResource("4_ohlc3")
+icon_alignment = 1
 expand_icon = true
 
 [node name="2" type="Button" parent="levels"]
@@ -52,21 +63,65 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "
 "
-icon = ExtResource("2_6d4qn")
+icon = ExtResource("5_oi47x")
+icon_alignment = 1
 expand_icon = true
 
 [node name="3" type="Button" parent="levels"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-icon = ExtResource("3_75wtb")
+icon = ExtResource("6_k70e1")
+icon_alignment = 1
 expand_icon = true
 
 [node name="4" type="Button" parent="levels"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-icon = ExtResource("4_os2v8")
+icon = ExtResource("7_m64m1")
+icon_alignment = 1
 expand_icon = true
 
-[connection signal="pressed" from="levels/1" to="levels" method="_on__pressed"]
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = -31.0
+offset_right = 2.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Panel Bebop"
+label_settings = ExtResource("8_pc5sr")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 2.0
+offset_top = 4.0
+offset_right = 772.0
+offset_bottom = 87.0
+grow_horizontal = 2
+scale = Vector2(0.2, 0.2)
+
+[node name="Retornar" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+icon = ExtResource("9_gd536")
+
+[node name="Opciones" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+icon = ExtResource("10_v177t")
+
+[connection signal="pressed" from="levels/1" to="levels" method="_on__pressed1"]
+[connection signal="pressed" from="levels/2" to="levels" method="_on__pressed2"]
+[connection signal="pressed" from="levels/3" to="levels" method="_on__pressed3"]
+[connection signal="pressed" from="levels/4" to="levels" method="_on__pressed4"]
+[connection signal="pressed" from="HBoxContainer/Retornar" to="levels" method="_on_retornar_pressed"]
