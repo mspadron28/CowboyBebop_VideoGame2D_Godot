@@ -1,13 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://xbhnty7xamje"]
+[gd_scene load_steps=6 format=3 uid="uid://xbhnty7xamje"]
 
 [ext_resource type="Script" path="res://enemies/mission1_enemies/enemy_generator_m_1.gd" id="1_pdwv3"]
 [ext_resource type="PackedScene" uid="uid://6qxf1aw8em6d" path="res://enemies/mission1_enemies/can_enemy/can_enemy.tscn" id="2_ejrak"]
 [ext_resource type="Script" path="res://components/spawner_component.gd" id="3_3lvuh"]
 [ext_resource type="PackedScene" uid="uid://do6ipdda6ax46" path="res://bosses/mision1/vault_boss.tscn" id="3_gtdcd"]
+[ext_resource type="PackedScene" uid="uid://d5h5hn0sd18l" path="res://enemies/mission1_enemies/mini_nova/vault_mini_nova.tscn" id="3_n71y6"]
 
 [node name="EnemyGeneratorM1" type="Node2D"]
 script = ExtResource("1_pdwv3")
 CanEnemyScene = ExtResource("2_ejrak")
+MiniEnemyScene = ExtResource("3_n71y6")
 VaultEnemyScene = ExtResource("3_gtdcd")
 
 [node name="SpawnerComponent" type="Node2D" parent="."]
@@ -19,6 +21,11 @@ one_shot = true
 autostart = true
 
 [node name="VaultBossTimer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 25.0
+one_shot = true
+autostart = true
+
+[node name="MiniNovaTimer" type="Timer" parent="."]
+wait_time = 3.0
 one_shot = true
 autostart = true

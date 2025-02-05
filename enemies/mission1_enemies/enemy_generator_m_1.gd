@@ -1,12 +1,17 @@
 extends Node2D
-
+#Enemies
 @export var CanEnemyScene: PackedScene
+@export var MiniEnemyScene: PackedScene
+#BOSS
 @export var VaultEnemyScene: PackedScene
 
 var margin = 8
 var screen_width = ProjectSettings.get_setting("display/window/size/viewport_width")
 @onready var spawner_component: SpawnerComponent = $SpawnerComponent
 @onready var can_enemy_spawn_timer: Timer = $CanEnemySpawnTimer
+@onready var mini_nova_timer: Timer = $MiniNovaTimer
+
+#BOSS
 @onready var vault_boss_timer: Timer = $VaultBossTimer
 var vault_boss_node: Node2D = null # Referencia al jefe cuando aparece
 
@@ -14,6 +19,8 @@ var vault_boss_node: Node2D = null # Referencia al jefe cuando aparece
 func _ready() -> void:
 	# Conecta el temporizador de los enemigos normales
 	can_enemy_spawn_timer.timeout.connect(handle_spawn.bind(CanEnemyScene, can_enemy_spawn_timer))
+	mini_nova_timer.timeout.connect(handle_spawn.bind(MiniEnemyScene, mini_nova_timer))
+	
 	# Conecta el temporizador para la aparición del jefe
 	vault_boss_timer.timeout.connect(spawn_boss)
 
