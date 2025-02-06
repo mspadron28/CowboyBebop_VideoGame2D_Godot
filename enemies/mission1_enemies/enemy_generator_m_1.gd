@@ -1,4 +1,6 @@
 extends Node2D
+
+@export var HealthScene: PackedScene
 #Enemies
 @export var CanEnemyScene: PackedScene
 @export var MiniEnemyScene: PackedScene
@@ -12,6 +14,7 @@ var screen_width = ProjectSettings.get_setting("display/window/size/viewport_wid
 @onready var can_enemy_spawn_timer: Timer = $CanEnemySpawnTimer
 @onready var mini_nova_timer: Timer = $MiniNovaTimer
 @onready var slime_timer: Timer = $SlimeTimer
+@onready var health_timer: Timer = $HealthTimer
 
 #BOSS
 @onready var vault_boss_timer: Timer = $VaultBossTimer
@@ -25,6 +28,8 @@ func _ready() -> void:
 	slime_timer.timeout.connect(handle_spawn.bind(SlimeScene, slime_timer))
 	# Conecta el temporizador para la aparición del jefe
 	vault_boss_timer.timeout.connect(spawn_boss)
+	# Para el item de vida
+	health_timer.timeout.connect(handle_spawn.bind(HealthScene, health_timer))
 
 # Función para manejar la aparición de enemigos normales
 func handle_spawn(enemy_scene: PackedScene, timer: Timer) -> void:

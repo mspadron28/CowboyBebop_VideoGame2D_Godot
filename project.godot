@@ -31,6 +31,7 @@ window/stretch/mode="canvas_items"
 
 2d_physics/layer_1="player_hurtbox"
 2d_physics/layer_2="enemy_hurtbox"
+2d_physics/layer_3="health_hurtbox"
 
 [rendering]
 
