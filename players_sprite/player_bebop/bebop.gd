@@ -1,3 +1,4 @@
+class_name Bebop
 extends Node2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var move_component: MoveComponent = $MoveComponent
@@ -46,3 +47,8 @@ func animate_the_ship() -> void:
 func update_hearts() -> void:
 	var current_health = stats_component.health
 	life_node.on_player_life_changed(current_health)
+	
+func heal(amount: int) -> void:
+	stats_component.health += amount
+	print("Vida actual:", stats_component.health)  # Debug
+	update_hearts() 

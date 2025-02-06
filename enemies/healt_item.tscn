@@ -1,10 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://cfajt7ohgn87g"]
+[gd_scene load_steps=8 format=3 uid="uid://cfajt7ohgn87g"]
 
 [ext_resource type="Script" path="res://enemies/healt_item.gd" id="1_j82sm"]
 [ext_resource type="Texture2D" uid="uid://dgyk6ny1xsa0x" path="res://assets/yellow_enemy.png" id="2_i1gri"]
 [ext_resource type="Script" path="res://components/move_component.gd" id="3_f7u31"]
-[ext_resource type="Script" path="res://components/hurtbox_component.gd" id="6_rfnau"]
-[ext_resource type="Script" path="res://components/hitbox_component.gd" id="7_rncax"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a5vt4"]
 atlas = ExtResource("2_i1gri")
@@ -28,10 +26,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_o3dyk"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_gqcuo"]
-radius = 6.08276
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vvt5q"]
 
 [node name="HealthItem" type="Node2D"]
 script = ExtResource("1_j82sm")
@@ -44,23 +39,15 @@ frame_progress = 0.404174
 [node name="MoveComponent" type="Node" parent="." node_paths=PackedStringArray("actor")]
 script = ExtResource("3_f7u31")
 actor = NodePath("..")
-velocity = Vector2(0, 15)
+velocity = Vector2(0, 40)
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
-[node name="HurtboxComponent" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="."]
 collision_layer = 4
-collision_mask = 0
-script = ExtResource("6_rfnau")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
-shape = SubResource("CircleShape2D_o3dyk")
-debug_color = Color(0, 0.637527, 0.3909, 0.42)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_vvt5q")
+debug_color = Color(0.20455, 0.623022, 0.431583, 0.42)
 
-[node name="HitboxComponent" type="Area2D" parent="."]
-collision_layer = 0
-script = ExtResource("7_rncax")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
-shape = SubResource("CircleShape2D_gqcuo")
-debug_color = Color(0.689068, 0.49291, 0.211987, 0.42)
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
