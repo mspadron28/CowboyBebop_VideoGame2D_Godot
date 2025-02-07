@@ -1,3 +1,7 @@
-[gd_scene format=3 uid="uid://blqoquaxp1lu0"]
+[gd_scene load_steps=2 format=3 uid="uid://blqoquaxp1lu0"]
+
+[ext_resource type="AudioStream" uid="uid://uyif057m2wma" path="res://music/mission1/fin_m1.mp3" id="1_8ubga"]
 
 [node name="FinMenu1" type="AudioStreamPlayer"]
+stream = ExtResource("1_8ubga")
+autoplay = true

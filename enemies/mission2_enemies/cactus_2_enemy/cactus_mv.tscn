@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://l58vx1vhuo7j"]
+
+[ext_resource type="PackedScene" uid="uid://txh726x4s7n" path="res://enemies/mechanics/movements/enemy_mv.tscn" id="1_x6fp0"]
+[ext_resource type="SpriteFrames" uid="uid://d2xskvie41pb8" path="res://enemies/mission2_enemies/cactus_2_enemy/cactus_2_cb_enemy.tres" id="2_t54nu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_re8b8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h2cli"]
+radius = 5.0
+
+[node name="CactusMV" instance=ExtResource("1_x6fp0")]
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+position = Vector2(0, -0.823)
+scale = Vector2(0.227, 0.21)
+sprite_frames = ExtResource("2_t54nu")
+autoplay = "default"
+frame_progress = 0.148228
+
+[node name="StatsComponent" parent="." index="1"]
+health = 4
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="2"]
+position = Vector2(1.54972e-06, -0.5)
+scale = Vector2(1.7, 1.45)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" index="0"]
+shape = SubResource("CircleShape2D_re8b8")
+debug_color = Color(0.89665, 0.142772, 0.69363, 0.42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
+shape = SubResource("CircleShape2D_h2cli")
+
+[node name="MoveSideComponent" parent="States/MoveSideState" index="0" node_paths=PackedStringArray("actor")]
+actor = NodePath("../../..")
+
+[node name="BorderBounceComponent" parent="States/MoveSideState" index="1" node_paths=PackedStringArray("actor")]
+actor = NodePath("../../..")
+
+[node name="MoveComponent" parent="States/MoveDownState" index="0" node_paths=PackedStringArray("actor")]
+actor = NodePath("../../..")
+velocity = Vector2(0, 50)

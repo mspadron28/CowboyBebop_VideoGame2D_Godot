@@ -44,7 +44,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7vwjy"]
-size = Vector2(30, 14)
+size = Vector2(12, 14)
 
 [node name="laser_mini_nova" type="Node2D"]
 script = ExtResource("1_j6eht")
@@ -54,7 +54,7 @@ position = Vector2(0, -4.76837e-07)
 scale = Vector2(1.78906, 1.47656)
 sprite_frames = SubResource("SpriteFrames_cte4g")
 animation = &"center"
-frame_progress = 0.821617
+frame_progress = 0.69013
 
 [node name="MoveComponent" type="Node" parent="." node_paths=PackedStringArray("actor")]
 script = ExtResource("3_bdchs")
@@ -62,8 +62,8 @@ actor = NodePath("..")
 velocity = Vector2(0, 150)
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(8.34465e-07, -1)
-scale = Vector2(1.5, 0.7)
+position = Vector2(-1, -1)
+scale = Vector2(0.7, 0.7)
 
 [node name="ScaleComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
 script = ExtResource("4_bms6b")
@@ -81,5 +81,5 @@ collision_layer = 0
 script = ExtResource("6_sqnld")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
-position = Vector2(0, -1)
+position = Vector2(-1, -1)
 shape = SubResource("RectangleShape2D_7vwjy")

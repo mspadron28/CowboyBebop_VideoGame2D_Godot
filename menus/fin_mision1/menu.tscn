@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://mbi4s3hoik4v"]
+[gd_scene load_steps=7 format=3 uid="uid://mbi4s3hoik4v"]
 
 [ext_resource type="Script" path="res://menus/fin_mision1/menu.gd" id="1_hb8wc"]
 [ext_resource type="Theme" uid="uid://cyq1k2u58jfch" path="res://menus/fin_mision1/mision1_theme.tres" id="2_1qefq"]
 [ext_resource type="Texture2D" uid="uid://cwtw1hwq5u16k" path="res://menus/principal/opciones.png" id="3_cel41"]
 [ext_resource type="Texture2D" uid="uid://c7ml0mgthvnih" path="res://menus/botones/retornarbtn.png" id="3_pi427"]
 [ext_resource type="PackedScene" uid="uid://b6qhp7vamq72u" path="res://menus/fin_mision1/m1_end_background.tscn" id="5_4eej8"]
+[ext_resource type="PackedScene" uid="uid://blqoquaxp1lu0" path="res://music/mission1/fin_menu_1.tscn" id="6_0ic4o"]
 
 [node name="MenuM1" type="Control"]
 layout_mode = 3
@@ -68,6 +69,8 @@ size_flags_horizontal = 10
 icon = ExtResource("3_cel41")
 
 [node name="M1EndBackground" parent="." instance=ExtResource("5_4eej8")]
+
+[node name="FinMenu1" parent="." instance=ExtResource("6_0ic4o")]
 
 [connection signal="pressed" from="VBoxContainer/ContinuarM1" to="." method="_on_continuar_m_1_pressed"]
 [connection signal="pressed" from="HBoxContainer/Retornar" to="." method="_on_retornar_pressed"]

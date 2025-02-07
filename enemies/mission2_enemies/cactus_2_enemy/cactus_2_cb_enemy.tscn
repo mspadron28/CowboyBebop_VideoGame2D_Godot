@@ -1,57 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://cheeifdrjckxb"]
+[gd_scene load_steps=5 format=3 uid="uid://cheeifdrjckxb"]
 
 [ext_resource type="PackedScene" uid="uid://d3fdd3hdc7p1q" path="res://enemies/enemy.tscn" id="1_hs4jb"]
-[ext_resource type="Texture2D" uid="uid://bj20nckv28bws" path="res://enemies/mission2_enemies/cactus_2_enemy/cactus2.png" id="2_e4si2"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mpapr"]
-atlas = ExtResource("2_e4si2")
-region = Rect2(0, 0, 145, 130)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gnum1"]
-atlas = ExtResource("2_e4si2")
-region = Rect2(145, 0, 145, 130)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_u7pv5"]
-atlas = ExtResource("2_e4si2")
-region = Rect2(290, 0, 145, 130)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lh66p"]
-atlas = ExtResource("2_e4si2")
-region = Rect2(435, 0, 145, 130)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nt8uo"]
-atlas = ExtResource("2_e4si2")
-region = Rect2(580, 0, 145, 130)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4v3ih"]
-atlas = ExtResource("2_e4si2")
-region = Rect2(725, 0, 145, 130)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_8pndv"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mpapr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gnum1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_u7pv5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lh66p")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nt8uo")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4v3ih")
-}],
-"loop": true,
-"name": &"default",
-"speed": 6.0
-}]
+[ext_resource type="SpriteFrames" uid="uid://d2xskvie41pb8" path="res://enemies/mission2_enemies/cactus_2_enemy/cactus_2_cb_enemy.tres" id="2_0jolc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_65qrt"]
 
@@ -63,10 +13,10 @@ radius = 7.0
 [node name="AnimatedSprite2D" parent="." index="0"]
 position = Vector2(0, -0.82277)
 scale = Vector2(0.227097, 0.210151)
-sprite_frames = SubResource("SpriteFrames_8pndv")
+sprite_frames = ExtResource("2_0jolc")
 autoplay = "default"
-frame = 5
-frame_progress = 0.791648
+frame = 1
+frame_progress = 0.66879
 
 [node name="StatsComponent" parent="." index="1"]
 health = 3

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://txh726x4s7n"]
+[gd_scene load_steps=17 format=3 uid="uid://txh726x4s7n"]
 
 [ext_resource type="Script" path="res://enemies/mechanics/movements/enemy_mv.gd" id="1_ly018"]
 [ext_resource type="Script" path="res://components/stats_component.gd" id="2_ir572"]
@@ -13,6 +13,8 @@
 [ext_resource type="Script" path="res://components/destroyed_component.gd" id="11_7uwfk"]
 [ext_resource type="Script" path="res://components/timed_state_componoent.gd" id="12_rnx85"]
 [ext_resource type="Script" path="res://components/border_bounce_component.gd" id="13_l008a"]
+[ext_resource type="AudioStream" uid="uid://bb8ipwav8swta" path="res://sounds/hit_sound.wav" id="14_afjih"]
+[ext_resource type="Script" path="res://components/variable_pitch_audio_stream_player.gd" id="14_b2tpq"]
 
 [sub_resource type="GDScript" id="GDScript_75sir"]
 script/source = "class_name MoveComponent2
@@ -93,3 +95,9 @@ script = SubResource("GDScript_75sir")
 unique_name_in_owner = true
 script = ExtResource("12_rnx85")
 duration = 0.5
+
+[node name="HitAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_afjih")
+volume_db = 5.0
+script = ExtResource("14_b2tpq")
+auto_play_with_variance = true

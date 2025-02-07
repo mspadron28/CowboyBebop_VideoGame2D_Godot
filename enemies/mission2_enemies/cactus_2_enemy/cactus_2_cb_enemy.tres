@@ -1,0 +1,53 @@
+[gd_resource type="SpriteFrames" load_steps=8 format=3 uid="uid://d2xskvie41pb8"]
+
+[ext_resource type="Texture2D" uid="uid://bj20nckv28bws" path="res://enemies/mission2_enemies/cactus_2_enemy/cactus2.png" id="1_qxl7b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mpapr"]
+atlas = ExtResource("1_qxl7b")
+region = Rect2(0, 0, 145, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gnum1"]
+atlas = ExtResource("1_qxl7b")
+region = Rect2(145, 0, 145, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u7pv5"]
+atlas = ExtResource("1_qxl7b")
+region = Rect2(290, 0, 145, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lh66p"]
+atlas = ExtResource("1_qxl7b")
+region = Rect2(435, 0, 145, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nt8uo"]
+atlas = ExtResource("1_qxl7b")
+region = Rect2(580, 0, 145, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4v3ih"]
+atlas = ExtResource("1_qxl7b")
+region = Rect2(725, 0, 145, 130)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mpapr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gnum1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u7pv5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lh66p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nt8uo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4v3ih")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]

@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var CactusEnemyScene: PackedScene
+@export var MiniDon: PackedScene
 @export var Cactus2EnemyScene: PackedScene
 @export var DimadonEnemyScene: PackedScene
 @export var StarEnemyScene: PackedScene
@@ -11,7 +12,12 @@ var screen_width = ProjectSettings.get_setting("display/window/size/viewport_wid
 @onready var cactus_enemy_spawn_timer: Timer = $CactusEnemySpawnTimer
 @onready var star_enemy_spawn_timer: Timer = $StarEnemySpawnTimer
 @onready var cactus_2_enemy_spawn_timer: Timer = $Cactus2EnemySpawnTimer
+@onready var mini_don_timer: Timer = $MiniDonTimer
+
+
 @onready var dimadon_boss_timer: Timer = $DimadonBossTimer
+
+
 var dimadon_boss_node: Node2D = null # Referencia al jefe cuando aparece
 
 # Configuración inicial
@@ -20,6 +26,7 @@ func _ready() -> void:
 	cactus_enemy_spawn_timer.timeout.connect(handle_spawn.bind(CactusEnemyScene, cactus_enemy_spawn_timer))
 	star_enemy_spawn_timer.timeout.connect(handle_spawn.bind(StarEnemyScene, star_enemy_spawn_timer))
 	cactus_2_enemy_spawn_timer.timeout.connect(handle_spawn.bind(Cactus2EnemyScene, cactus_2_enemy_spawn_timer))
+	mini_don_timer.timeout.connect(handle_spawn.bind(MiniDon, mini_don_timer))
 	# Conecta el temporizador para la aparición del jefe
 	dimadon_boss_timer.timeout.connect(spawn_dimadon_boss)
 

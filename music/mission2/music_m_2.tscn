@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://clatuyv20rkll"]
+
+[ext_resource type="AudioStream" uid="uid://h052s7i2qtsb" path="res://music/mission2/m2_music.mp3" id="1_oi4yt"]
+
+[node name="MusicM2" type="AudioStreamPlayer"]
+stream = ExtResource("1_oi4yt")
+autoplay = true
+bus = &"Music"

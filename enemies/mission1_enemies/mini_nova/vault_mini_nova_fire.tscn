@@ -17,7 +17,7 @@ script = ExtResource("2_4th5a")
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = ExtResource("2_e4x6r")
-animation = &"bank_left"
+animation = &"center"
 
 [node name="StatsComponent" parent="." index="1"]
 health = 5

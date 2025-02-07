@@ -1,16 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://dk88h8ws16bhp"]
+[gd_scene load_steps=8 format=3 uid="uid://dk88h8ws16bhp"]
 
 [ext_resource type="Script" path="res://enemies/mission2_enemies/enemy_generator_m_2.gd" id="1_3mffj"]
 [ext_resource type="PackedScene" uid="uid://cuyxv3keeg11v" path="res://enemies/mission2_enemies/star_enemy/estrella_enemy.tscn" id="2_h8ghq"]
 [ext_resource type="PackedScene" uid="uid://b53h16kw03vge" path="res://enemies/mission2_enemies/cactus_enemy/cactus_cb_enemy.tscn" id="2_jhnru"]
 [ext_resource type="Script" path="res://components/spawner_component.gd" id="3_c5dlr"]
-[ext_resource type="PackedScene" uid="uid://cheeifdrjckxb" path="res://enemies/mission2_enemies/cactus_2_enemy/cactus_2_cb_enemy.tscn" id="3_f40sr"]
+[ext_resource type="PackedScene" uid="uid://wimddgxgn5ci" path="res://enemies/mission2_enemies/mini_don/m_ini_don_fire.tscn" id="3_gg7xf"]
+[ext_resource type="PackedScene" uid="uid://l58vx1vhuo7j" path="res://enemies/mission2_enemies/cactus_2_enemy/cactus_mv.tscn" id="3_rp4fs"]
 [ext_resource type="PackedScene" uid="uid://bj38gomm2p88b" path="res://bosses/mision2/dimadon_boss.tscn" id="3_uidn5"]
 
 [node name="EnemyGeneratorM2" type="Node2D"]
 script = ExtResource("1_3mffj")
 CactusEnemyScene = ExtResource("2_jhnru")
-Cactus2EnemyScene = ExtResource("3_f40sr")
+MiniDon = ExtResource("3_gg7xf")
+Cactus2EnemyScene = ExtResource("3_rp4fs")
 DimadonEnemyScene = ExtResource("3_uidn5")
 StarEnemyScene = ExtResource("2_h8ghq")
 
@@ -19,12 +21,12 @@ unique_name_in_owner = true
 script = ExtResource("3_c5dlr")
 
 [node name="CactusEnemySpawnTimer" type="Timer" parent="."]
-wait_time = 1.5
+wait_time = 2.0
 one_shot = true
 autostart = true
 
 [node name="DimadonBossTimer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 50.0
 one_shot = true
 autostart = true
 
@@ -35,5 +37,10 @@ autostart = true
 
 [node name="Cactus2EnemySpawnTimer" type="Timer" parent="."]
 wait_time = 5.141
+one_shot = true
+autostart = true
+
+[node name="MiniDonTimer" type="Timer" parent="."]
+wait_time = 8.0
 one_shot = true
 autostart = true

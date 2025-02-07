@@ -14,6 +14,7 @@ extends Node2D
 @onready var move_down_state: TimedStateComponent = %MoveDownState
 @onready var move_side_component: MoveComponent = %MoveSideComponent
 @onready var pause_state: TimedStateComponent = %PauseState
+@onready var hit_audio: VariablePitchAudioStreamPlayer = $HitAudio
 
 
 func _ready() -> void:
@@ -21,6 +22,7 @@ func _ready() -> void:
 	hurtbox_component.hurt.connect(func(hitbox: HitboxComponent):
 		flash_component.flash()
 		shake_component.tween_shake()
+		hit_audio.play_with_variance()
 	)
 	stats_component.no_health.connect(queue_free)
 	hitbox_component.hit_hurtbox.connect(destroyed_component.destroy.unbind(1))
