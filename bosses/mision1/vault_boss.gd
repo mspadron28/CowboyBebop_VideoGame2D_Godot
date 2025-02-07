@@ -7,6 +7,7 @@ extends Boss
 @onready var pause_state: TimedStateComponent = %PauseState
 @onready var fire_rate_timer: Timer = %FireRateTimer
 @onready var healthbar: ProgressBar = $CanvasLayer/Healthbar
+@onready var variable_pitch_audio_stream_player: VariablePitchAudioStreamPlayer = $VariablePitchAudioStreamPlayer
 
 
 @onready var stats_component: StatsComponent = $StatsComponent
@@ -31,6 +32,7 @@ func _ready() -> void:
 
 # Disparo constante usando el temporizador
 func fire_lasers() -> void:
+	variable_pitch_audio_stream_player.play_with_variance()
 	projectile_spawner_component.spawn(center_muzzle.global_position)
 
 # Actualiza la barra de vida cuando cambia la salud

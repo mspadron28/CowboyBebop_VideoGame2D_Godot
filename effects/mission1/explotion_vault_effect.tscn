@@ -1,6 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://caef0bhfotprh"]
+[gd_scene load_steps=18 format=3 uid="uid://caef0bhfotprh"]
 
 [ext_resource type="Texture2D" uid="uid://c3vx5yo2k376m" path="res://assets/mision1/vault_nebula/Gray Matter - Sprite Sheet.png" id="1_b8oxe"]
+[ext_resource type="Script" path="res://components/onetime_animated_effect.gd" id="2_kcuus"]
+[ext_resource type="AudioStream" uid="uid://enf0tpspkfdv" path="res://sounds/missions/mission1/boss/vault_defeat.wav" id="3_7262g"]
+[ext_resource type="Script" path="res://components/variable_pitch_audio_stream_player.gd" id="4_m50yl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hy52d"]
 atlas = ExtResource("1_b8oxe")
@@ -100,3 +103,9 @@ scale = Vector2(2.653, 2.82)
 sprite_frames = SubResource("SpriteFrames_s7wkp")
 autoplay = "default"
 frame_progress = 0.852091
+script = ExtResource("2_kcuus")
+
+[node name="VariablePitchAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_7262g")
+script = ExtResource("4_m50yl")
+auto_play_with_variance = true

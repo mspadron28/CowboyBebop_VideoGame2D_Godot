@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://bq6yf5iyby5y6"]
+
+[ext_resource type="PackedScene" uid="uid://cmtv5i61ue463" path="res://enemies/mechanics/fire/enemy_fire.tscn" id="1_jx5ky"]
+[ext_resource type="Script" path="res://enemies/mission1_enemies/mini_nova/vault_mini_nova_fire.gd" id="2_4th5a"]
+[ext_resource type="SpriteFrames" uid="uid://iv0ynsbdwa4q" path="res://enemies/mission1_enemies/mini_nova/vault_mini_nova.tres" id="2_e4x6r"]
+[ext_resource type="AudioStream" uid="uid://csx04jcbcgr31" path="res://sounds/missions/mission1/enemies/fire_mini_nova.wav" id="4_kho53"]
+[ext_resource type="Script" path="res://components/variable_pitch_audio_stream_player.gd" id="5_i03tg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nvxhb"]
+radius = 10.0499
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l6oaq"]
+radius = 6.0
+
+[node name="VaultMiniNovaFire" instance=ExtResource("1_jx5ky")]
+script = ExtResource("2_4th5a")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = ExtResource("2_e4x6r")
+animation = &"bank_left"
+
+[node name="StatsComponent" parent="." index="1"]
+health = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" index="0"]
+shape = SubResource("CircleShape2D_nvxhb")
+debug_color = Color(0.289634, 0.617024, 0.369641, 0.42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
+shape = SubResource("CircleShape2D_l6oaq")
+debug_color = Color(0.732701, 0.443159, 0.441873, 0.42)
+
+[node name="MoveSideComponent" parent="States/MoveSideState" index="0" node_paths=PackedStringArray("actor")]
+actor = NodePath("../../..")
+
+[node name="BorderBounceComponent" parent="States/MoveSideState" index="1" node_paths=PackedStringArray("actor")]
+actor = NodePath("../../..")
+
+[node name="MoveComponent" parent="States/MoveDownState" index="0" node_paths=PackedStringArray("actor")]
+actor = NodePath("../../..")
+velocity = Vector2(0, 25)
+
+[node name="Fire_Sound" type="AudioStreamPlayer" parent="." index="15"]
+stream = ExtResource("4_kho53")
+bus = &"Effects"
+script = ExtResource("5_i03tg")

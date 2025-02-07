@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://4ncm4ntkiyle"]
+
+[ext_resource type="Texture2D" uid="uid://qt7em8qmwgan" path="res://enemies/mission1_enemies/slime/MediumSlime_Blue.png" id="1_jarkp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5m164"]
+atlas = ExtResource("1_jarkp")
+region = Rect2(0, 620, 310, 310)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1g8i1"]
+atlas = ExtResource("1_jarkp")
+region = Rect2(310, 620, 310, 310)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sudr0"]
+atlas = ExtResource("1_jarkp")
+region = Rect2(620, 620, 310, 310)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a85v4"]
+atlas = ExtResource("1_jarkp")
+region = Rect2(930, 620, 310, 310)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5m164")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1g8i1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sudr0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a85v4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]

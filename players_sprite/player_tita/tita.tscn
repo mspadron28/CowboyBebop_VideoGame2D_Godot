@@ -229,5 +229,5 @@ animations = [{
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.585938, 0.578125)
 sprite_frames = SubResource("SpriteFrames_ca1jv")
-animation = &"disparando"
-frame_progress = 0.197949
+animation = &"normal"
+frame_progress = 0.179185

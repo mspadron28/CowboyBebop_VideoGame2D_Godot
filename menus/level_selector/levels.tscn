@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://biblxh0agt7x6"]
+[gd_scene load_steps=12 format=3 uid="uid://biblxh0agt7x6"]
 
 [ext_resource type="Texture2D" uid="uid://ddsg0hd1foogj" path="res://menus/level_selector/ls-bg2.png" id="1_t5psd"]
 [ext_resource type="Script" path="res://menus/level_selector/levels.gd" id="1_ueckw"]
@@ -10,6 +10,7 @@
 [ext_resource type="LabelSettings" uid="uid://ocyc457ibxuq" path="res://themes/labels/selector_label_lb.tres" id="8_pc5sr"]
 [ext_resource type="Texture2D" uid="uid://c7ml0mgthvnih" path="res://menus/botones/retornarbtn.png" id="9_gd536"]
 [ext_resource type="Texture2D" uid="uid://cwtw1hwq5u16k" path="res://menus/principal/opciones.png" id="10_v177t"]
+[ext_resource type="PackedScene" uid="uid://bji5ba8m72fca" path="res://music/general/menu_selector.tscn" id="11_movil"]
 
 [node name="Levels" type="Control"]
 layout_mode = 3
@@ -119,6 +120,8 @@ icon = ExtResource("9_gd536")
 layout_mode = 2
 size_flags_horizontal = 10
 icon = ExtResource("10_v177t")
+
+[node name="MenuSelector" parent="." instance=ExtResource("11_movil")]
 
 [connection signal="pressed" from="levels/1" to="levels" method="_on__pressed1"]
 [connection signal="pressed" from="levels/2" to="levels" method="_on__pressed2"]

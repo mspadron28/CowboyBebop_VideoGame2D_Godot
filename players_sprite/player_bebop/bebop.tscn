@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://db70ynsj68p2r"]
+[gd_scene load_steps=23 format=3 uid="uid://db70ynsj68p2r"]
 
 [ext_resource type="Script" path="res://players_sprite/player_bebop/bebop.gd" id="1_7wkye"]
 [ext_resource type="Script" path="res://components/move_component.gd" id="2_epdke"]
@@ -20,6 +20,8 @@
 [ext_resource type="Texture2D" uid="uid://b5rurr2wlubcc" path="res://players_sprite/player_bebop/Heart.png" id="17_ntug5"]
 [ext_resource type="Texture2D" uid="uid://cn11w4b7j3xyp" path="res://players_sprite/player_bebop/bebop_hb.png" id="19_d18e5"]
 [ext_resource type="Texture2D" uid="uid://c7ml0mgthvnih" path="res://menus/botones/retornarbtn.png" id="20_s7dsc"]
+[ext_resource type="AudioStream" uid="uid://d25odehbmu5p2" path="res://sounds/missions/mission1/players/bebop_fire_m1.mp3" id="21_hnbfe"]
+[ext_resource type="Script" path="res://components/variable_pitch_audio_stream_player.gd" id="22_hb7d1"]
 
 [node name="Bebop" type="Node2D"]
 z_index = 2
@@ -59,7 +61,7 @@ script = ExtResource("8_5g1t6")
 scene = ExtResource("9_4jtyk")
 
 [node name="FireRateTimer" type="Timer" parent="."]
-wait_time = 0.4
+wait_time = 0.8
 autostart = true
 
 [node name="ScaleComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
@@ -142,5 +144,11 @@ scale = Vector2(0.2, 0.2)
 layout_mode = 2
 size_flags_horizontal = 10
 icon = ExtResource("20_s7dsc")
+
+[node name="BebopFire" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("21_hnbfe")
+bus = &"Effects"
+script = ExtResource("22_hb7d1")
+auto_play_with_variance = true
 
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/Retornar" to="CanvasLayer/Life" method="_on_retornar_pressed"]

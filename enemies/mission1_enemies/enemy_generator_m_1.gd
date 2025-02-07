@@ -4,6 +4,7 @@ extends Node2D
 #Enemies
 @export var CanEnemyScene: PackedScene
 @export var MiniEnemyScene: PackedScene
+@export var GreenScene: PackedScene
 @export var SlimeScene: PackedScene
 #BOSS
 @export var VaultEnemyScene: PackedScene
@@ -14,6 +15,7 @@ var screen_width = ProjectSettings.get_setting("display/window/size/viewport_wid
 @onready var can_enemy_spawn_timer: Timer = $CanEnemySpawnTimer
 @onready var mini_nova_timer: Timer = $MiniNovaTimer
 @onready var slime_timer: Timer = $SlimeTimer
+@onready var green_e_timer: Timer = $GreenETimer
 @onready var health_timer: Timer = $HealthTimer
 
 #BOSS
@@ -26,6 +28,7 @@ func _ready() -> void:
 	can_enemy_spawn_timer.timeout.connect(handle_spawn.bind(CanEnemyScene, can_enemy_spawn_timer))
 	mini_nova_timer.timeout.connect(handle_spawn.bind(MiniEnemyScene, mini_nova_timer))
 	slime_timer.timeout.connect(handle_spawn.bind(SlimeScene, slime_timer))
+	green_e_timer.timeout.connect(handle_spawn.bind(GreenScene, green_e_timer))
 	# Conecta el temporizador para la aparición del jefe
 	vault_boss_timer.timeout.connect(spawn_boss)
 	# Para el item de vida
@@ -44,7 +47,7 @@ func spawn_boss() -> void:
 
 	# Conecta la señal de eliminación del jefe para cambiar de escena
 	vault_boss_node.tree_exiting.connect(func():
-		await get_tree().create_timer(1).timeout
+		await get_tree().create_timer(3).timeout
 		get_tree().change_scene_to_file("res://menus/fin_mision1/menu.tscn")
 		Global.unlockedLevels += 1
 	)

@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://5lbtivicorxo"]
+
+[ext_resource type="PackedScene" uid="uid://txh726x4s7n" path="res://enemies/mechanics/movements/enemy_mv.tscn" id="1_63bwh"]
+[ext_resource type="SpriteFrames" uid="uid://4ncm4ntkiyle" path="res://enemies/mission1_enemies/slime/slime.tres" id="2_g01s1"]
+[ext_resource type="PackedScene" uid="uid://bbdeivknnqtbi" path="res://effects/mission1/slime/slime_explotion_effect.tscn" id="3_gwg5b"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t83c5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3jc0b"]
+radius = 6.08276
+
+[node name="SlimeMv" instance=ExtResource("1_63bwh")]
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+position = Vector2(1, -2)
+scale = Vector2(0.09, 0.09)
+sprite_frames = ExtResource("2_g01s1")
+
+[node name="StatsComponent" parent="." index="1"]
+health = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" index="0"]
+shape = SubResource("CircleShape2D_t83c5")
+debug_color = Color(1.73271e-06, 0.638852, 0.372953, 0.42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
+shape = SubResource("CircleShape2D_3jc0b")
+
+[node name="SpawnerComponent" parent="." index="8"]
+scene = ExtResource("3_gwg5b")
+
+[node name="MoveSideState" parent="States" index="0"]
+duration = 2.0
+
+[node name="MoveSideComponent" parent="States/MoveSideState" index="0" node_paths=PackedStringArray("actor")]
+actor = NodePath("../../..")
+
+[node name="BorderBounceComponent" parent="States/MoveSideState" index="1" node_paths=PackedStringArray("actor")]
+actor = NodePath("../../..")
+
+[node name="MoveComponent" parent="States/MoveDownState" index="0" node_paths=PackedStringArray("actor")]
+actor = NodePath("../../..")
+velocity = Vector2(0, 70)

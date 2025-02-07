@@ -13,6 +13,7 @@ extends Node2D
 #Para los corazones
 @onready var stats_component: StatsComponent = $StatsComponent
 @onready var life_node: Control = $CanvasLayer/Life
+@onready var bebop_fire: VariablePitchAudioStreamPlayer = $BebopFire
 
 
 func _ready() -> void:
@@ -28,6 +29,7 @@ func _ready() -> void:
 	)
 
 func fire_lasers() -> void:
+	bebop_fire.play_with_variance()
 	spawner_component.spawn(left_muzzle.global_position)
 	spawner_component.spawn(right_muzzle.global_position)
 	scale_component.tween_scale()
@@ -50,5 +52,4 @@ func update_hearts() -> void:
 	
 func heal(amount: int) -> void:
 	stats_component.health += amount
-	print("Vida actual:", stats_component.health)  # Debug
 	update_hearts() 

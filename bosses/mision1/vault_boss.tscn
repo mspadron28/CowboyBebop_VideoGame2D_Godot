@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://do6ipdda6ax46"]
+[gd_scene load_steps=10 format=3 uid="uid://do6ipdda6ax46"]
 
 [ext_resource type="PackedScene" uid="uid://770ogjr8832x" path="res://bosses/boss.tscn" id="1_jutx1"]
 [ext_resource type="Script" path="res://bosses/mision1/vault_boss.gd" id="2_ow48k"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://caef0bhfotprh" path="res://effects/mission1/explotion_vault_effect.tscn" id="4_ur4cf"]
 [ext_resource type="PackedScene" uid="uid://b7q84ev4cssft" path="res://menus/healthbar/healthbar.tscn" id="6_neotx"]
 [ext_resource type="Theme" uid="uid://bcueb8fc272bg" path="res://menus/principal/principal_theme.tres" id="7_0ecro"]
+[ext_resource type="AudioStream" uid="uid://dbc1skvgkqk7p" path="res://sounds/missions/mission1/boss/vault_fire.wav" id="8_s0j6x"]
+[ext_resource type="Script" path="res://components/variable_pitch_audio_stream_player.gd" id="9_k267y"]
 [ext_resource type="PackedScene" uid="uid://c3qye74v8861o" path="res://projectiles/laser_vault_nova.tscn" id="10_1qot2"]
 
 [node name="VaultBoss" instance=ExtResource("1_jutx1")]
@@ -17,7 +19,7 @@ animation = &"bank_left"
 frame_progress = 0.601713
 
 [node name="StatsComponent" parent="." index="1"]
-health = 30
+health = 20
 
 [node name="HurtboxComponent" parent="." index="2"]
 visible = false
@@ -40,7 +42,7 @@ node = NodePath("../AnimatedSprite2D")
 scene = ExtResource("10_1qot2")
 
 [node name="FireRateTimer" parent="." index="10"]
-wait_time = 1.392
+wait_time = 1.5
 
 [node name="BorderBounceComponent" parent="States/MoveSideState" index="1" node_paths=PackedStringArray("actor")]
 actor = NodePath("../../..")
@@ -66,3 +68,9 @@ theme = ExtResource("7_0ecro")
 theme_type_variation = &"HeaderSmall"
 text = "Vault Boy"
 horizontal_alignment = 2
+
+[node name="VariablePitchAudioStreamPlayer" type="AudioStreamPlayer" parent="." index="13"]
+stream = ExtResource("8_s0j6x")
+bus = &"Effects"
+script = ExtResource("9_k267y")
+auto_play_with_variance = true

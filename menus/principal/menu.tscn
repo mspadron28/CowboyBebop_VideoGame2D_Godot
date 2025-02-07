@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://j71mr7fmkoih"]
+[gd_scene load_steps=7 format=3 uid="uid://j71mr7fmkoih"]
 
 [ext_resource type="PackedScene" uid="uid://dc8rej7cuuvvo" path="res://menus/principal/principal_background.tscn" id="1_by1dk"]
 [ext_resource type="Script" path="res://menus/principal/menu.gd" id="1_gumph"]
 [ext_resource type="Theme" uid="uid://bcueb8fc272bg" path="res://menus/principal/principal_theme.tres" id="2_tfr58"]
 [ext_resource type="Texture2D" uid="uid://cs76ir3poquhj" path="res://menus/principal/salir.png" id="3_vwhkh"]
 [ext_resource type="Texture2D" uid="uid://cwtw1hwq5u16k" path="res://menus/principal/opciones.png" id="4_um4xw"]
+[ext_resource type="PackedScene" uid="uid://dea01dcv1nrkv" path="res://music/mission1/principal_menu.tscn" id="6_5tye0"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -68,6 +69,8 @@ icon = ExtResource("3_vwhkh")
 layout_mode = 2
 size_flags_horizontal = 10
 icon = ExtResource("4_um4xw")
+
+[node name="PrincipalMenu" parent="." instance=ExtResource("6_5tye0")]
 
 [connection signal="pressed" from="VBoxContainer/Iniciar" to="." method="_on_iniciar_pressed"]
 [connection signal="pressed" from="VBoxContainer/Iniciar" to="PrincipalBackground" method="_on_iniciar_pressed"]
