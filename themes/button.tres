@@ -1,0 +1,14 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://jdjddy67enkj"]
+
+[ext_resource type="Texture2D" uid="uid://b0yysfyj5uy51" path="res://menus/botones/retornarbtn.png" id="1_gi328"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m03gb"]
+texture = ExtResource("1_gi328")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c1dux"]
+texture = ExtResource("1_gi328")
+
+[resource]
+Button/icons/icon = ExtResource("1_gi328")
+Button/styles/focus = SubResource("StyleBoxTexture_m03gb")
+Button/styles/hover = SubResource("StyleBoxTexture_c1dux")

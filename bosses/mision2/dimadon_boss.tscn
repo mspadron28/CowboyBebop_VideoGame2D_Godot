@@ -91,6 +91,6 @@ auto_play_with_variance = true
 
 [node name="CactusAudio" type="AudioStreamPlayer" parent="." index="16"]
 stream = ExtResource("10_1b2h4")
-bus = &"Effects"
+bus = &"Music"
 script = ExtResource("11_cnf5t")
 auto_play_with_variance = true

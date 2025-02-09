@@ -1,8 +1,8 @@
-[gd_scene load_steps=23 format=3 uid="uid://db70ynsj68p2r"]
+[gd_scene load_steps=34 format=3 uid="uid://db70ynsj68p2r"]
 
 [ext_resource type="Script" path="res://players_sprite/player_bebop/bebop.gd" id="1_7wkye"]
+[ext_resource type="Texture2D" uid="uid://c4x1178kb7mtq" path="res://assets/mision1/scarlett_nebula/Gaia - Sprite Sheet.png" id="2_0elch"]
 [ext_resource type="Script" path="res://components/move_component.gd" id="2_epdke"]
-[ext_resource type="SpriteFrames" uid="uid://b1ay0yjhojgal" path="res://bosses/mision3/scarlet_boss_frames.tres" id="2_xrsnp"]
 [ext_resource type="Script" path="res://components/move_input_component.gd" id="4_y722j"]
 [ext_resource type="Resource" uid="uid://hxqau57ysde4" path="res://players_sprite/player_bebop/bebop_move_stats.tres" id="5_fl5gq"]
 [ext_resource type="Script" path="res://components/stats_component.gd" id="6_6pu0i"]
@@ -19,19 +19,113 @@
 [ext_resource type="Script" path="res://players_sprite/player_bebop/Life.gd" id="17_mhxed"]
 [ext_resource type="Texture2D" uid="uid://b5rurr2wlubcc" path="res://players_sprite/player_bebop/Heart.png" id="17_ntug5"]
 [ext_resource type="Texture2D" uid="uid://cn11w4b7j3xyp" path="res://players_sprite/player_bebop/bebop_hb.png" id="19_d18e5"]
-[ext_resource type="Texture2D" uid="uid://c7ml0mgthvnih" path="res://menus/botones/retornarbtn.png" id="20_s7dsc"]
 [ext_resource type="AudioStream" uid="uid://d25odehbmu5p2" path="res://sounds/missions/mission1/players/bebop_fire_m1.mp3" id="21_hnbfe"]
 [ext_resource type="Script" path="res://components/variable_pitch_audio_stream_player.gd" id="22_hb7d1"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_x4oae"]
+atlas = ExtResource("2_0elch")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6xym8"]
+atlas = ExtResource("2_0elch")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yga8c"]
+atlas = ExtResource("2_0elch")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vhlex"]
+atlas = ExtResource("2_0elch")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l8lh2"]
+atlas = ExtResource("2_0elch")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7cjbp"]
+atlas = ExtResource("2_0elch")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_anc4h"]
+atlas = ExtResource("2_0elch")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p2d8o"]
+atlas = ExtResource("2_0elch")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ummov"]
+atlas = ExtResource("2_0elch")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2f0aq"]
+atlas = ExtResource("2_0elch")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nqwhs"]
+atlas = ExtResource("2_0elch")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_83ovt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x4oae")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6xym8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yga8c")
+}],
+"loop": true,
+"name": &"bank_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vhlex")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l8lh2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7cjbp")
+}],
+"loop": true,
+"name": &"bank_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_anc4h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p2d8o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ummov")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2f0aq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nqwhs")
+}],
+"loop": true,
+"name": &"center",
+"speed": 5.0
+}]
+
 [node name="Bebop" type="Node2D"]
 z_index = 2
+position = Vector2(98, 239)
 script = ExtResource("1_7wkye")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 3
-sprite_frames = ExtResource("2_xrsnp")
+sprite_frames = SubResource("SpriteFrames_83ovt")
 animation = &"bank_right"
-frame_progress = 0.663132
 
 [node name="MoveComponent" type="Node" parent="." node_paths=PackedStringArray("actor")]
 script = ExtResource("2_epdke")
@@ -68,7 +162,7 @@ autostart = true
 script = ExtResource("10_y8f3f")
 sprite = NodePath("../AnimatedSprite2D")
 
-[node name="HurtboxComponent" type="Area2D" parent="." groups=["player"]]
+[node name="HurtboxComponent" type="Area2D" parent="."]
 collision_mask = 0
 script = ExtResource("11_oj41p")
 
@@ -130,25 +224,8 @@ offset_bottom = 273.0
 texture = ExtResource("19_d18e5")
 expand_mode = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 3.0
-offset_top = 255.0
-offset_right = 773.0
-offset_bottom = 340.0
-grow_horizontal = 2
-scale = Vector2(0.2, 0.2)
-
-[node name="Retornar" type="Button" parent="CanvasLayer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 10
-icon = ExtResource("20_s7dsc")
-
 [node name="BebopFire" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("21_hnbfe")
 bus = &"Effects"
 script = ExtResource("22_hb7d1")
 auto_play_with_variance = true
-
-[connection signal="pressed" from="CanvasLayer/HBoxContainer/Retornar" to="CanvasLayer/Life" method="_on_retornar_pressed"]

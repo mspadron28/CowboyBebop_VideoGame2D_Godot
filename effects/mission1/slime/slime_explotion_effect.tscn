@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bbdeivknnqtbi"]
+[gd_scene load_steps=10 format=3 uid="uid://bbdeivknnqtbi"]
 
 [ext_resource type="Texture2D" uid="uid://qt7em8qmwgan" path="res://enemies/mission1_enemies/slime/MediumSlime_Blue.png" id="1_0vquw"]
 [ext_resource type="Script" path="res://components/onetime_animated_effect.gd" id="2_e0n54"]
+[ext_resource type="AudioStream" uid="uid://b6sv6xmw2c8ss" path="res://sounds/missions/mission1/enemies/slime_defeat.wav" id="3_ejbj7"]
+[ext_resource type="Script" path="res://components/variable_pitch_audio_stream_player.gd" id="4_8a2rw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1oexr"]
 atlas = ExtResource("1_0vquw")
@@ -46,3 +48,8 @@ sprite_frames = SubResource("SpriteFrames_obxpb")
 autoplay = "default"
 frame_progress = 0.395015
 script = ExtResource("2_e0n54")
+
+[node name="VariablePitchAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ejbj7")
+script = ExtResource("4_8a2rw")
+auto_play_with_variance = true

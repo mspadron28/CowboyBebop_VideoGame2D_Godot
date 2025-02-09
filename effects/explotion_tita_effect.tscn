@@ -1,0 +1,67 @@
+[gd_scene load_steps=11 format=3 uid="uid://c5jt5uhfycfie"]
+
+[ext_resource type="Texture2D" uid="uid://bq3ej21lo6417" path="res://assets/player_tita/FoxSpace-Dead.png" id="1_rf0u7"]
+[ext_resource type="Script" path="res://components/onetime_animated_effect.gd" id="2_al6kx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5jbdt"]
+atlas = ExtResource("1_rf0u7")
+region = Rect2(0, 0, 33, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8ms2"]
+atlas = ExtResource("1_rf0u7")
+region = Rect2(33, 0, 33, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l51en"]
+atlas = ExtResource("1_rf0u7")
+region = Rect2(66, 0, 33, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wnhbk"]
+atlas = ExtResource("1_rf0u7")
+region = Rect2(99, 0, 33, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3eyf6"]
+atlas = ExtResource("1_rf0u7")
+region = Rect2(132, 0, 33, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e0ux8"]
+atlas = ExtResource("1_rf0u7")
+region = Rect2(165, 0, 33, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cyg5u"]
+atlas = ExtResource("1_rf0u7")
+region = Rect2(198, 0, 33, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cxyj0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5jbdt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e8ms2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l51en")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wnhbk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3eyf6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e0ux8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cyg5u")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_cxyj0")
+autoplay = "default"
+frame_progress = 0.275172
+script = ExtResource("2_al6kx")

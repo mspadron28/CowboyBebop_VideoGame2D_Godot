@@ -1,23 +1,40 @@
-[gd_scene load_steps=7 format=3 uid="uid://homck20gx6bh"]
+[gd_scene load_steps=8 format=3 uid="uid://homck20gx6bh"]
 
 [ext_resource type="Script" path="res://misiones/mission1/mission_1.gd" id="1_hvxbj"]
 [ext_resource type="PackedScene" uid="uid://c8gomf048216" path="res://assets/backgrounds/mission1/level_1_background.tscn" id="2_5myrf"]
 [ext_resource type="PackedScene" uid="uid://db70ynsj68p2r" path="res://players_sprite/player_bebop/bebop.tscn" id="4_4snv6"]
 [ext_resource type="PackedScene" uid="uid://xbhnty7xamje" path="res://enemies/mission1_enemies/enemy_generator_m1.tscn" id="5_mjgf8"]
-[ext_resource type="PackedScene" uid="uid://boaug5vaxax5c" path="res://players_sprite/player_tita/tita.tscn" id="5_ryf70"]
+[ext_resource type="PackedScene" uid="uid://d3tk6b6762tkk" path="res://players_sprite/player_tita/tita.tscn" id="5_ryf70"]
 [ext_resource type="PackedScene" uid="uid://05hdts6kn87j" path="res://music/mission1/mission_1_music.tscn" id="6_xbvgm"]
+[ext_resource type="Theme" uid="uid://jdjddy67enkj" path="res://themes/button.tres" id="7_vs6rq"]
 
 [node name="Mission1" type="Node2D"]
 script = ExtResource("1_hvxbj")
+BebopScene = ExtResource("4_4snv6")
+TitaScene = ExtResource("5_ryf70")
 
 [node name="Level1Background" parent="." instance=ExtResource("2_5myrf")]
-
-[node name="Tita" parent="." instance=ExtResource("5_ryf70")]
-position = Vector2(87, 244)
-
-[node name="Bebop" parent="." instance=ExtResource("4_4snv6")]
-position = Vector2(58, 240)
 
 [node name="EnemyGeneratorM1" parent="." instance=ExtResource("5_mjgf8")]
 
 [node name="Mission1Music" parent="." instance=ExtResource("6_xbvgm")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 3.0
+offset_top = 251.0
+offset_right = 773.0
+offset_bottom = 336.0
+grow_horizontal = 2
+scale = Vector2(0.2, 0.2)
+
+[node name="Retornar" type="Button" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("7_vs6rq")
+theme_type_variation = &"FlatButton"
+
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/Retornar" to="." method="_on_retornar_pressed"]

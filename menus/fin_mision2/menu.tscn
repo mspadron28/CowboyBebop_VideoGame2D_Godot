@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dw6hrfqy5u2s1"]
+[gd_scene load_steps=7 format=3 uid="uid://dw6hrfqy5u2s1"]
 
 [ext_resource type="Script" path="res://menus/fin_mision2/menu.gd" id="1_70yy8"]
 [ext_resource type="Theme" uid="uid://cyq1k2u58jfch" path="res://menus/fin_mision1/mision1_theme.tres" id="2_ure5h"]
 [ext_resource type="Texture2D" uid="uid://c7ml0mgthvnih" path="res://menus/botones/retornarbtn.png" id="3_7rmn4"]
 [ext_resource type="Texture2D" uid="uid://cwtw1hwq5u16k" path="res://menus/principal/opciones.png" id="3_ye4qj"]
 [ext_resource type="PackedScene" uid="uid://drug8t32g02xt" path="res://menus/fin_mision2/m2_end_background.tscn" id="5_6r8k7"]
+[ext_resource type="PackedScene" uid="uid://ymjniucwj36a" path="res://music/mission2/music_end_m_2.tscn" id="6_gnlgn"]
 
 [node name="MenuM2" type="Control"]
 layout_mode = 3
@@ -68,6 +69,8 @@ size_flags_horizontal = 10
 icon = ExtResource("3_ye4qj")
 
 [node name="M2EndBackground" parent="." instance=ExtResource("5_6r8k7")]
+
+[node name="MusicEndM2" parent="." instance=ExtResource("6_gnlgn")]
 
 [connection signal="pressed" from="VBoxContainer/ContinuarM2" to="." method="_on_continuar_m_2_pressed"]
 [connection signal="pressed" from="HBoxContainer/Retornar" to="." method="_on_retornar_pressed"]

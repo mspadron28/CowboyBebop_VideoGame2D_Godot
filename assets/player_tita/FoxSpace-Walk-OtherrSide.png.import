@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0yysfyj5uy51"
-path="res://.godot/imported/retornarbtn.png-87e64f0e052413888726f444101daded.ctex"
+uid="uid://dspfejqjhqav3"
+path="res://.godot/imported/FoxSpace-Walk-OtherrSide.png-6af6d5e1e4937bdf351924c5c2ba6963.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://menus/botones/retornarbtn.png"
-dest_files=["res://.godot/imported/retornarbtn.png-87e64f0e052413888726f444101daded.ctex"]
+source_file="res://assets/player_tita/FoxSpace-Walk-OtherrSide.png"
+dest_files=["res://.godot/imported/FoxSpace-Walk-OtherrSide.png-6af6d5e1e4937bdf351924c5c2ba6963.ctex"]
 
 [params]
 

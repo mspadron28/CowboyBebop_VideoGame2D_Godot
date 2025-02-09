@@ -1,6 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://bb2on2s7jjo1"]
+[gd_scene load_steps=17 format=3 uid="uid://bb2on2s7jjo1"]
 
 [ext_resource type="Texture2D" uid="uid://bxuhal7krbpag" path="res://assets/mision1/dark_nebula/Dark Nebula - Sprite Sheet.png" id="1_w3nxn"]
+[ext_resource type="AudioStream" uid="uid://enf0tpspkfdv" path="res://sounds/missions/mission1/boss/vault_defeat.wav" id="2_3vrqs"]
+[ext_resource type="Script" path="res://components/variable_pitch_audio_stream_player.gd" id="3_uvvuk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d7sx8"]
 atlas = ExtResource("1_w3nxn")
@@ -101,3 +103,9 @@ sprite_frames = SubResource("SpriteFrames_s7wkp")
 autoplay = "default"
 frame = 1
 frame_progress = 0.500493
+
+[node name="VariablePitchAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_3vrqs")
+autoplay = true
+script = ExtResource("3_uvvuk")
+auto_play_with_variance = true
