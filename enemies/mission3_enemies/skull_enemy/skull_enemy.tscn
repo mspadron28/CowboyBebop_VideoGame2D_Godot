@@ -86,7 +86,7 @@ frame_progress = 0.34475
 health = 3
 
 [node name="MoveComponent" parent="." index="2"]
-velocity = Vector2(0, 20)
+velocity = Vector2(0, 100)
 
 [node name="VisibleOnScreenNotifier2D" parent="." index="3"]
 position = Vector2(-0.999999, 0)

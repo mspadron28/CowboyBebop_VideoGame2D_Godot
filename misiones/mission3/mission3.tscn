@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://r0bf2qchx5nn"]
 
 [ext_resource type="Script" path="res://misiones/mission3/mission_3.gd" id="1_ha2u8"]
-[ext_resource type="PackedScene" uid="uid://db70ynsj68p2r" path="res://players_sprite/player_bebop/bebop.tscn" id="4_r25ce"]
+[ext_resource type="Theme" uid="uid://jdjddy67enkj" path="res://themes/button.tres" id="4_eowqv"]
 [ext_resource type="PackedScene" uid="uid://cn28yyh2ykw4d" path="res://enemies/mission3_enemies/enemy_generator_m3.tscn" id="5_3so8q"]
 [ext_resource type="PackedScene" uid="uid://cwvdp7x7umccv" path="res://assets/backgrounds/mission3/level_3_background.tscn" id="7_e0tx3"]
 
@@ -10,7 +10,22 @@ script = ExtResource("1_ha2u8")
 
 [node name="Level3Background" parent="." instance=ExtResource("7_e0tx3")]
 
-[node name="Bebop" parent="." instance=ExtResource("4_r25ce")]
-position = Vector2(56, 239)
-
 [node name="EnemyGeneratorM3" parent="." instance=ExtResource("5_3so8q")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 3.0
+offset_top = 251.0
+offset_right = 773.0
+offset_bottom = 336.0
+grow_horizontal = 2
+scale = Vector2(0.2, 0.2)
+
+[node name="Retornar" type="Button" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("4_eowqv")
+theme_type_variation = &"FlatButton"

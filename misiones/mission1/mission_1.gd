@@ -22,6 +22,13 @@ func _ready() -> void:
 	tita.set_process_input(false)  # Deshabilita la entrada de Tita
 	tita.set_process(false)  # Deshabilita cualquier otro proceso de Tita
 	tita.get_node("CanvasLayer").visible = false  # Oculta el HUD de Tita al inicio
+	tita.get_node("HurtboxComponent").set_deferred("monitorable", false)  # Deshabilita la hurtbox de Tita al inicio
+	tita.get_node("HurtboxComponent").set_deferred("monitoring", false)
+
+	# Deshabilita el disparo de Tita al inicio
+	var tita_fire_timer = tita.get_node("FireRateTimer")
+	if tita_fire_timer:
+		tita_fire_timer.stop()
 
 	bebop.tree_exiting.connect(func():
 		await get_tree().create_timer(1).timeout
@@ -49,6 +56,13 @@ func switch_character(new_player: Node2D) -> void:
 		current_player.set_process_input(false)  # Deshabilita la entrada
 		current_player.set_process(false)  # Deshabilita cualquier otro proceso
 		current_player.get_node("CanvasLayer").visible = false  # Oculta el HUD del personaje actual
+		current_player.get_node("HurtboxComponent").set_deferred("monitorable", false)  # Deshabilita la hurtbox del personaje anterior
+		current_player.get_node("HurtboxComponent").set_deferred("monitoring", false)
+
+		# Deshabilita el disparo del personaje anterior
+		var current_fire_timer = current_player.get_node("FireRateTimer")
+		if current_fire_timer:
+			current_fire_timer.stop()
 
 		new_player.visible = true  # Muestra el nuevo personaje
 		new_player.set_physics_process(true)  # Habilita el procesamiento de física
@@ -56,9 +70,15 @@ func switch_character(new_player: Node2D) -> void:
 		new_player.set_process(true)  # Habilita cualquier otro proceso
 		new_player.position = current_player.position  # Mantiene la posición actual
 		new_player.get_node("CanvasLayer").visible = true  # Muestra el HUD del nuevo personaje
+		new_player.get_node("HurtboxComponent").set_deferred("monitorable", true)  # Habilita la hurtbox del nuevo personaje
+		new_player.get_node("HurtboxComponent").set_deferred("monitoring", true)
+
+		# Habilita el disparo del nuevo personaje
+		var new_fire_timer = new_player.get_node("FireRateTimer")
+		if new_fire_timer:
+			new_fire_timer.start()
 
 		current_player = new_player  # Cambia la referencia del personaje activo
-
 
 func _on_retornar_pressed() -> void:
 	get_tree().change_scene_to_file("res://menus/principal/menu.tscn")

@@ -1,10 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://dk88h8ws16bhp"]
+[gd_scene load_steps=10 format=3 uid="uid://dk88h8ws16bhp"]
 
 [ext_resource type="Script" path="res://enemies/mission2_enemies/enemy_generator_m_2.gd" id="1_3mffj"]
+[ext_resource type="PackedScene" uid="uid://b53h16kw03vge" path="res://enemies/mission2_enemies/cactus_enemy/cactus_cb_enemy.tscn" id="2_tpngf"]
 [ext_resource type="Script" path="res://components/spawner_component.gd" id="3_c5dlr"]
+[ext_resource type="PackedScene" uid="uid://fwsdksvw2l38" path="res://enemies/mission2_enemies/health_item/health_item_m_2.tscn" id="3_gmiip"]
+[ext_resource type="PackedScene" uid="uid://wimddgxgn5ci" path="res://enemies/mission2_enemies/mini_don/m_ini_don_fire.tscn" id="4_8tfqj"]
+[ext_resource type="PackedScene" uid="uid://bqrugrhatw3qc" path="res://enemies/mission2_enemies/mini_dima/mini_dima_fire.tscn" id="5_v0pm8"]
+[ext_resource type="PackedScene" uid="uid://l58vx1vhuo7j" path="res://enemies/mission2_enemies/cactus_2_enemy/cactus_mv.tscn" id="6_tce7l"]
+[ext_resource type="PackedScene" uid="uid://bj38gomm2p88b" path="res://bosses/mision2/dimadon_boss.tscn" id="7_n1qtj"]
+[ext_resource type="PackedScene" uid="uid://cuyxv3keeg11v" path="res://enemies/mission2_enemies/star_enemy/estrella_enemy.tscn" id="8_qnawe"]
 
 [node name="EnemyGeneratorM2" type="Node2D"]
 script = ExtResource("1_3mffj")
+CactusEnemyScene = ExtResource("2_tpngf")
+HealthScene = ExtResource("3_gmiip")
+MiniDon = ExtResource("4_8tfqj")
+MiniDima = ExtResource("5_v0pm8")
+Cactus2EnemyScene = ExtResource("6_tce7l")
+DimadonEnemyScene = ExtResource("7_n1qtj")
+StarEnemyScene = ExtResource("8_qnawe")
 
 [node name="SpawnerComponent" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -26,12 +40,12 @@ one_shot = true
 autostart = true
 
 [node name="Cactus2EnemySpawnTimer" type="Timer" parent="."]
-wait_time = 7.0
+wait_time = 9.0
 one_shot = true
 autostart = true
 
 [node name="MiniDonTimer" type="Timer" parent="."]
-wait_time = 8.5
+wait_time = 10.5
 one_shot = true
 autostart = true
 
@@ -41,6 +55,6 @@ one_shot = true
 autostart = true
 
 [node name="HealthTimer" type="Timer" parent="."]
-wait_time = 12.0
+wait_time = 10.0
 one_shot = true
 autostart = true

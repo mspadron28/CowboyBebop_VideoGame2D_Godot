@@ -37,12 +37,12 @@ one_shot = true
 autostart = true
 
 [node name="SlimeTimer" type="Timer" parent="."]
-wait_time = 5.5
+wait_time = 6.5
 one_shot = true
 autostart = true
 
 [node name="GreenETimer" type="Timer" parent="."]
-wait_time = 4.0
+wait_time = 5.0
 one_shot = true
 autostart = true
 

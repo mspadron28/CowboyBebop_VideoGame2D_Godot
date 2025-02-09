@@ -1,0 +1,98 @@
+[gd_scene load_steps=19 format=3 uid="uid://qd4kccwuiax0"]
+
+[ext_resource type="Script" path="res://projectiles/laser_2.gd" id="1_gfuhh"]
+[ext_resource type="Texture2D" uid="uid://6wy0egukxq8n" path="res://assets/projectile/tita_fireball/PixelartFireBall-7.png" id="2_ahnc4"]
+[ext_resource type="Script" path="res://components/move_component.gd" id="3_6eg48"]
+[ext_resource type="Texture2D" uid="uid://c2whby5g4fsoh" path="res://assets/projectile/tita_fireball/PixelartFireBall-8.png" id="3_m7kqr"]
+[ext_resource type="Texture2D" uid="uid://bdjlj8k8jlgfb" path="res://assets/projectile/tita_fireball/PixelartFireBall-9.png" id="4_7ul0l"]
+[ext_resource type="Texture2D" uid="uid://6osa8xxeudhq" path="res://assets/projectile/tita_fireball/PixelartFireBall-10.png" id="5_22wmk"]
+[ext_resource type="Script" path="res://components/flash_component.gd" id="5_ojme7"]
+[ext_resource type="Script" path="res://components/hitbox_component.gd" id="6_hkt38"]
+[ext_resource type="Texture2D" uid="uid://b14tyeelnvma0" path="res://assets/projectile/tita_fireball/PixelartFireBall-11.png" id="6_xgwys"]
+[ext_resource type="Texture2D" uid="uid://d0mah7n7bv5o4" path="res://assets/projectile/tita_fireball/PixelartFireBall-12.png" id="7_mtmbv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1off0"]
+atlas = ExtResource("2_ahnc4")
+region = Rect2(0, 0, 74, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4cnq"]
+atlas = ExtResource("3_m7kqr")
+region = Rect2(0, 0, 74, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sr2pi"]
+atlas = ExtResource("4_7ul0l")
+region = Rect2(0, 0, 74, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52fd7"]
+atlas = ExtResource("5_22wmk")
+region = Rect2(0, 0, 74, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ama6l"]
+atlas = ExtResource("6_xgwys")
+region = Rect2(0, 0, 74, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p8dfo"]
+atlas = ExtResource("7_mtmbv")
+region = Rect2(0, 0, 74, 52)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kqnu5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1off0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s4cnq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sr2pi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_52fd7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ama6l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p8dfo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vdeaf"]
+size = Vector2(10, 33)
+
+[node name="LaserTita" type="Node2D"]
+script = ExtResource("1_gfuhh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(5.96046e-08, -5.96046e-08)
+rotation = -1.5708
+scale = Vector2(0.52114, 0.478498)
+sprite_frames = SubResource("SpriteFrames_kqnu5")
+frame_progress = 0.9307
+
+[node name="MoveComponent" type="Node" parent="." node_paths=PackedStringArray("actor")]
+script = ExtResource("3_6eg48")
+actor = NodePath("..")
+velocity = Vector2(0, -200)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-2.38419e-07, -2.5)
+scale = Vector2(0.5, 1.65)
+
+[node name="FlashComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
+script = ExtResource("5_ojme7")
+sprite = NodePath("../AnimatedSprite2D")
+flash_duration = 0.1
+
+[node name="HitboxComponent" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("6_hkt38")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2(0, -2.5)
+shape = SubResource("RectangleShape2D_vdeaf")

@@ -1,19 +1,38 @@
-[gd_scene load_steps=6 format=3 uid="uid://diq5htab0hgmf"]
+[gd_scene load_steps=8 format=3 uid="uid://diq5htab0hgmf"]
 
 [ext_resource type="Script" path="res://misiones/mission2/mission_2.gd" id="1_he6y1"]
+[ext_resource type="PackedScene" uid="uid://d3tk6b6762tkk" path="res://players_sprite/player_tita/tita.tscn" id="3_fykop"]
 [ext_resource type="PackedScene" uid="uid://db70ynsj68p2r" path="res://players_sprite/player_bebop/bebop.tscn" id="4_ok3vg"]
+[ext_resource type="Theme" uid="uid://jdjddy67enkj" path="res://themes/button.tres" id="5_551d7"]
 [ext_resource type="PackedScene" uid="uid://clatuyv20rkll" path="res://music/mission2/music_m_2.tscn" id="6_2x6hw"]
 [ext_resource type="PackedScene" uid="uid://cwihmtt44s2eq" path="res://assets/backgrounds/mission2/level_2_background.tscn" id="6_o3bu3"]
 [ext_resource type="PackedScene" uid="uid://dk88h8ws16bhp" path="res://enemies/mission2_enemies/enemy_generator_m2.tscn" id="6_smwdq"]
 
 [node name="Mission2" type="Node2D"]
 script = ExtResource("1_he6y1")
+BebopScene = ExtResource("4_ok3vg")
+TitaScene = ExtResource("3_fykop")
 
 [node name="Level2Background" parent="." instance=ExtResource("6_o3bu3")]
 
 [node name="EnemyGeneratorM2" parent="." instance=ExtResource("6_smwdq")]
 
-[node name="Bebop" parent="." instance=ExtResource("4_ok3vg")]
-position = Vector2(50, 237)
-
 [node name="MusicM2" parent="." instance=ExtResource("6_2x6hw")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 3.0
+offset_top = 251.0
+offset_right = 773.0
+offset_bottom = 336.0
+grow_horizontal = 2
+scale = Vector2(0.2, 0.2)
+
+[node name="Retornar" type="Button" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("5_551d7")
+theme_type_variation = &"FlatButton"

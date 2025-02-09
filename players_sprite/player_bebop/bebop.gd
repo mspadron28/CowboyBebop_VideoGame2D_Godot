@@ -14,11 +14,12 @@ extends Node2D
 @onready var stats_component: StatsComponent = $StatsComponent
 @onready var life_node: Control = $CanvasLayer/Life
 @onready var bebop_fire: VariablePitchAudioStreamPlayer = $BebopFire
-
+var max_health: int  # Variable para controlar la salud máxima
 
 func _ready() -> void:
 # Conecta los cambios de salud con la actualización de los corazones
 	stats_component.health_changed.connect(update_hearts)
+	max_health = stats_component.health
 # Inicializa los corazones según la salud máxima
 	update_hearts()
 	fire_rate_timer.timeout.connect(fire_lasers)
@@ -48,8 +49,11 @@ func animate_the_ship() -> void:
 # Actualiza la visualización de los corazones
 func update_hearts() -> void:
 	var current_health = stats_component.health
-	life_node.on_player_life_changed(current_health)
-	
+	if current_health > max_health:
+		stats_component.health = max_health  # Ajusta la salud al máximo si la supera
+	life_node.on_player_life_changed(stats_component.health)
+
+# Función para curar al personaje sin exceder la salud máxima
 func heal(amount: int) -> void:
-	stats_component.health += amount
-	update_hearts() 
+	stats_component.health = min(stats_component.health + amount, max_health)
+	update_hearts()
