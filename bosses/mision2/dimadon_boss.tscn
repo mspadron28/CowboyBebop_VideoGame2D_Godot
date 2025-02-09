@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bj38gomm2p88b"]
+[gd_scene load_steps=13 format=3 uid="uid://bj38gomm2p88b"]
 
 [ext_resource type="PackedScene" uid="uid://770ogjr8832x" path="res://bosses/boss.tscn" id="1_46mk8"]
 [ext_resource type="Script" path="res://bosses/mision2/dimadon_boss.gd" id="2_ymiq5"]
@@ -7,6 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://dwp5xbxoebqvy" path="res://projectiles/laser_dimadon_nova.tscn" id="5_gu6o1"]
 [ext_resource type="PackedScene" uid="uid://b7q84ev4cssft" path="res://menus/healthbar/healthbar.tscn" id="6_qipvu"]
 [ext_resource type="Theme" uid="uid://bcueb8fc272bg" path="res://menus/principal/principal_theme.tres" id="7_1igr5"]
+[ext_resource type="Script" path="res://components/spawner_component.gd" id="8_tipej"]
+[ext_resource type="PackedScene" uid="uid://wxxebjvaw1fn" path="res://bosses/mision2/projectiles/cactus_dimadon_projectil.tscn" id="9_sc5ok"]
+[ext_resource type="AudioStream" uid="uid://fp4cg41d0go0" path="res://bosses/mision2/projectiles/yeehaw.wav" id="10_1b2h4"]
+[ext_resource type="Script" path="res://components/variable_pitch_audio_stream_player.gd" id="11_cnf5t"]
+[ext_resource type="AudioStream" uid="uid://c5fckkm8hjgtl" path="res://bosses/mision2/projectiles/cactus_dima.wav" id="12_7eocr"]
 
 [node name="DimadonBoss" instance=ExtResource("1_46mk8")]
 script = ExtResource("2_ymiq5")
@@ -17,7 +22,7 @@ animation = &"center"
 frame_progress = 0.290566
 
 [node name="StatsComponent" parent="." index="1"]
-health = 5
+health = 20
 
 [node name="HurtboxComponent" parent="." index="2"]
 visible = false
@@ -40,7 +45,7 @@ node = NodePath("../AnimatedSprite2D")
 scene = ExtResource("5_gu6o1")
 
 [node name="FireRateTimer" parent="." index="10"]
-wait_time = 1.392
+wait_time = 1.5
 
 [node name="BorderBounceComponent" parent="States/MoveSideState" index="1" node_paths=PackedStringArray("actor")]
 actor = NodePath("../../..")
@@ -66,3 +71,26 @@ theme = ExtResource("7_1igr5")
 theme_type_variation = &"HeaderMedium"
 text = "DON DIMADON"
 horizontal_alignment = 2
+
+[node name="ProjectileCactus" type="Node2D" parent="." index="13"]
+unique_name_in_owner = true
+position = Vector2(0, 22)
+script = ExtResource("8_tipej")
+scene = ExtResource("9_sc5ok")
+
+[node name="FireCactusRate" type="Timer" parent="." index="14"]
+unique_name_in_owner = true
+wait_time = 5.0
+autostart = true
+
+[node name="LaserAudio" type="AudioStreamPlayer" parent="." index="15"]
+stream = ExtResource("12_7eocr")
+bus = &"Effects"
+script = ExtResource("11_cnf5t")
+auto_play_with_variance = true
+
+[node name="CactusAudio" type="AudioStreamPlayer" parent="." index="16"]
+stream = ExtResource("10_1b2h4")
+bus = &"Effects"
+script = ExtResource("11_cnf5t")
+auto_play_with_variance = true

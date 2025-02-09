@@ -119,10 +119,10 @@ script = ExtResource("2_fhyev")
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_a3sp5")
-animation = &"bank_right"
+animation = &"center"
 
 [node name="StatsComponent" parent="." index="1"]
-health = 3
+health = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" index="0"]
 shape = SubResource("CircleShape2D_y1bf5")
@@ -142,7 +142,7 @@ actor = NodePath("../../..")
 velocity = Vector2(0, 50)
 
 [node name="FireRateTimer" parent="." index="11"]
-wait_time = 1.0
+wait_time = 1.5
 
 [node name="ProjectileSpawnerComponent" parent="." index="12"]
 scene = ExtResource("4_gfnti")

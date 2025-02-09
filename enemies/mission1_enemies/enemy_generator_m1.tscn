@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://xbhnty7xamje"]
 
 [ext_resource type="Script" path="res://enemies/mission1_enemies/enemy_generator_m_1.gd" id="1_pdwv3"]
+[ext_resource type="PackedScene" uid="uid://c2d3qv17omtim" path="res://enemies/mission1_enemies/healt_item/health_item_m_1.tscn" id="2_068us"]
 [ext_resource type="PackedScene" uid="uid://6qxf1aw8em6d" path="res://enemies/mission1_enemies/can_enemy/can_enemy.tscn" id="2_ejrak"]
-[ext_resource type="PackedScene" uid="uid://cfajt7ohgn87g" path="res://enemies/healt_item.tscn" id="2_geowu"]
 [ext_resource type="Script" path="res://components/spawner_component.gd" id="3_3lvuh"]
 [ext_resource type="PackedScene" uid="uid://do6ipdda6ax46" path="res://bosses/mision1/vault_boss.tscn" id="3_gtdcd"]
 [ext_resource type="PackedScene" uid="uid://bq6yf5iyby5y6" path="res://enemies/mission1_enemies/mini_nova/vault_mini_nova_fire.tscn" id="4_kdrcj"]
@@ -11,7 +11,7 @@
 
 [node name="EnemyGeneratorM1" type="Node2D"]
 script = ExtResource("1_pdwv3")
-HealthScene = ExtResource("2_geowu")
+HealthScene = ExtResource("2_068us")
 CanEnemyScene = ExtResource("2_ejrak")
 MiniEnemyScene = ExtResource("4_kdrcj")
 GreenScene = ExtResource("5_vwpp6")
@@ -22,12 +22,12 @@ VaultEnemyScene = ExtResource("3_gtdcd")
 script = ExtResource("3_3lvuh")
 
 [node name="CanEnemySpawnTimer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 2.0
 one_shot = true
 autostart = true
 
 [node name="VaultBossTimer" type="Timer" parent="."]
-wait_time = 60.0
+wait_time = 45.0
 one_shot = true
 autostart = true
 
@@ -37,16 +37,16 @@ one_shot = true
 autostart = true
 
 [node name="SlimeTimer" type="Timer" parent="."]
-wait_time = 10.0
-one_shot = true
-autostart = true
-
-[node name="GreenETimer" type="Timer" parent="."]
 wait_time = 6.0
 one_shot = true
 autostart = true
 
+[node name="GreenETimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
 [node name="HealthTimer" type="Timer" parent="."]
-wait_time = 15.0
+wait_time = 14.0
 one_shot = true
 autostart = true

@@ -1,37 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://cfajt7ohgn87g"]
+[gd_scene load_steps=4 format=3 uid="uid://cfajt7ohgn87g"]
 
 [ext_resource type="Script" path="res://enemies/healt_item.gd" id="1_j82sm"]
-[ext_resource type="Texture2D" uid="uid://bdaih1qt6wcbv" path="res://enemies/health_item/health_item.png" id="2_vpwxt"]
 [ext_resource type="Script" path="res://components/move_component.gd" id="3_f7u31"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_enhwd"]
-atlas = ExtResource("2_vpwxt")
-region = Rect2(0, 0, 151, 141)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qqthg"]
-atlas = ExtResource("2_vpwxt")
-region = Rect2(151, 0, 151, 141)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rycsa"]
-atlas = ExtResource("2_vpwxt")
-region = Rect2(302, 0, 151, 141)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_v2upp"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_enhwd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qqthg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rycsa")
-}],
-"loop": true,
-"name": &"default",
-"speed": 3.0
-}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vvt5q"]
 
@@ -41,9 +11,7 @@ script = ExtResource("1_j82sm")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(9.53674e-07, 2.38419e-07)
 scale = Vector2(0.13245, 0.141844)
-sprite_frames = SubResource("SpriteFrames_v2upp")
 autoplay = "default"
-frame_progress = 0.642703
 
 [node name="MoveComponent" type="Node" parent="." node_paths=PackedStringArray("actor")]
 script = ExtResource("3_f7u31")

@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://c2d3qv17omtim"]
+
+[ext_resource type="PackedScene" uid="uid://cfajt7ohgn87g" path="res://enemies/healt_item.tscn" id="1_7ug3i"]
+[ext_resource type="Texture2D" uid="uid://df3i7atqfqf4x" path="res://enemies/mission1_enemies/healt_item/hi_m1.png" id="2_4ylla"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_af4u3"]
+atlas = ExtResource("2_4ylla")
+region = Rect2(0, 0, 153, 161)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8peph"]
+atlas = ExtResource("2_4ylla")
+region = Rect2(153, 0, 153, 161)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_42lup"]
+atlas = ExtResource("2_4ylla")
+region = Rect2(306, 0, 153, 161)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ux66y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_af4u3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8peph")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_42lup")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[node name="HealthItemM1" instance=ExtResource("1_7ug3i")]
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_ux66y")
+frame_progress = 0.599317

@@ -1,0 +1,142 @@
+[gd_scene load_steps=20 format=3 uid="uid://bqrugrhatw3qc"]
+
+[ext_resource type="PackedScene" uid="uid://cmtv5i61ue463" path="res://enemies/mechanics/fire/enemy_fire.tscn" id="1_m3gpe"]
+[ext_resource type="Script" path="res://enemies/mission2_enemies/mini_dima/mini_dima_fire.gd" id="2_ap46r"]
+[ext_resource type="Texture2D" uid="uid://dlcif67f5cepq" path="res://assets/mision1/enemies/Enemies T1 Sprite Sheet.png" id="2_tsq7s"]
+[ext_resource type="PackedScene" uid="uid://cnpfa26au0ngr" path="res://enemies/mission2_enemies/mini_dima/laser_mini_dima.tscn" id="4_3tp80"]
+[ext_resource type="AudioStream" uid="uid://csx04jcbcgr31" path="res://sounds/missions/mission1/enemies/fire_mini_nova.wav" id="5_mtgbn"]
+[ext_resource type="Script" path="res://components/variable_pitch_audio_stream_player.gd" id="6_bv5ae"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pvcc2"]
+atlas = ExtResource("2_tsq7s")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkdeu"]
+atlas = ExtResource("2_tsq7s")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k58r1"]
+atlas = ExtResource("2_tsq7s")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aatx5"]
+atlas = ExtResource("2_tsq7s")
+region = Rect2(96, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vi2df"]
+atlas = ExtResource("2_tsq7s")
+region = Rect2(128, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_umb1v"]
+atlas = ExtResource("2_tsq7s")
+region = Rect2(160, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ywp1y"]
+atlas = ExtResource("2_tsq7s")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rsoqb"]
+atlas = ExtResource("2_tsq7s")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xqoeh"]
+atlas = ExtResource("2_tsq7s")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gb7i2"]
+atlas = ExtResource("2_tsq7s")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_on0pr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pvcc2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jkdeu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k58r1")
+}],
+"loop": true,
+"name": &"bank_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aatx5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vi2df")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_umb1v")
+}],
+"loop": true,
+"name": &"bank_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ywp1y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rsoqb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xqoeh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gb7i2")
+}],
+"loop": true,
+"name": &"center",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f5e5c"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6jao1"]
+radius = 5.0
+
+[node name="mini_dima_fire" instance=ExtResource("1_m3gpe")]
+script = ExtResource("2_ap46r")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_on0pr")
+animation = &"bank_right"
+frame = 1
+frame_progress = 0.0480393
+
+[node name="StatsComponent" parent="." index="1"]
+health = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" index="0"]
+shape = SubResource("CircleShape2D_f5e5c")
+debug_color = Color(2.69532e-06, 0.672025, 0.571571, 0.42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
+shape = SubResource("CircleShape2D_6jao1")
+debug_color = Color(0.374652, 0.614504, 1.92523e-07, 0.42)
+
+[node name="MoveSideComponent" parent="States/MoveSideState" index="0" node_paths=PackedStringArray("actor")]
+actor = NodePath("../../..")
+
+[node name="BorderBounceComponent" parent="States/MoveSideState" index="1" node_paths=PackedStringArray("actor")]
+actor = NodePath("../../..")
+
+[node name="MoveComponent" parent="States/MoveDownState" index="0" node_paths=PackedStringArray("actor")]
+actor = NodePath("../../..")
+velocity = Vector2(0, 40)
+
+[node name="FireRateTimer" parent="." index="11"]
+wait_time = 2.0
+
+[node name="ProjectileSpawnerComponent" parent="." index="12"]
+scene = ExtResource("4_3tp80")
+
+[node name="Fire_Sound" type="AudioStreamPlayer" parent="." index="15"]
+stream = ExtResource("5_mtgbn")
+bus = &"Effects"
+script = ExtResource("6_bv5ae")

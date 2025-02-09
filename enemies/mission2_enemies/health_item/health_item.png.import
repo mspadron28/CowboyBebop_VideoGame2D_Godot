@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdaih1qt6wcbv"
-path="res://.godot/imported/health_item.png-3c48b6beef9f9701462e38dfb134b8f1.ctex"
+uid="uid://clxu0qmyhptjr"
+path="res://.godot/imported/health_item.png-97fa02f69b0a5485d8f01f01861874c6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemies/health_item/health_item.png"
-dest_files=["res://.godot/imported/health_item.png-3c48b6beef9f9701462e38dfb134b8f1.ctex"]
+source_file="res://enemies/mission2_enemies/health_item/health_item.png"
+dest_files=["res://.godot/imported/health_item.png-97fa02f69b0a5485d8f01f01861874c6.ctex"]
 
 [params]
 

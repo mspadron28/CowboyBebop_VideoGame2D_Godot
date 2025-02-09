@@ -19,7 +19,7 @@ animation = &"bank_left"
 frame_progress = 0.601713
 
 [node name="StatsComponent" parent="." index="1"]
-health = 20
+health = 15
 
 [node name="HurtboxComponent" parent="." index="2"]
 visible = false
