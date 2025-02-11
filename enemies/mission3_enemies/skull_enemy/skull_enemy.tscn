@@ -83,10 +83,10 @@ autoplay = "default"
 frame_progress = 0.34475
 
 [node name="StatsComponent" parent="." index="1"]
-health = 3
+health = 2
 
 [node name="MoveComponent" parent="." index="2"]
-velocity = Vector2(0, 100)
+velocity = Vector2(0, 150)
 
 [node name="VisibleOnScreenNotifier2D" parent="." index="3"]
 position = Vector2(-0.999999, 0)

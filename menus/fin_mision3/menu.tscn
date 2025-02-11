@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dq0e5ubf8e0rw"]
+[gd_scene load_steps=7 format=3 uid="uid://dq0e5ubf8e0rw"]
 
 [ext_resource type="Script" path="res://menus/fin_mision3/menu.gd" id="1_k4u1x"]
 [ext_resource type="Theme" uid="uid://cyq1k2u58jfch" path="res://menus/fin_mision1/mision1_theme.tres" id="2_c6mls"]
 [ext_resource type="Texture2D" uid="uid://cwtw1hwq5u16k" path="res://menus/principal/opciones.png" id="3_7bbkj"]
-[ext_resource type="Texture2D" uid="uid://c7ml0mgthvnih" path="res://menus/botones/retornarbtn.png" id="4_iyqv0"]
+[ext_resource type="Texture2D" uid="uid://b0yysfyj5uy51" path="res://menus/botones/retornarbtn.png" id="4_iyqv0"]
 [ext_resource type="PackedScene" uid="uid://comk52qr8tf1w" path="res://menus/fin_mision3/m3_end_background.tscn" id="5_dvw16"]
+[ext_resource type="PackedScene" uid="uid://d3jh7v6fmhpn7" path="res://music/mission3/music_end_m_3.tscn" id="6_1mkef"]
 
 [node name="MenuM3" type="Control"]
 layout_mode = 3
@@ -68,6 +69,8 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 text = "Continue"
+
+[node name="MusicEndM3" parent="." instance=ExtResource("6_1mkef")]
 
 [connection signal="pressed" from="HBoxContainer/Retornar" to="." method="_on_retornar_pressed"]
 [connection signal="pressed" from="VBoxContainer/ContinuarM3" to="." method="_on_continuar_m_3_pressed"]

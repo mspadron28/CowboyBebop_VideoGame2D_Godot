@@ -1,14 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://cn28yyh2ykw4d"]
+[gd_scene load_steps=9 format=3 uid="uid://cn28yyh2ykw4d"]
 
 [ext_resource type="Script" path="res://enemies/mission3_enemies/enemy_generator_m_3.gd" id="1_xbv4g"]
 [ext_resource type="PackedScene" uid="uid://bda1yc2qmacb8" path="res://enemies/mission3_enemies/skull_enemy/skull_enemy.tscn" id="2_2oeaq"]
 [ext_resource type="PackedScene" uid="uid://broh81aomuxek" path="res://bosses/mision3/scarlet_boss.tscn" id="2_4pajc"]
+[ext_resource type="PackedScene" uid="uid://d3ck8r8hicnkv" path="res://enemies/mission3_enemies/mini_scar/mini_scar.tscn" id="2_673dp"]
+[ext_resource type="PackedScene" uid="uid://ceukd5pp571ud" path="res://enemies/mission3_enemies/big_scar/big_scar.tscn" id="3_hsx3m"]
+[ext_resource type="PackedScene" uid="uid://clv76s36ivfhn" path="res://enemies/mission3_enemies/health_item_scar.tscn" id="3_r0j0l"]
 [ext_resource type="Script" path="res://components/spawner_component.gd" id="4_00wyy"]
+[ext_resource type="PackedScene" uid="uid://cqwmot47lisi3" path="res://enemies/mission3_enemies/dog_scarlet/dog_scarlet.tscn" id="4_hnshf"]
 
 [node name="EnemyGeneratorM3" type="Node2D"]
 script = ExtResource("1_xbv4g")
+MiniScarScene = ExtResource("2_673dp")
+HIScene = ExtResource("3_r0j0l")
+BigScarScene = ExtResource("3_hsx3m")
 SkullEnemyScene = ExtResource("2_2oeaq")
 ScarletEnemyScene = ExtResource("2_4pajc")
+DogEnemyScene = ExtResource("4_hnshf")
 
 [node name="SpawnerComponent" type="Node2D" parent="."]
 script = ExtResource("4_00wyy")
@@ -19,6 +27,26 @@ one_shot = true
 autostart = true
 
 [node name="ScarletBossTimer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 55.0
+one_shot = true
+autostart = true
+
+[node name="DogTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="MiniScarTimer" type="Timer" parent="."]
+wait_time = 6.0
+one_shot = true
+autostart = true
+
+[node name="BigScarTimer" type="Timer" parent="."]
+wait_time = 20.0
+one_shot = true
+autostart = true
+
+[node name="HealthItemTimer" type="Timer" parent="."]
+wait_time = 10.0
 one_shot = true
 autostart = true

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3jh7v6fmhpn7"]
+
+[ext_resource type="AudioStream" uid="uid://dpn6irqcbk4fj" path="res://music/mission3/musicendm3.mp3" id="1_7o40j"]
+
+[node name="MusicEndM3" type="AudioStreamPlayer"]
+stream = ExtResource("1_7o40j")
+autoplay = true

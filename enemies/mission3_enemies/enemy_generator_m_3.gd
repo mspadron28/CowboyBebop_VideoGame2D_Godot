@@ -1,10 +1,20 @@
 extends Node2D
 
+@export var MiniScarScene: PackedScene
+@export var HIScene: PackedScene
+@export var BigScarScene: PackedScene
 @export var SkullEnemyScene: PackedScene
 @export var ScarletEnemyScene: PackedScene
+@export var DogEnemyScene: PackedScene
+
+
 @onready var scarlet_boss_timer: Timer = $ScarletBossTimer
 @onready var skull_enemy_spawn_timer: Timer = $SkullEnemySpawnTimer
 @onready var spawner_component: SpawnerComponent = $SpawnerComponent
+@onready var dog_timer: Timer = $DogTimer
+@onready var mini_scar_timer: Timer = $MiniScarTimer
+@onready var big_scar_timer: Timer = $BigScarTimer
+@onready var health_item_timer: Timer = $HealthItemTimer
 
 
 
@@ -18,6 +28,10 @@ var scarlet_boss_node: Node2D = null # Referencia al jefe cuando aparece
 func _ready() -> void:
 	# Conecta el temporizador de los enemigos normales
 	skull_enemy_spawn_timer.timeout.connect(handle_spawn.bind(SkullEnemyScene, skull_enemy_spawn_timer))
+	dog_timer.timeout.connect(handle_spawn.bind(DogEnemyScene, dog_timer))
+	mini_scar_timer.timeout.connect(handle_spawn.bind(MiniScarScene, mini_scar_timer))
+	big_scar_timer.timeout.connect(handle_spawn.bind(BigScarScene, big_scar_timer))
+	health_item_timer.timeout.connect(handle_spawn.bind(HIScene, health_item_timer))
 	# Conecta el temporizador para la aparición del jefe
 	scarlet_boss_timer.timeout.connect(spawn_boss)
 

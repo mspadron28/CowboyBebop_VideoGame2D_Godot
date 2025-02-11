@@ -1,0 +1,98 @@
+[gd_scene load_steps=15 format=3 uid="uid://c03ndt0od7pxe"]
+
+[ext_resource type="Script" path="res://projectiles/laser_vault_nova.gd" id="1_fylew"]
+[ext_resource type="Texture2D" uid="uid://oyqwc5uoima2" path="res://assets/mision1/big_enemies/Boss 1 - Sprite Sheet.png" id="2_8um1h"]
+[ext_resource type="Script" path="res://components/move_component.gd" id="3_r2pxn"]
+[ext_resource type="Script" path="res://components/scale_component.gd" id="4_mcegu"]
+[ext_resource type="Script" path="res://components/flash_component.gd" id="5_i1udp"]
+[ext_resource type="Script" path="res://components/hitbox_component.gd" id="6_h6081"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4e881"]
+atlas = ExtResource("2_8um1h")
+region = Rect2(128, 252, 16, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1cg0"]
+atlas = ExtResource("2_8um1h")
+region = Rect2(144, 252, 16, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xtebo"]
+atlas = ExtResource("2_8um1h")
+region = Rect2(160, 252, 16, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ptye"]
+atlas = ExtResource("2_8um1h")
+region = Rect2(176, 252, 16, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q7nhv"]
+atlas = ExtResource("2_8um1h")
+region = Rect2(192, 252, 16, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kaovs"]
+atlas = ExtResource("2_8um1h")
+region = Rect2(208, 252, 16, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aiofh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4e881")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1cg0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xtebo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ptye")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q7nhv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kaovs")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7vwjy"]
+size = Vector2(8, 11)
+
+[node name="wide_muzzles_laserbs" type="Node2D"]
+script = ExtResource("1_fylew")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.78906, 1.47656)
+sprite_frames = SubResource("SpriteFrames_aiofh")
+autoplay = "default"
+frame_progress = 0.126548
+
+[node name="MoveComponent" type="Node" parent="." node_paths=PackedStringArray("actor")]
+script = ExtResource("3_r2pxn")
+actor = NodePath("..")
+velocity = Vector2(0, 150)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0.5, 4)
+scale = Vector2(1.25, 1.1)
+
+[node name="ScaleComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
+script = ExtResource("4_mcegu")
+sprite = NodePath("../AnimatedSprite2D")
+scale_amount = Vector2(5, 2)
+scale_duration = 1.0
+
+[node name="FlashComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
+script = ExtResource("5_i1udp")
+sprite = NodePath("../AnimatedSprite2D")
+flash_duration = 0.1
+
+[node name="HitboxComponent" type="Area2D" parent="."]
+collision_layer = 0
+script = ExtResource("6_h6081")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_7vwjy")

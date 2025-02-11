@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://770ogjr8832x" path="res://bosses/boss.tscn" id="1_a7cek"]
 [ext_resource type="Script" path="res://bosses/mision3/scarlet_boss.gd" id="2_mn8gb"]
 [ext_resource type="SpriteFrames" uid="uid://d5tasj5po88l" path="res://bosses/mision3/scarletog_boss_frames.tres" id="3_g72q1"]
-[ext_resource type="PackedScene" uid="uid://bb2on2s7jjo1" path="res://effects/mission2/explotion_dimadon_effect.tscn" id="4_mchjr"]
+[ext_resource type="PackedScene" uid="uid://d0lksdp7md57t" path="res://effects/mission3/explotion_scarlet_effect.tscn" id="4_osfxb"]
 [ext_resource type="PackedScene" uid="uid://76ftcns3venb" path="res://projectiles/laser_scarlet_nova.tscn" id="5_cbs7t"]
 [ext_resource type="PackedScene" uid="uid://b7q84ev4cssft" path="res://menus/healthbar/healthbar.tscn" id="6_6q76r"]
 [ext_resource type="Theme" uid="uid://dhdymq66xh85h" path="res://themes/labels/bosses_healthbar/hb_labels.tres" id="7_6klqj"]
@@ -21,7 +21,7 @@ polygon = PackedVector2Array(-38, -27, -37, -9, 2, 31, 37, -7, 36, -28, 9, -1, -
 [node name="CenterMuzzle" type="Marker2D" parent="." index="4"]
 
 [node name="ExplotionSpawnerComponent" parent="." index="5"]
-scene = ExtResource("4_mchjr")
+scene = ExtResource("4_osfxb")
 
 [node name="FlashComponent" parent="." index="7" node_paths=PackedStringArray("sprite")]
 sprite = NodePath("../AnimatedSprite2D")

@@ -1,16 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://r0bf2qchx5nn"]
+[gd_scene load_steps=8 format=3 uid="uid://r0bf2qchx5nn"]
 
 [ext_resource type="Script" path="res://misiones/mission3/mission_3.gd" id="1_ha2u8"]
+[ext_resource type="PackedScene" uid="uid://db70ynsj68p2r" path="res://players_sprite/player_bebop/bebop.tscn" id="2_1dq1u"]
+[ext_resource type="PackedScene" uid="uid://d3tk6b6762tkk" path="res://players_sprite/player_tita/tita.tscn" id="3_okvpc"]
 [ext_resource type="Theme" uid="uid://jdjddy67enkj" path="res://themes/button.tres" id="4_eowqv"]
 [ext_resource type="PackedScene" uid="uid://cn28yyh2ykw4d" path="res://enemies/mission3_enemies/enemy_generator_m3.tscn" id="5_3so8q"]
+[ext_resource type="PackedScene" uid="uid://ci3i5uma0k060" path="res://music/mission3/music_m_3.tscn" id="5_jnv1x"]
 [ext_resource type="PackedScene" uid="uid://cwvdp7x7umccv" path="res://assets/backgrounds/mission3/level_3_background.tscn" id="7_e0tx3"]
 
 [node name="Mission3" type="Node2D"]
 script = ExtResource("1_ha2u8")
+BebopScene = ExtResource("2_1dq1u")
+TitaScene = ExtResource("3_okvpc")
 
 [node name="Level3Background" parent="." instance=ExtResource("7_e0tx3")]
 
 [node name="EnemyGeneratorM3" parent="." instance=ExtResource("5_3so8q")]
+
+[node name="MusicM3" parent="." instance=ExtResource("5_jnv1x")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

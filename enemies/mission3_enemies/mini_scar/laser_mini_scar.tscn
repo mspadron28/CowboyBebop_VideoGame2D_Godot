@@ -1,0 +1,84 @@
+[gd_scene load_steps=13 format=3 uid="uid://cpxjt722n0ulw"]
+
+[ext_resource type="Script" path="res://projectiles/laser_vault_nova.gd" id="1_0b8hv"]
+[ext_resource type="Texture2D" uid="uid://dlcif67f5cepq" path="res://assets/mision1/enemies/Enemies T1 Sprite Sheet.png" id="2_4qnmk"]
+[ext_resource type="Script" path="res://components/move_component.gd" id="3_vkvjw"]
+[ext_resource type="Script" path="res://components/scale_component.gd" id="4_xuc7h"]
+[ext_resource type="Script" path="res://components/flash_component.gd" id="5_0ib2u"]
+[ext_resource type="Script" path="res://components/hitbox_component.gd" id="6_ygoux"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mph4r"]
+atlas = ExtResource("2_4qnmk")
+region = Rect2(0, 288, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55iff"]
+atlas = ExtResource("2_4qnmk")
+region = Rect2(32, 288, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mri06"]
+atlas = ExtResource("2_4qnmk")
+region = Rect2(64, 288, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_021s6"]
+atlas = ExtResource("2_4qnmk")
+region = Rect2(96, 288, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_av00n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mph4r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_55iff")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mri06")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_021s6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7vwjy"]
+size = Vector2(5, 11)
+
+[node name="laser_mini_scar" type="Node2D"]
+script = ExtResource("1_0b8hv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -4)
+scale = Vector2(1.78906, 1.47656)
+sprite_frames = SubResource("SpriteFrames_av00n")
+frame_progress = 0.141992
+
+[node name="MoveComponent" type="Node" parent="." node_paths=PackedStringArray("actor")]
+script = ExtResource("3_vkvjw")
+actor = NodePath("..")
+velocity = Vector2(0, 150)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-0.5, -4.5)
+scale = Vector2(0.35, 0.55)
+
+[node name="ScaleComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
+script = ExtResource("4_xuc7h")
+sprite = NodePath("../AnimatedSprite2D")
+scale_amount = Vector2(5, 2)
+scale_duration = 1.0
+
+[node name="FlashComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
+script = ExtResource("5_0ib2u")
+sprite = NodePath("../AnimatedSprite2D")
+flash_duration = 0.1
+
+[node name="HitboxComponent" type="Area2D" parent="."]
+collision_layer = 0
+script = ExtResource("6_ygoux")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2(-0.5, -4)
+shape = SubResource("RectangleShape2D_7vwjy")

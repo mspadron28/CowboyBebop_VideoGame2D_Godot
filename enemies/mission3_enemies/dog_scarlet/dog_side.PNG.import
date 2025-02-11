@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvo74qfm1x2rs"
-path="res://.godot/imported/Massacre Sprite Sheet.png-fe7eddd52082c13110ccccff3fcba076.ctex"
+uid="uid://dys5s7xco8l3q"
+path="res://.godot/imported/dog_side.PNG-f09192962d6f061b2a22822839bc8a7b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemies/mission3_enemies/Massacre Sprite Sheet.png"
-dest_files=["res://.godot/imported/Massacre Sprite Sheet.png-fe7eddd52082c13110ccccff3fcba076.ctex"]
+source_file="res://enemies/mission3_enemies/dog_scarlet/dog_side.PNG"
+dest_files=["res://.godot/imported/dog_side.PNG-f09192962d6f061b2a22822839bc8a7b.ctex"]
 
 [params]
 
