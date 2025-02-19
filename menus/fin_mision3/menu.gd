@@ -6,10 +6,6 @@ func _process(delta: float) -> void:
 		get_tree().change_scene_to_file("res://menus/level_selector/levels.tscn")
 		
 
-
-
-	
-
 func _on_retornar_pressed() -> void:
 	get_tree().change_scene_to_file("res://menus/principal/menu.tscn")
 

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cviueb0auslb"]
+
+[ext_resource type="AudioStream" uid="uid://cgb703g8aaq7h" path="res://music/mission4/music_m4.mp3" id="1_jikyb"]
+
+[node name="MusicM4" type="AudioStreamPlayer"]
+stream = ExtResource("1_jikyb")
+autoplay = true
+bus = &"Music"

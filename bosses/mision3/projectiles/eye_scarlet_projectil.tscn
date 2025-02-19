@@ -1,0 +1,160 @@
+[gd_scene load_steps=34 format=3 uid="uid://clvq50f56gfrx"]
+
+[ext_resource type="Script" path="res://projectiles/laser_dimadon_nova.gd" id="1_ipi8h"]
+[ext_resource type="Texture2D" uid="uid://d22fvgcf7xh6u" path="res://bosses/mision3/projectiles/frames/Eye Beast Attack1.png" id="2_f2t24"]
+[ext_resource type="Script" path="res://components/move_component.gd" id="3_56bxr"]
+[ext_resource type="Texture2D" uid="uid://dyifv823ii367" path="res://bosses/mision3/projectiles/frames/Eye Beast Attack2.png" id="3_sx2y2"]
+[ext_resource type="Texture2D" uid="uid://cf27q5phjso21" path="res://bosses/mision3/projectiles/frames/Eye Beast Attack3.png" id="4_hodg7"]
+[ext_resource type="Script" path="res://components/scale_component.gd" id="4_wg5wc"]
+[ext_resource type="Texture2D" uid="uid://c4ckwwtkro6mm" path="res://bosses/mision3/projectiles/frames/Eye Beast Attack4.png" id="5_up3qs"]
+[ext_resource type="Script" path="res://components/flash_component.gd" id="5_vy76e"]
+[ext_resource type="Texture2D" uid="uid://bxor2y1fr2wak" path="res://bosses/mision3/projectiles/frames/Eye Beast Attack5.png" id="6_h6tdk"]
+[ext_resource type="Script" path="res://components/hitbox_component.gd" id="6_xcf84"]
+[ext_resource type="Texture2D" uid="uid://vwcp7ts03131" path="res://bosses/mision3/projectiles/frames/Eye Beast Attack6.png" id="7_8qv57"]
+[ext_resource type="Texture2D" uid="uid://dty1wyr425u1f" path="res://bosses/mision3/projectiles/frames/Eye Beast Attack7.png" id="8_gjttb"]
+[ext_resource type="Texture2D" uid="uid://ddavqm6fvbira" path="res://bosses/mision3/projectiles/frames/Eye Beast Attack8.png" id="9_iffra"]
+[ext_resource type="Texture2D" uid="uid://cyan10bvop373" path="res://bosses/mision3/projectiles/frames/Eye Beast Attack9.png" id="10_ud1g3"]
+[ext_resource type="Texture2D" uid="uid://cugns7ceh0ss1" path="res://bosses/mision3/projectiles/frames/Eye Beast Attack10.png" id="11_okqk5"]
+[ext_resource type="Texture2D" uid="uid://bovdhcph7e7wn" path="res://bosses/mision3/projectiles/frames/Eye Beast Attack11.png" id="12_didlh"]
+[ext_resource type="Texture2D" uid="uid://dgaedikobqlxt" path="res://bosses/mision3/projectiles/frames/Eye Beast Attack12.png" id="13_nu88h"]
+[ext_resource type="Texture2D" uid="uid://btxv4gh77l8yc" path="res://bosses/mision3/projectiles/frames/Eye Beast Attack13.png" id="14_x4o4f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cdxq8"]
+atlas = ExtResource("2_f2t24")
+region = Rect2(10, 5, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kerco"]
+atlas = ExtResource("3_sx2y2")
+region = Rect2(10, 5, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sxnm8"]
+atlas = ExtResource("4_hodg7")
+region = Rect2(10, 5, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yyndc"]
+atlas = ExtResource("5_up3qs")
+region = Rect2(10, 5, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_46udv"]
+atlas = ExtResource("6_h6tdk")
+region = Rect2(10, 5, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nmcbe"]
+atlas = ExtResource("7_8qv57")
+region = Rect2(10, 5, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqvyk"]
+atlas = ExtResource("8_gjttb")
+region = Rect2(10, 5, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sgr2g"]
+atlas = ExtResource("9_iffra")
+region = Rect2(10, 5, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k1gm8"]
+atlas = ExtResource("10_ud1g3")
+region = Rect2(10, 5, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ek3be"]
+atlas = ExtResource("11_okqk5")
+region = Rect2(10, 5, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ih85"]
+atlas = ExtResource("12_didlh")
+region = Rect2(10, 5, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rwlky"]
+atlas = ExtResource("13_nu88h")
+region = Rect2(10, 5, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2w48k"]
+atlas = ExtResource("14_x4o4f")
+region = Rect2(10, 5, 50, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s1r58"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cdxq8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kerco")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sxnm8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yyndc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_46udv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nmcbe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqvyk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sgr2g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k1gm8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ek3be")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ih85")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rwlky")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2w48k")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_26tws"]
+radius = 5.59017
+
+[node name="eye_scarlet_projectil" type="Node2D"]
+script = ExtResource("1_ipi8h")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-4.76837e-07, -0.5)
+scale = Vector2(0.36, 0.38)
+sprite_frames = SubResource("SpriteFrames_s1r58")
+autoplay = "default"
+frame_progress = 0.786208
+
+[node name="MoveComponent" type="Node" parent="." node_paths=PackedStringArray("actor")]
+script = ExtResource("3_56bxr")
+actor = NodePath("..")
+velocity = Vector2(0, 150)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0, -1)
+scale = Vector2(0.9, 0.9)
+
+[node name="ScaleComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
+script = ExtResource("4_wg5wc")
+sprite = NodePath("../AnimatedSprite2D")
+scale_amount = Vector2(5, 2)
+scale_duration = 1.0
+
+[node name="FlashComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
+script = ExtResource("5_vy76e")
+sprite = NodePath("../AnimatedSprite2D")
+flash_duration = 0.1
+
+[node name="HitboxComponent" type="Area2D" parent="."]
+collision_layer = 0
+script = ExtResource("6_xcf84")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2(0.5, 0)
+shape = SubResource("CircleShape2D_26tws")

@@ -83,7 +83,11 @@ animation = &"bank_right"
 [node name="StatsComponent" parent="." index="1"]
 health = 2
 
+[node name="VisibleOnScreenNotifier2D" parent="." index="2"]
+visible = false
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" index="0"]
+visible = false
 shape = SubResource("CircleShape2D_yjljq")
 debug_color = Color(0, 0.639146, 0.368828, 0.42)
 

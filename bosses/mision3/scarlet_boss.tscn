@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://broh81aomuxek"]
+[gd_scene load_steps=13 format=3 uid="uid://broh81aomuxek"]
 
 [ext_resource type="PackedScene" uid="uid://770ogjr8832x" path="res://bosses/boss.tscn" id="1_a7cek"]
 [ext_resource type="Script" path="res://bosses/mision3/scarlet_boss.gd" id="2_mn8gb"]
@@ -7,6 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://76ftcns3venb" path="res://projectiles/laser_scarlet_nova.tscn" id="5_cbs7t"]
 [ext_resource type="PackedScene" uid="uid://b7q84ev4cssft" path="res://menus/healthbar/healthbar.tscn" id="6_6q76r"]
 [ext_resource type="Theme" uid="uid://dhdymq66xh85h" path="res://themes/labels/bosses_healthbar/hb_labels.tres" id="7_6klqj"]
+[ext_resource type="Script" path="res://components/spawner_component.gd" id="8_2w6tt"]
+[ext_resource type="PackedScene" uid="uid://clvq50f56gfrx" path="res://bosses/mision3/projectiles/eye_scarlet_projectil.tscn" id="9_52qes"]
+[ext_resource type="AudioStream" uid="uid://c5fckkm8hjgtl" path="res://bosses/mision2/projectiles/cactus_dima.wav" id="10_caeno"]
+[ext_resource type="Script" path="res://components/variable_pitch_audio_stream_player.gd" id="11_ydr50"]
+[ext_resource type="AudioStream" uid="uid://fp4cg41d0go0" path="res://bosses/mision2/projectiles/yeehaw.wav" id="12_1rxbo"]
 
 [node name="ScarletBoss" instance=ExtResource("1_a7cek")]
 script = ExtResource("2_mn8gb")
@@ -57,3 +62,26 @@ offset_bottom = 18.0
 grow_horizontal = 0
 theme = ExtResource("7_6klqj")
 text = "Scarlet"
+
+[node name="ProjectileEye" type="Node2D" parent="." index="13"]
+unique_name_in_owner = true
+position = Vector2(0, 22)
+script = ExtResource("8_2w6tt")
+scene = ExtResource("9_52qes")
+
+[node name="FireEyeRate" type="Timer" parent="." index="14"]
+unique_name_in_owner = true
+wait_time = 5.0
+autostart = true
+
+[node name="LaserAudio" type="AudioStreamPlayer" parent="." index="15"]
+stream = ExtResource("10_caeno")
+bus = &"Effects"
+script = ExtResource("11_ydr50")
+auto_play_with_variance = true
+
+[node name="CactusAudio" type="AudioStreamPlayer" parent="." index="16"]
+stream = ExtResource("12_1rxbo")
+bus = &"Music"
+script = ExtResource("11_ydr50")
+auto_play_with_variance = true

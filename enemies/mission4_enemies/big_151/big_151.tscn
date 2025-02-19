@@ -1,0 +1,199 @@
+[gd_scene load_steps=24 format=3 uid="uid://blsk63fuvmnsg"]
+
+[ext_resource type="PackedScene" uid="uid://cmtv5i61ue463" path="res://enemies/mechanics/fire/enemy_fire.tscn" id="1_xcvao"]
+[ext_resource type="Script" path="res://enemies/mission3_enemies/big_scar/big_scar.gd" id="2_c5ur5"]
+[ext_resource type="Texture2D" uid="uid://bwsgk2v1kq6rt" path="res://assets/mision1/big_enemies/Boss 2 -Alt Sprite Sheet.png" id="3_pgj22"]
+[ext_resource type="PackedScene" uid="uid://du7newxp7w672" path="res://enemies/mission4_enemies/big_151/center_laser_big_151.tscn" id="4_pj425"]
+[ext_resource type="Script" path="res://components/spawner_component.gd" id="5_rxeut"]
+[ext_resource type="PackedScene" uid="uid://dqpmbd60i14p" path="res://enemies/mission4_enemies/big_151/wide_muzzles_laser_big_151.tscn" id="6_vadsh"]
+[ext_resource type="PackedScene" uid="uid://mnofdoe3murw" path="res://enemies/mission4_enemies/big_151/muzzles_laser_big_151.tscn" id="7_xs0sr"]
+[ext_resource type="AudioStream" uid="uid://csx04jcbcgr31" path="res://sounds/missions/mission1/enemies/fire_mini_nova.wav" id="8_1ipe7"]
+[ext_resource type="Script" path="res://components/variable_pitch_audio_stream_player.gd" id="9_crdvh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rcl37"]
+atlas = ExtResource("3_pgj22")
+region = Rect2(0, 68, 64, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w32uq"]
+atlas = ExtResource("3_pgj22")
+region = Rect2(64, 68, 64, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yejdi"]
+atlas = ExtResource("3_pgj22")
+region = Rect2(128, 68, 64, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fg5xi"]
+atlas = ExtResource("3_pgj22")
+region = Rect2(192, 68, 64, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lvf3p"]
+atlas = ExtResource("3_pgj22")
+region = Rect2(256, 68, 64, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7n24y"]
+atlas = ExtResource("3_pgj22")
+region = Rect2(320, 68, 64, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r18pa"]
+atlas = ExtResource("3_pgj22")
+region = Rect2(384, 68, 64, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q5wxu"]
+atlas = ExtResource("3_pgj22")
+region = Rect2(448, 68, 64, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ldx1"]
+atlas = ExtResource("3_pgj22")
+region = Rect2(0, 0, 64, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k2g21"]
+atlas = ExtResource("3_pgj22")
+region = Rect2(64, 0, 64, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hl8gm"]
+atlas = ExtResource("3_pgj22")
+region = Rect2(128, 0, 64, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hjoqp"]
+atlas = ExtResource("3_pgj22")
+region = Rect2(192, 0, 64, 68)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vqsa7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rcl37")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w32uq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yejdi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fg5xi")
+}],
+"loop": true,
+"name": &"bank_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lvf3p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7n24y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r18pa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q5wxu")
+}],
+"loop": true,
+"name": &"bank_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ldx1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k2g21")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hl8gm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hjoqp")
+}],
+"loop": true,
+"name": &"center",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l4c1p"]
+
+[node name="Big151" instance=ExtResource("1_xcvao")]
+script = ExtResource("2_c5ur5")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_vqsa7")
+animation = &"center"
+frame_progress = 0.352361
+
+[node name="StatsComponent" parent="." index="1"]
+health = 10
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="2"]
+visible = false
+position = Vector2(-0.499998, -1.5)
+scale = Vector2(3.05, 1.95)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HurtboxComponent" index="0"]
+polygon = PackedVector2Array(-27, 14, -15, 3, 15, 3, 28, 15, 29, -2, 17, -14, -12, -15, -30, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_l4c1p")
+debug_color = Color(0.646662, 0.49031, 0.490618, 0.42)
+
+[node name="MoveSideState" parent="States" index="0"]
+duration = 2.0
+
+[node name="MoveSideComponent" parent="States/MoveSideState" index="0" node_paths=PackedStringArray("actor")]
+actor = NodePath("../../..")
+
+[node name="BorderBounceComponent" parent="States/MoveSideState" index="1" node_paths=PackedStringArray("actor")]
+actor = NodePath("../../..")
+
+[node name="MoveDownState" parent="States" index="1"]
+duration = 0.5
+
+[node name="MoveComponent" parent="States/MoveDownState" index="0" node_paths=PackedStringArray("actor")]
+actor = NodePath("../../..")
+velocity = Vector2(0, 20)
+
+[node name="FireRateTimer" parent="." index="11"]
+wait_time = 1.4
+
+[node name="ProjectileSpawnerComponent" parent="." index="12"]
+scene = ExtResource("4_pj425")
+
+[node name="ProjectileWideMuzzle" type="Node2D" parent="." index="13"]
+position = Vector2(0, 44)
+script = ExtResource("5_rxeut")
+scene = ExtResource("6_vadsh")
+
+[node name="FireRateTimerWide" type="Timer" parent="." index="14"]
+wait_time = 5.0
+autostart = true
+
+[node name="ProjectileMuzzle" type="Node2D" parent="." index="15"]
+position = Vector2(0, 88)
+script = ExtResource("5_rxeut")
+scene = ExtResource("7_xs0sr")
+
+[node name="FireRateTimerMuzzle" type="Timer" parent="." index="16"]
+wait_time = 7.0
+autostart = true
+
+[node name="CenterMuzzle" parent="." index="17"]
+position = Vector2(0, 4)
+
+[node name="WideMuzzleLeft" type="Marker2D" parent="." index="18"]
+position = Vector2(-14, 4)
+
+[node name="WideMuzzleRight" type="Marker2D" parent="." index="19"]
+position = Vector2(14, 4)
+
+[node name="MuzzleLeft" type="Marker2D" parent="." index="20"]
+position = Vector2(-24, 8)
+
+[node name="MuzzleRight" type="Marker2D" parent="." index="21"]
+position = Vector2(24, 8)
+
+[node name="Fire_Sound" type="AudioStreamPlayer" parent="." index="23"]
+stream = ExtResource("8_1ipe7")
+bus = &"Effects"
+script = ExtResource("9_crdvh")

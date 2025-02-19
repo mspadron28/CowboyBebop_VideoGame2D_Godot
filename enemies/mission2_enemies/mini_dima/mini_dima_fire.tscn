@@ -105,9 +105,7 @@ script = ExtResource("2_ap46r")
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_on0pr")
-animation = &"bank_right"
-frame = 1
-frame_progress = 0.0480393
+animation = &"center"
 
 [node name="StatsComponent" parent="." index="1"]
 health = 3

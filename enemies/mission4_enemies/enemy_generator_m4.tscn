@@ -1,24 +1,52 @@
-[gd_scene load_steps=5 format=3 uid="uid://f7mxcldvqhd"]
+[gd_scene load_steps=9 format=3 uid="uid://f7mxcldvqhd"]
 
 [ext_resource type="Script" path="res://enemies/mission4_enemies/enemy_generator_m_4.gd" id="1_pt8w1"]
 [ext_resource type="PackedScene" uid="uid://dvkfw1i0w35al" path="res://enemies/mission4_enemies/verde_ferxxo_enemy/verde_ferxxo.tscn" id="2_tahth"]
 [ext_resource type="PackedScene" uid="uid://chagcs3p0do08" path="res://bosses/mision4/ferxxo_boss.tscn" id="3_frcsi"]
+[ext_resource type="PackedScene" uid="uid://blsk63fuvmnsg" path="res://enemies/mission4_enemies/big_151/big_151.tscn" id="3_qr1py"]
+[ext_resource type="PackedScene" uid="uid://cjm7vw3arux5v" path="res://enemies/mission4_enemies/mini_ferxxo/mini_ferxxo.tscn" id="4_eqysu"]
+[ext_resource type="PackedScene" uid="uid://sd5udutco1ne" path="res://enemies/mission4_enemies/health_item_ferxxo.tscn" id="4_gew4d"]
 [ext_resource type="Script" path="res://components/spawner_component.gd" id="4_na65b"]
+[ext_resource type="PackedScene" uid="uid://bg7nbtqswwnmo" path="res://enemies/mission4_enemies/mini_mor/mini_mor.tscn" id="5_7iqgr"]
 
 [node name="EnemyGeneratorM4" type="Node2D"]
 script = ExtResource("1_pt8w1")
 VerdeFerxxoEnemyScene = ExtResource("2_tahth")
+Big151 = ExtResource("3_qr1py")
+HealthF = ExtResource("4_gew4d")
 FerxxoEnemyScene = ExtResource("3_frcsi")
+MiniFerxxo = ExtResource("4_eqysu")
+MiniMor = ExtResource("5_7iqgr")
 
 [node name="SpawnerComponent" type="Node2D" parent="."]
 script = ExtResource("4_na65b")
 
 [node name="VerdeFerxxoEnemySpawnTimer" type="Timer" parent="."]
-wait_time = 1.5
+wait_time = 1.2
 one_shot = true
 autostart = true
 
 [node name="FerxxoBossTimer" type="Timer" parent="."]
+wait_time = 60.0
+one_shot = true
+autostart = true
+
+[node name="MiniFerxxoTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="MiniMorTimer" type="Timer" parent="."]
 wait_time = 3.0
+one_shot = true
+autostart = true
+
+[node name="Big151Timer" type="Timer" parent="."]
+wait_time = 25.0
+one_shot = true
+autostart = true
+
+[node name="HealthFTimer" type="Timer" parent="."]
+wait_time = 15.0
 one_shot = true
 autostart = true

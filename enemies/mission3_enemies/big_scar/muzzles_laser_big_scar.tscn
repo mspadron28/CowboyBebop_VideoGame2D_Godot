@@ -67,7 +67,8 @@ script = ExtResource("1_fylew")
 scale = Vector2(1.78906, 1.47656)
 sprite_frames = SubResource("SpriteFrames_aiofh")
 autoplay = "default"
-frame_progress = 0.126548
+frame = 4
+frame_progress = 0.454886
 
 [node name="MoveComponent" type="Node" parent="." node_paths=PackedStringArray("actor")]
 script = ExtResource("3_r2pxn")

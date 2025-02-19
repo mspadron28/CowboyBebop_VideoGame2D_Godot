@@ -1,10 +1,21 @@
 extends Node2D
 
 @export var VerdeFerxxoEnemyScene: PackedScene
+@export var Big151: PackedScene
+@export var HealthF: PackedScene
 @export var FerxxoEnemyScene: PackedScene
+@export var MiniFerxxo: PackedScene
+@export var MiniMor: PackedScene
+
 
 @onready var verde_ferxxo_enemy_spawn_timer: Timer = $VerdeFerxxoEnemySpawnTimer
 @onready var ferxxo_boss_timer: Timer = $FerxxoBossTimer
+@onready var mini_ferxxo_timer: Timer = $MiniFerxxoTimer
+@onready var mini_mor_timer: Timer = $MiniMorTimer
+@onready var big_151_timer: Timer = $Big151Timer
+@onready var health_f_timer: Timer = $HealthFTimer
+
+
 @onready var spawner_component: SpawnerComponent = $SpawnerComponent
 
 
@@ -18,6 +29,10 @@ var ferxxo_boss_node: Node2D = null # Referencia al jefe cuando aparece
 func _ready() -> void:
 	# Conecta el temporizador de los enemigos normales
 	verde_ferxxo_enemy_spawn_timer.timeout.connect(handle_spawn.bind(VerdeFerxxoEnemyScene, verde_ferxxo_enemy_spawn_timer))
+	mini_ferxxo_timer.timeout.connect(handle_spawn.bind(MiniFerxxo, mini_ferxxo_timer))
+	mini_mor_timer.timeout.connect(handle_spawn.bind(MiniMor, mini_mor_timer))
+	big_151_timer.timeout.connect(handle_spawn.bind(Big151, big_151_timer))
+	health_f_timer.timeout.connect(handle_spawn.bind(HealthF, health_f_timer))
 	# Conecta el temporizador para la aparición del jefe
 	ferxxo_boss_timer.timeout.connect(spawn_boss)
 

@@ -32,8 +32,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u7y1a"]
-size = Vector2(15.5, 17)
+[sub_resource type="CircleShape2D" id="CircleShape2D_5ed7i"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p27tf"]
 radius = 5.09902
@@ -41,19 +40,23 @@ radius = 5.09902
 [node name="VerdeFerxxo" instance=ExtResource("1_ullym")]
 
 [node name="AnimatedSprite2D" parent="." index="0"]
-position = Vector2(0, -0.823)
-scale = Vector2(0.227, 0.21)
+position = Vector2(1.07288e-06, -5.96046e-07)
+scale = Vector2(0.329412, 0.325581)
 sprite_frames = SubResource("SpriteFrames_ry46e")
 autoplay = "default"
-frame_progress = 0.421958
+frame_progress = 0.224339
 
 [node name="MoveComponent" parent="." index="2"]
-velocity = Vector2(0, 50)
+velocity = Vector2(0, 100)
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="3"]
+position = Vector2(0.5, 0.5)
+scale = Vector2(1.25, 1.25)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" index="0"]
-visible = false
 position = Vector2(0, -0.5)
-shape = SubResource("RectangleShape2D_u7y1a")
+shape = SubResource("CircleShape2D_5ed7i")
+debug_color = Color(0.796174, 0.397869, 0.399106, 0.42)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
 visible = false

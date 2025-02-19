@@ -79,6 +79,6 @@ func switch_character(new_player: Node2D) -> void:
 			new_fire_timer.start()
 
 		current_player = new_player  # Cambia la referencia del personaje activo
-
+		
 func _on_retornar_pressed() -> void:
 	get_tree().change_scene_to_file("res://menus/principal/menu.tscn")

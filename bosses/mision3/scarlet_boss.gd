@@ -7,9 +7,12 @@ extends Boss
 @onready var pause_state: TimedStateComponent = %PauseState
 @onready var projectile_spawner_component: SpawnerComponent = %ProjectileSpawnerComponent
 @onready var center_muzzle: Marker2D = $CenterMuzzle
+@onready var projectile_eye: SpawnerComponent = %ProjectileEye
 
 @onready var healthbar: ProgressBar = $CanvasLayer/Healthbar
 @onready var stats_component: StatsComponent = $StatsComponent
+@onready var laser_audio: VariablePitchAudioStreamPlayer = $LaserAudio
+@onready var fire_eye_rate: Timer = %FireEyeRate
 
 
 func _ready() -> void:
@@ -24,6 +27,7 @@ func _ready() -> void:
 	move_side_component.velocity.x = [-50,50].pick_random()
 	# Habilitar disparo
 	fire_rate_timer.timeout.connect(fire_lasers)
+	fire_eye_rate.timeout.connect(fire_eye)
 	move_side_state.state_finished.connect(pause_state.enable)
 	pause_state.state_finished.connect(move_side_state.enable)
 	# Iniciar el primer estado
@@ -31,7 +35,12 @@ func _ready() -> void:
 
 # Disparo constante usando el temporizador
 func fire_lasers() -> void:
+	laser_audio.play_with_variance()
 	projectile_spawner_component.spawn(center_muzzle.global_position)
+	
+func fire_eye() -> void:
+	#cactus_audio.play_with_variance()
+	projectile_eye.spawn(center_muzzle.global_position)
 	
 # Actualiza la barra de vida cuando cambia la salud
 func _on_health_changed() -> void:

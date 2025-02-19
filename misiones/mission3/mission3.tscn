@@ -36,3 +36,5 @@ layout_mode = 2
 size_flags_horizontal = 10
 theme = ExtResource("4_eowqv")
 theme_type_variation = &"FlatButton"
+
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/Retornar" to="." method="_on_retornar_pressed"]

@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://sd5udutco1ne"]
+
+[ext_resource type="PackedScene" uid="uid://cfajt7ohgn87g" path="res://enemies/healt_item.tscn" id="1_pbblr"]
+[ext_resource type="Texture2D" uid="uid://pa8uo0cgntt3" path="res://enemies/mission4_enemies/health_item/ferrxo_healthitem.png" id="2_l75ou"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yxji5"]
+atlas = ExtResource("2_l75ou")
+region = Rect2(0, 0, 154, 138)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flhh2"]
+atlas = ExtResource("2_l75ou")
+region = Rect2(154, 0, 154, 138)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nip1f"]
+atlas = ExtResource("2_l75ou")
+region = Rect2(308, 0, 154, 138)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_shi2i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yxji5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_flhh2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nip1f")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="HealthItemFerxxo" instance=ExtResource("1_pbblr")]
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_shi2i")
+frame_progress = 0.85576

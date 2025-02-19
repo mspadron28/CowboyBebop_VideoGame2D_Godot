@@ -1,0 +1,147 @@
+[gd_scene load_steps=20 format=3 uid="uid://cjm7vw3arux5v"]
+
+[ext_resource type="PackedScene" uid="uid://cmtv5i61ue463" path="res://enemies/mechanics/fire/enemy_fire.tscn" id="1_wxo5m"]
+[ext_resource type="Script" path="res://enemies/mission4_enemies/mini_ferxxo/mini_ferxxo.gd" id="2_eypmh"]
+[ext_resource type="AudioStream" uid="uid://csx04jcbcgr31" path="res://sounds/missions/mission1/enemies/fire_mini_nova.wav" id="3_4l0b6"]
+[ext_resource type="Texture2D" uid="uid://dlcif67f5cepq" path="res://assets/mision1/enemies/Enemies T1 Sprite Sheet.png" id="3_gfl78"]
+[ext_resource type="Script" path="res://components/variable_pitch_audio_stream_player.gd" id="4_hy7a1"]
+[ext_resource type="PackedScene" uid="uid://dwnnb2kxhgcs2" path="res://enemies/mission4_enemies/mini_ferxxo/laser_mini_ferxxo.tscn" id="4_invxe"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4ppy"]
+atlas = ExtResource("3_gfl78")
+region = Rect2(96, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ynv50"]
+atlas = ExtResource("3_gfl78")
+region = Rect2(128, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7vjur"]
+atlas = ExtResource("3_gfl78")
+region = Rect2(160, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7qfoe"]
+atlas = ExtResource("3_gfl78")
+region = Rect2(0, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sbbvr"]
+atlas = ExtResource("3_gfl78")
+region = Rect2(32, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_13y2s"]
+atlas = ExtResource("3_gfl78")
+region = Rect2(64, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ty318"]
+atlas = ExtResource("3_gfl78")
+region = Rect2(0, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yymse"]
+atlas = ExtResource("3_gfl78")
+region = Rect2(32, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wuv4c"]
+atlas = ExtResource("3_gfl78")
+region = Rect2(64, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3f08o"]
+atlas = ExtResource("3_gfl78")
+region = Rect2(96, 224, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g2gl4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r4ppy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ynv50")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7vjur")
+}],
+"loop": true,
+"name": &"bank_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7qfoe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sbbvr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_13y2s")
+}],
+"loop": true,
+"name": &"bank_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ty318")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yymse")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wuv4c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3f08o")
+}],
+"loop": true,
+"name": &"center",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_db3nc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_25hou"]
+radius = 4.0
+
+[node name="MiniFerxxo" instance=ExtResource("1_wxo5m")]
+script = ExtResource("2_eypmh")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_g2gl4")
+animation = &"bank_left"
+
+[node name="StatsComponent" parent="." index="1"]
+health = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" index="0"]
+shape = SubResource("CircleShape2D_db3nc")
+debug_color = Color(1.92523e-06, 0.63999, 0.356611, 0.42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
+shape = SubResource("CircleShape2D_25hou")
+debug_color = Color(0.535675, 0.564728, 0.202161, 0.42)
+
+[node name="MoveSideComponent" parent="States/MoveSideState" index="0" node_paths=PackedStringArray("actor")]
+actor = NodePath("../../..")
+velocity = Vector2(0, 40)
+
+[node name="BorderBounceComponent" parent="States/MoveSideState" index="1" node_paths=PackedStringArray("actor")]
+actor = NodePath("../../..")
+
+[node name="MoveDownState" parent="States" index="1"]
+duration = 0.3
+
+[node name="MoveComponent" parent="States/MoveDownState" index="0" node_paths=PackedStringArray("actor")]
+actor = NodePath("../../..")
+velocity = Vector2(0, 80)
+
+[node name="PauseState" parent="States" index="2"]
+duration = 0.2
+
+[node name="FireRateTimer" parent="." index="11"]
+wait_time = 2.5
+
+[node name="ProjectileSpawnerComponent" parent="." index="12"]
+scene = ExtResource("4_invxe")
+
+[node name="Fire_Sound" type="AudioStreamPlayer" parent="." index="15"]
+stream = ExtResource("3_4l0b6")
+bus = &"Effects"
+script = ExtResource("4_hy7a1")
