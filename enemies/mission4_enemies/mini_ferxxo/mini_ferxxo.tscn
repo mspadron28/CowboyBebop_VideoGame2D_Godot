@@ -132,9 +132,6 @@ duration = 0.3
 actor = NodePath("../../..")
 velocity = Vector2(0, 80)
 
-[node name="PauseState" parent="States" index="2"]
-duration = 0.2
-
 [node name="FireRateTimer" parent="." index="11"]
 wait_time = 2.5
 

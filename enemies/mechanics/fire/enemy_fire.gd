@@ -34,9 +34,6 @@ func _ready() -> void:
 	stats_component.no_health.connect(queue_free)
 	hitbox_component.hit_hurtbox.connect(destroyed_component.destroy.unbind(1))
 
-
-
-	
 func _process(delta: float) -> void:
 	animate_the_ship()
 

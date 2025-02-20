@@ -13,6 +13,7 @@ extends Boss
 @onready var stats_component: StatsComponent = $StatsComponent
 @onready var laser_audio: VariablePitchAudioStreamPlayer = $LaserAudio
 @onready var fire_eye_rate: Timer = %FireEyeRate
+@onready var eye_audio: VariablePitchAudioStreamPlayer = $EyeAudio
 
 
 func _ready() -> void:
@@ -24,7 +25,7 @@ func _ready() -> void:
 		state = state as StateComponent
 		state.disable()
 		
-	move_side_component.velocity.x = [-50,50].pick_random()
+	move_side_component.velocity.x = [-90,90].pick_random()
 	# Habilitar disparo
 	fire_rate_timer.timeout.connect(fire_lasers)
 	fire_eye_rate.timeout.connect(fire_eye)
@@ -39,7 +40,7 @@ func fire_lasers() -> void:
 	projectile_spawner_component.spawn(center_muzzle.global_position)
 	
 func fire_eye() -> void:
-	#cactus_audio.play_with_variance()
+	eye_audio.play_with_variance()
 	projectile_eye.spawn(center_muzzle.global_position)
 	
 # Actualiza la barra de vida cuando cambia la salud

@@ -32,12 +32,12 @@ one_shot = true
 autostart = true
 
 [node name="MiniFerxxoTimer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 6.5
 one_shot = true
 autostart = true
 
 [node name="MiniMorTimer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 4.0
 one_shot = true
 autostart = true
 

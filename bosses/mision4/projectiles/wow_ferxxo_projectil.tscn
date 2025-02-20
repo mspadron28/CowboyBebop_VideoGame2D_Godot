@@ -1,0 +1,71 @@
+[gd_scene load_steps=11 format=3 uid="uid://dyxfsl00dcmcl"]
+
+[ext_resource type="Script" path="res://projectiles/laser_dimadon_nova.gd" id="1_w2fur"]
+[ext_resource type="Texture2D" uid="uid://yckm1tv8bako" path="res://bosses/mision4/projectiles/frames/ferxxo_fire.png" id="2_c7ko2"]
+[ext_resource type="Script" path="res://components/move_component.gd" id="15_l5558"]
+[ext_resource type="Script" path="res://components/scale_component.gd" id="16_hos3k"]
+[ext_resource type="Script" path="res://components/flash_component.gd" id="17_6qgtt"]
+[ext_resource type="Script" path="res://components/hitbox_component.gd" id="18_c2xdq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_msvog"]
+atlas = ExtResource("2_c7ko2")
+region = Rect2(0, 0, 254, 272)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0b4ce"]
+atlas = ExtResource("2_c7ko2")
+region = Rect2(254, 0, 254, 272)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_byoa8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_msvog")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0b4ce")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_popwa"]
+size = Vector2(8, 25)
+
+[node name="wow_ferxxo_projectil" type="Node2D"]
+script = ExtResource("1_w2fur")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -1.43051e-06)
+scale = Vector2(0.188976, 0.169118)
+sprite_frames = SubResource("SpriteFrames_byoa8")
+autoplay = "default"
+frame_progress = 0.887458
+
+[node name="MoveComponent" type="Node" parent="." node_paths=PackedStringArray("actor")]
+script = ExtResource("15_l5558")
+actor = NodePath("..")
+velocity = Vector2(0, 150)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-0.5, 1.5)
+scale = Vector2(1.25, 1.95)
+
+[node name="ScaleComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
+script = ExtResource("16_hos3k")
+sprite = NodePath("../AnimatedSprite2D")
+scale_amount = Vector2(5, 2)
+scale_duration = 1.0
+
+[node name="FlashComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
+script = ExtResource("17_6qgtt")
+sprite = NodePath("../AnimatedSprite2D")
+flash_duration = 0.1
+
+[node name="HitboxComponent" type="Area2D" parent="."]
+collision_layer = 0
+script = ExtResource("18_c2xdq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_popwa")

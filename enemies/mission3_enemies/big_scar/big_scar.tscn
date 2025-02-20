@@ -182,7 +182,7 @@ animation = &"bank_right"
 frame_progress = 0.123512
 
 [node name="StatsComponent" parent="." index="1"]
-health = 10
+health = 6
 
 [node name="VisibleOnScreenNotifier2D" parent="." index="2"]
 visible = false

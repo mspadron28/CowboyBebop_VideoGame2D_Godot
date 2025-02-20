@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jq4hw3knctyu"
-path="res://.godot/imported/dima_cactus.png-9d5b7b32dc553ca7f3e70322efa13ee9.ctex"
+uid="uid://yckm1tv8bako"
+path="res://.godot/imported/ferxxo_fire.png-4a7de77fed92106bfa44dc2b0031e7dd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://bosses/mision3/projectiles/dima_cactus.png"
-dest_files=["res://.godot/imported/dima_cactus.png-9d5b7b32dc553ca7f3e70322efa13ee9.ctex"]
+source_file="res://bosses/mision4/projectiles/frames/ferxxo_fire.png"
+dest_files=["res://.godot/imported/ferxxo_fire.png-4a7de77fed92106bfa44dc2b0031e7dd.ctex"]
 
 [params]
 

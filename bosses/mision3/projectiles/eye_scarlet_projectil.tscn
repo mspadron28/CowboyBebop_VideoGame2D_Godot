@@ -125,8 +125,8 @@ radius = 5.59017
 script = ExtResource("1_ipi8h")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-4.76837e-07, -0.5)
-scale = Vector2(0.36, 0.38)
+position = Vector2(0, -4.76837e-07)
+scale = Vector2(0.66, 0.64)
 sprite_frames = SubResource("SpriteFrames_s1r58")
 autoplay = "default"
 frame_progress = 0.786208
@@ -137,8 +137,8 @@ actor = NodePath("..")
 velocity = Vector2(0, 150)
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(0, -1)
-scale = Vector2(0.9, 0.9)
+position = Vector2(1.5, 0.5)
+scale = Vector2(1.05, 1.05)
 
 [node name="ScaleComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
 script = ExtResource("4_wg5wc")

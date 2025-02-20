@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://chagcs3p0do08"]
+[gd_scene load_steps=13 format=3 uid="uid://chagcs3p0do08"]
 
 [ext_resource type="PackedScene" uid="uid://770ogjr8832x" path="res://bosses/boss.tscn" id="1_sr4xh"]
 [ext_resource type="Script" path="res://bosses/mision4/ferxxo_boss.gd" id="2_jykvb"]
@@ -7,6 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://cb0rfcc0ftgx1" path="res://projectiles/laser_ferxxo_nova.tscn" id="5_hqdu4"]
 [ext_resource type="PackedScene" uid="uid://b7q84ev4cssft" path="res://menus/healthbar/healthbar.tscn" id="6_62gdm"]
 [ext_resource type="LabelSettings" uid="uid://dybimu7heuf27" path="res://themes/labels/bosses_healthbar/ferxxo_labelhb.tres" id="7_52hdy"]
+[ext_resource type="Script" path="res://components/spawner_component.gd" id="11_1a1fq"]
+[ext_resource type="AudioStream" uid="uid://c3dfpggcdte24" path="res://bosses/mision4/projectiles/chory.mp3" id="12_80dd6"]
+[ext_resource type="AudioStream" uid="uid://c5fckkm8hjgtl" path="res://bosses/mision2/projectiles/cactus_dima.wav" id="12_gk6c7"]
+[ext_resource type="PackedScene" uid="uid://dyxfsl00dcmcl" path="res://bosses/mision4/projectiles/wow_ferxxo_projectil.tscn" id="12_w3jjq"]
+[ext_resource type="Script" path="res://components/variable_pitch_audio_stream_player.gd" id="13_usxdf"]
 
 [node name="FerxxoBoss" instance=ExtResource("1_sr4xh")]
 script = ExtResource("2_jykvb")
@@ -14,6 +19,9 @@ script = ExtResource("2_jykvb")
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = ExtResource("3_rlwpo")
 animation = &"center"
+
+[node name="StatsComponent" parent="." index="1"]
+health = 15
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HurtboxComponent" index="0"]
 polygon = PackedVector2Array(-37, 19, -37, 5, -16, -17, 16, -17, 34, 3, 34, 16, 8, 15, 0, 28, -10, 14)
@@ -57,3 +65,26 @@ offset_bottom = 18.0
 grow_horizontal = 0
 text = "ferxxo"
 label_settings = ExtResource("7_52hdy")
+
+[node name="ProjectileWow" type="Node2D" parent="." index="13"]
+unique_name_in_owner = true
+position = Vector2(0, 22)
+script = ExtResource("11_1a1fq")
+scene = ExtResource("12_w3jjq")
+
+[node name="FireWowRate" type="Timer" parent="." index="14"]
+unique_name_in_owner = true
+wait_time = 5.0
+autostart = true
+
+[node name="LaserAudio" type="AudioStreamPlayer" parent="." index="15"]
+stream = ExtResource("12_gk6c7")
+bus = &"Effects"
+script = ExtResource("13_usxdf")
+auto_play_with_variance = true
+
+[node name="WoWAudio" type="AudioStreamPlayer" parent="." index="16"]
+stream = ExtResource("12_80dd6")
+bus = &"Music"
+script = ExtResource("13_usxdf")
+auto_play_with_variance = true

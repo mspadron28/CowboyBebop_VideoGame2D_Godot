@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://clvq50f56gfrx" path="res://bosses/mision3/projectiles/eye_scarlet_projectil.tscn" id="9_52qes"]
 [ext_resource type="AudioStream" uid="uid://c5fckkm8hjgtl" path="res://bosses/mision2/projectiles/cactus_dima.wav" id="10_caeno"]
 [ext_resource type="Script" path="res://components/variable_pitch_audio_stream_player.gd" id="11_ydr50"]
-[ext_resource type="AudioStream" uid="uid://fp4cg41d0go0" path="res://bosses/mision2/projectiles/yeehaw.wav" id="12_1rxbo"]
+[ext_resource type="AudioStream" uid="uid://b2jckg8tuxsc4" path="res://bosses/mision3/projectiles/evil_scart_sound.wav" id="12_b0ra0"]
 
 [node name="ScarletBoss" instance=ExtResource("1_a7cek")]
 script = ExtResource("2_mn8gb")
@@ -19,6 +19,9 @@ script = ExtResource("2_mn8gb")
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = ExtResource("3_g72q1")
 animation = &"bank_left"
+
+[node name="StatsComponent" parent="." index="1"]
+health = 15
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HurtboxComponent" index="0"]
 polygon = PackedVector2Array(-38, -27, -37, -9, 2, 31, 37, -7, 36, -28, 9, -1, -6, -1)
@@ -42,6 +45,9 @@ wait_time = 1.392
 
 [node name="BorderBounceComponent" parent="States/MoveSideState" index="1" node_paths=PackedStringArray("actor")]
 actor = NodePath("../../..")
+
+[node name="PauseState" parent="States" index="1"]
+duration = 0.5
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="12"]
 
@@ -80,8 +86,8 @@ bus = &"Effects"
 script = ExtResource("11_ydr50")
 auto_play_with_variance = true
 
-[node name="CactusAudio" type="AudioStreamPlayer" parent="." index="16"]
-stream = ExtResource("12_1rxbo")
+[node name="EyeAudio" type="AudioStreamPlayer" parent="." index="16"]
+stream = ExtResource("12_b0ra0")
 bus = &"Music"
 script = ExtResource("11_ydr50")
 auto_play_with_variance = true
