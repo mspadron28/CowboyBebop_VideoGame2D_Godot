@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cnk8dsjqn7ckp"]
+[gd_scene load_steps=7 format=3 uid="uid://cnk8dsjqn7ckp"]
 
 [ext_resource type="Script" path="res://menus/fin_mision4/menu.gd" id="1_s6co5"]
 [ext_resource type="Theme" uid="uid://btmpwg1bcdua4" path="res://menus/fin_mision4/mision4_theme.tres" id="2_sab0h"]
 [ext_resource type="Texture2D" uid="uid://cwtw1hwq5u16k" path="res://menus/principal/opciones.png" id="3_jr3yk"]
 [ext_resource type="Texture2D" uid="uid://cs76ir3poquhj" path="res://menus/principal/salir.png" id="4_27ow2"]
 [ext_resource type="PackedScene" uid="uid://bjhsnom51i1hs" path="res://menus/fin_mision4/m4_end_background.tscn" id="5_x6s30"]
+[ext_resource type="PackedScene" uid="uid://b7avlg5kmun27" path="res://music/mission4/end_m_4.tscn" id="6_pnxe6"]
 
 [node name="MenuM4" type="Control"]
 layout_mode = 3
@@ -69,6 +70,8 @@ size_flags_horizontal = 10
 icon = ExtResource("3_jr3yk")
 
 [node name="M2EndBackground" parent="." instance=ExtResource("5_x6s30")]
+
+[node name="EndM4" parent="." instance=ExtResource("6_pnxe6")]
 
 [connection signal="pressed" from="VBoxContainer/Final_Game" to="." method="_on_final_game_pressed"]
 [connection signal="pressed" from="HBoxContainer/Salir" to="." method="_on_salir_pressed"]

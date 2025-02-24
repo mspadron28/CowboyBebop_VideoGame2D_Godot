@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://tyu2w5b23he2"]
+
+[ext_resource type="Script" path="res://menus/extras/credits.gd" id="1_jf4g2"]
+
+[node name="Credits" type="Node2D"]
+script = ExtResource("1_jf4g2")
+
+[node name="CreditsContainer" type="Node2D" parent="."]
+position = Vector2(0, 720)
+
+[node name="LabelName1" type="Label" parent="CreditsContainer"]
+offset_top = 80.0
+offset_right = 1280.0
+offset_bottom = 120.0
+text = "Juan Pérez - Lead Developer"
+horizontal_alignment = 1
+
+[node name="Image1" type="Sprite2D" parent="CreditsContainer"]
+position = Vector2(640, 200)
+scale = Vector2(0.5, 0.5)
+
+[node name="LabelName2" type="Label" parent="CreditsContainer"]
+offset_top = 300.0
+offset_right = 1280.0
+offset_bottom = 340.0
+text = "María Gómez - Artist"
+horizontal_alignment = 1
