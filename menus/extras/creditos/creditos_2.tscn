@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b2dw05cpwbnvt" path="res://assets/space.png" id="2_sdtwf"]
 [ext_resource type="Texture2D" uid="uid://bgbmts7byhm1y" path="res://assets/far_stars.png" id="3_2d5jj"]
 [ext_resource type="Texture2D" uid="uid://cko25i13l0mqy" path="res://assets/close_stars.png" id="4_kcu2v"]
-[ext_resource type="Texture2D" uid="uid://crqf58nrhmdq2" path="res://menus/extras/creditos/img/creditosed.png" id="5_7hp0q"]
+[ext_resource type="Texture2D" uid="uid://c5lxqt1mp8wcn" path="res://menus/extras/creditos/img/creditos2.png" id="5_umj3l"]
 
 [node name="Creditos2" type="ParallaxBackground"]
 script = ExtResource("1_tv13n")
@@ -43,9 +43,9 @@ stretch_mode = 1
 unique_name_in_owner = true
 
 [node name="CreditsImage" type="TextureRect" parent="Credits"]
-offset_left = 70.0
-offset_top = 151.0
-offset_right = 200.0
-offset_bottom = 257.0
-texture = ExtResource("5_7hp0q")
+offset_left = 23.0
+offset_top = 81.0
+offset_right = 178.0
+offset_bottom = 224.0
+texture = ExtResource("5_umj3l")
 expand_mode = 1

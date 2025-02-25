@@ -1,13 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://kmk5akluabo0"]
+[gd_scene load_steps=6 format=3 uid="uid://bhw2syjpu456j"]
 
-[ext_resource type="Script" path="res://effects/space_background.gd" id="1_pc2h7"]
-[ext_resource type="Texture2D" uid="uid://b2dw05cpwbnvt" path="res://assets/space.png" id="2_437o5"]
-[ext_resource type="Texture2D" uid="uid://bgbmts7byhm1y" path="res://assets/far_stars.png" id="3_lv558"]
-[ext_resource type="Texture2D" uid="uid://cko25i13l0mqy" path="res://assets/close_stars.png" id="4_rafpg"]
-[ext_resource type="Texture2D" uid="uid://cei1qkll1tjxd" path="res://menus/extras/creditos/img/creditos1.png" id="5_q58fc"]
+[ext_resource type="Script" path="res://effects/space_background.gd" id="1_12xdw"]
+[ext_resource type="Texture2D" uid="uid://b2dw05cpwbnvt" path="res://assets/space.png" id="2_uvvr7"]
+[ext_resource type="Texture2D" uid="uid://bgbmts7byhm1y" path="res://assets/far_stars.png" id="3_48lm1"]
+[ext_resource type="Texture2D" uid="uid://cko25i13l0mqy" path="res://assets/close_stars.png" id="4_eiupn"]
+[ext_resource type="Texture2D" uid="uid://dxbcndis704wp" path="res://menus/extras/creditos/img/creditsfin.png" id="5_cntnc"]
 
-[node name="Creditos1" type="ParallaxBackground"]
-script = ExtResource("1_pc2h7")
+[node name="Creditos6" type="ParallaxBackground"]
+script = ExtResource("1_12xdw")
 
 [node name="SpaceLayer" type="ParallaxLayer" parent="."]
 unique_name_in_owner = true
@@ -16,7 +16,7 @@ motion_mirroring = Vector2(0, 280)
 [node name="Space" type="TextureRect" parent="SpaceLayer"]
 offset_right = 200.0
 offset_bottom = 280.0
-texture = ExtResource("2_437o5")
+texture = ExtResource("2_uvvr7")
 stretch_mode = 1
 
 [node name="FarStarsLayer" type="ParallaxLayer" parent="."]
@@ -26,7 +26,7 @@ motion_mirroring = Vector2(0, 280)
 [node name="FarStars" type="TextureRect" parent="FarStarsLayer"]
 offset_right = 200.0
 offset_bottom = 280.0
-texture = ExtResource("3_lv558")
+texture = ExtResource("3_48lm1")
 stretch_mode = 1
 
 [node name="CloseStarsLayer" type="ParallaxLayer" parent="."]
@@ -36,16 +36,16 @@ motion_mirroring = Vector2(0, 280)
 [node name="TextureRect" type="TextureRect" parent="CloseStarsLayer"]
 offset_right = 200.0
 offset_bottom = 280.0
-texture = ExtResource("4_rafpg")
+texture = ExtResource("4_eiupn")
 stretch_mode = 1
 
 [node name="Credits" type="ParallaxLayer" parent="."]
 unique_name_in_owner = true
 
 [node name="CreditsImage" type="TextureRect" parent="Credits"]
-offset_left = 1.0
-offset_top = 48.0
-offset_right = 199.0
-offset_bottom = 224.0
-texture = ExtResource("5_q58fc")
+offset_left = 10.0
+offset_top = 56.0
+offset_right = 193.0
+offset_bottom = 248.0
+texture = ExtResource("5_cntnc")
 expand_mode = 1
