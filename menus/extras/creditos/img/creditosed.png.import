@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://crqf58nrhmdq2"
-path="res://.godot/imported/creditosed.png-ed76c42973abee8a43b6c16efa971bf9.ctex"
+path="res://.godot/imported/creditosed.png-aea2b28ae01f51ef4d7a6485acf1fc16.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://menus/extras/creditos/creditosed.png"
-dest_files=["res://.godot/imported/creditosed.png-ed76c42973abee8a43b6c16efa971bf9.ctex"]
+source_file="res://menus/extras/creditos/img/creditosed.png"
+dest_files=["res://.godot/imported/creditosed.png-aea2b28ae01f51ef4d7a6485acf1fc16.ctex"]
 
 [params]
 

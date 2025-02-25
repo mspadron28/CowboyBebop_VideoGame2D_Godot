@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvtgfypex0f3u"]
+
+[ext_resource type="AudioStream" uid="uid://6sp3bu6wlyj4" path="res://menus/extras/intro_ps2.mp3" id="1_vowik"]
+
+[node name="IntroPs2" type="AudioStreamPlayer"]
+stream = ExtResource("1_vowik")
+autoplay = true
+bus = &"Music"

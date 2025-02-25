@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dxqm5v6gb3tsn"]
+[gd_scene load_steps=5 format=3 uid="uid://dxqm5v6gb3tsn"]
 
 [ext_resource type="Script" path="res://menus/extras/tutorial.gd" id="1_0yhbo"]
 [ext_resource type="PackedScene" uid="uid://bcxy4ukt7d0cm" path="res://menus/extras/tutorial_background.tscn" id="2_bwyc7"]
 [ext_resource type="LabelSettings" uid="uid://724f3ucohvyb" path="res://fonts/default_label_settings.tres" id="4_seur5"]
+[ext_resource type="PackedScene" uid="uid://ylph8h0vn0sg" path="res://music/general/music_tuto.tscn" id="4_uu7yd"]
 
 [node name="Tutorial" type="Control"]
 layout_mode = 3
@@ -24,3 +25,5 @@ offset_bottom = 275.0
 text = "Press space to start"
 label_settings = ExtResource("4_seur5")
 horizontal_alignment = 1
+
+[node name="MusicTuto" parent="." instance=ExtResource("4_uu7yd")]

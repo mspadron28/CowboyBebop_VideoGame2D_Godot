@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://bjjbkxnsihjf5"]
+[gd_scene load_steps=8 format=3 uid="uid://bjjbkxnsihjf5"]
 
 [ext_resource type="Script" path="res://menus/extras/intro.gd" id="1_j0548"]
-[ext_resource type="Texture2D" uid="uid://b2dw05cpwbnvt" path="res://assets/space.png" id="1_xlxco"]
+[ext_resource type="PackedScene" uid="uid://ccygg7habmwkn" path="res://menus/extras/creditos/intro_sn.tscn" id="2_m8jq0"]
+[ext_resource type="PackedScene" uid="uid://bvtgfypex0f3u" path="res://music/general/intro_ps_2.tscn" id="3_mb7aj"]
 
 [sub_resource type="Animation" id="Animation_vro4l"]
 resource_name = "Fade_in"
-length = 3.0
+length = 5.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -13,10 +14,26 @@ tracks/0/path = NodePath("ColorRect:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(1, 3),
+"times": PackedFloat32Array(1, 5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(4.51226e-09, 0.0645821, 0.101942, 1), Color(0, 0.0627451, 0.101961, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_qi2r8"]
+resource_name = "Fade_out"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4.96667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0.0627451, 0.101961, 0), Color(0, 0.0627451, 0.101961, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_ur3mt"]
@@ -34,22 +51,6 @@ tracks/0/keys = {
 "values": [Color(4.51226e-09, 0.0645821, 0.101942, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_qi2r8"]
-resource_name = "Fade_out"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0.0627451, 0.101961, 0), Color(0, 0.0627451, 0.101961, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7fd07"]
 _data = {
 "Fade_in": SubResource("Animation_vro4l"),
@@ -59,11 +60,6 @@ _data = {
 
 [node name="Intro" type="Node2D"]
 script = ExtResource("1_j0548")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(100.5, 140)
-scale = Vector2(1.55469, 2.1875)
-texture = ExtResource("1_xlxco")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -32.0
@@ -76,3 +72,7 @@ color = Color(4.51226e-09, 0.0645821, 0.101942, 1)
 libraries = {
 "": SubResource("AnimationLibrary_7fd07")
 }
+
+[node name="intro_sn" parent="." instance=ExtResource("2_m8jq0")]
+
+[node name="IntroPs2" parent="." instance=ExtResource("3_mb7aj")]
