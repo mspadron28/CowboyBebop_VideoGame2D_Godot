@@ -34,3 +34,7 @@ func _on__pressed3() -> void:
 
 func _on__pressed4() -> void:
 	get_tree().change_scene_to_file("res://misiones/mission4/mission4.tscn")
+
+
+func _on_opciones_pressed() -> void:
+	get_tree().change_scene_to_file("res://menus/extras/settings/settings-menu.tscn")

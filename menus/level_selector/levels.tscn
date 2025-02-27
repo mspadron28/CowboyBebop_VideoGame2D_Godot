@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://osktc1llyv47" path="res://menus/level_selector/level_misiones/level3bg.png" id="6_k70e1"]
 [ext_resource type="Texture2D" uid="uid://b82khnsexdbgh" path="res://menus/level_selector/level_misiones/level4bg.png" id="7_m64m1"]
 [ext_resource type="LabelSettings" uid="uid://ocyc457ibxuq" path="res://themes/labels/selector_label_lb.tres" id="8_pc5sr"]
-[ext_resource type="Texture2D" uid="uid://c7ml0mgthvnih" path="res://menus/botones/retornarbtn.png" id="9_gd536"]
+[ext_resource type="Texture2D" uid="uid://b0yysfyj5uy51" path="res://menus/botones/retornarbtn.png" id="9_gd536"]
 [ext_resource type="Texture2D" uid="uid://cwtw1hwq5u16k" path="res://menus/principal/opciones.png" id="10_v177t"]
 [ext_resource type="PackedScene" uid="uid://bji5ba8m72fca" path="res://music/general/menu_selector.tscn" id="11_movil"]
 
@@ -128,3 +128,4 @@ icon = ExtResource("10_v177t")
 [connection signal="pressed" from="levels/3" to="levels" method="_on__pressed3"]
 [connection signal="pressed" from="levels/4" to="levels" method="_on__pressed4"]
 [connection signal="pressed" from="HBoxContainer/Retornar" to="levels" method="_on_retornar_pressed"]
+[connection signal="pressed" from="HBoxContainer/Opciones" to="levels" method="_on_opciones_pressed"]

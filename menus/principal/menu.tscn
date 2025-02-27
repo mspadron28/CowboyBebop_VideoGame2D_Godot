@@ -75,3 +75,4 @@ icon = ExtResource("4_um4xw")
 [connection signal="pressed" from="VBoxContainer/Iniciar" to="." method="_on_iniciar_pressed"]
 [connection signal="pressed" from="VBoxContainer/Iniciar" to="PrincipalBackground" method="_on_iniciar_pressed"]
 [connection signal="pressed" from="HBoxContainer/Salir" to="." method="_on_salir_pressed"]
+[connection signal="pressed" from="HBoxContainer/Opciones" to="." method="_on_opciones_pressed"]
